@@ -47,7 +47,8 @@ def backAntichain (ρ : I ≃o Set.Ici a) (b : Set.Ici a) (p : AntichainCode)
 theorem backAntichain_below (ρ : I ≃o Set.Ici a) (b : Set.Ici a) (p : AntichainCode)
     (ha : AntichainAbove p a.val) (hb : AntichainBelow p b.val.val) :
     AntichainBelow (backAntichain ρ b p ha hb).external (ρ.symm b).val :=
-  ⟨backElement_le ρ b _ _ _, backElement_le ρ b _ _ _, backElement_le ρ b _ _ _⟩
+  ⟨backElement_le ρ b p.bound ha.1 hb.1, backElement_le ρ b p.left ha.2.1 hb.2.1,
+    backElement_le ρ b p.right ha.2.2 hb.2.2⟩
 
 def backSet (ρ : I ≃o Set.Ici a) (b : Set.Ici a) (p : SetCode)
     (ha : SetAbove p a.val) (hb : SetBelow p b.val.val) : SCode I :=
@@ -62,7 +63,9 @@ def backSet (ρ : I ≃o Set.Ici a) (b : Set.Ici a) (p : SetCode)
 theorem backSet_below (ρ : I ≃o Set.Ici a) (b : Set.Ici a) (p : SetCode)
     (ha : SetAbove p a.val) (hb : SetBelow p b.val.val) :
     SetBelow (backSet ρ b p ha hb).external (ρ.symm b).val :=
-  ⟨backElement_le ρ b _ _ _, backAntichain_below ρ b _ _ _, backAntichain_below ρ b _ _ _⟩
+  ⟨backElement_le ρ b p.bound ha.1 hb.1,
+    backAntichain_below ρ b p.tags ha.2.1 hb.2.1,
+    backAntichain_below ρ b p.decorated ha.2.2 hb.2.2⟩
 
 def backRelation (ρ : I ≃o Set.Ici a) (b : Set.Ici a) {n : ℕ} (p : RelationCode n)
     (ha : RelationAbove p a.val) (hb : RelationBelow p b.val.val) : RCode I n :=
@@ -77,7 +80,8 @@ def backRelation (ρ : I ≃o Set.Ici a) (b : Set.Ici a) {n : ℕ} (p : Relation
 theorem backRelation_below (ρ : I ≃o Set.Ici a) (b : Set.Ici a) {n : ℕ}
     (p : RelationCode n) (ha : RelationAbove p a.val) (hb : RelationBelow p b.val.val) :
     RelationBelow (backRelation ρ b p ha hb).external (ρ.symm b).val :=
-  ⟨fun i => backSet_below ρ b _ _ _, backAntichain_below ρ b _ _ _⟩
+  ⟨fun i => backSet_below ρ b (p.coordinates i) (ha.1 i) (hb.1 i),
+    backAntichain_below ρ b p.tuples ha.2 hb.2⟩
 
 theorem map_relation_one (ρ : I ≃o Set.Ici a) (p : RCode I 1) (x : I) :
     ConeCoding.Holds a.val (ConeIdealCoding.mapRelation ρ p) (one (ConeIdealCoding.image ρ x)) ↔
@@ -151,7 +155,8 @@ theorem transport_copy {U : ℕ → Prop} (ρ : I ≃o Set.Ici a)
       exact (hp _).mpr ⟨k, hk, rfl⟩
   let d : ArithmeticModelDecoding.Copy U :=
     ⟨fun k => (ρ.symm (node k)).val, hi, S.external, P.external, hs', hp'⟩
-  exact ⟨d, backRelation_below ρ b _ _ _, backRelation_below ρ b _ _ _⟩
+  exact ⟨d, backRelation_below ρ b c.successor haS hS,
+    backRelation_below ρ b c.predicate haP hP⟩
 
 end
 end OAI.TuringRigidity.ConeIdealBackCoding
