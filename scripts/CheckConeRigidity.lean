@@ -1,4 +1,4 @@
-import RequestProject.TuringConeRepresentation
+import RequestProject.TuringConePersistence
 
 -- These commands report transitive axiom dependencies, including imported proofs.
 #print axioms OAI.TuringRigidity.ConeRigidity.image_le_join_of_inverse_borel_lift
@@ -6,3 +6,9 @@ import RequestProject.TuringConeRepresentation
 #print axioms OAI.TuringRigidity.ConeRigidity.no_cone_iso_of_inverse_representation
 #print axioms OAI.TuringRigidity.ConeRigidity.inverse_borel_lift_of_generic_program
 #print axioms OAI.TuringRigidity.ConeRigidity.eq_bot_of_inverse_generic_continuous_lift
+#print axioms OAI.TuringRigidity.ConePersistence.countable_invariant_jump_hull
+#print axioms OAI.TuringRigidity.ConePersistence.extends_inverse
+#print axioms OAI.TuringRigidity.ConePersistence.persistent_of_global_restriction
+#print axioms OAI.TuringRigidity.ConePersistence.persistent_countable_extension
+#print axioms OAI.TuringRigidity.ConePersistence.persistent_countable_jump_extension
+#print axioms OAI.TuringRigidity.ConePersistence.countable_persistent_restriction
