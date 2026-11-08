@@ -30,7 +30,7 @@ jobs:
         with:
           auto-config: 'false'
           build: 'true'
-          build-args: 'RequestProject.TuringConePresentationCountability RequestProject.TuringConeRelativeAntichain'
+          build-args: 'RequestProject.TuringConePresentationCountability RequestProject.TuringConeRelativeUnary RequestProject.TuringConeIdealBackCoding'
           test: 'false'
           lint: 'false'
           use-mathlib-cache: 'true'
