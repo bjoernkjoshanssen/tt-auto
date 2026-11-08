@@ -16,6 +16,8 @@ open SetCoding RelationCoding BoundedDecoding EffectiveFamilies
 
 noncomputable section
 
+theorem join_degree (A B : Oracle) : degree (join A B) = degree A ⊔ degree B := rfl
+
 /-- The independence conclusion of the existing relative Cohen construction. -/
 def Independent (B G : Oracle) : Prop :=
   ∀ x y : Degree, x ≤ degree B → y ≤ degree B → ∀ i (F : Finset ℕ),
@@ -57,7 +59,7 @@ theorem coordinate_code {A R B G : Oracle} (hAB : Reduces A B) (hRB : Reduces R 
       degree (columns (slice T i) j) = degree (columns (slice T i) k) := by
     intro j k hjk
     have h := (htag (degree A) (degree A) hAB hAB le_rfl le_rfl j k).mp (by
-      simpa only [slice_column, T, pad_column, sup_idem, sup_assoc] using hjk)
+      simpa only [slice_column, T, pad_column, join_degree, ← sup_assoc, sup_idem] using hjk)
     rw [h.2]
   have had : ∀ j k, degree (columns (mix (slice R i) (slice T i)) j) ≤
       degree (columns (mix (slice R i) (slice T i)) k) →
@@ -106,7 +108,7 @@ theorem tag_below_tuple {A B G : Oracle} (hAB : Reduces A B) (hind : Independent
   let F := (Finset.range n).image (fun l => Nat.pair l k)
   have hh : degree A ⊔ degree (columns G (Nat.pair i j)) ≤
       degree A ⊔ F.sup (fun l => degree (columns G l)) := by
-    simpa only [pad_column, degree_join, tuples_degree, F, Finset.sup_image, Function.comp_def] using h
+    simpa only [pad_column, join_degree, tuples_degree, F, Finset.sup_image, Function.comp_def] using h
   have hm := (hind (degree A) (degree A) hAB hAB (Nat.pair i j) F).mp hh
   obtain ⟨l, _, hl⟩ := Finset.mem_image.mp hm.2
   simpa only [Nat.unpair_pair] using (congrArg (fun m => (Nat.unpair m).2) hl).symm
@@ -122,7 +124,7 @@ theorem padded_tuples_antichain {A B G : Oracle} (hAB : Reduces A B)
   | succ n =>
     have htag : degree (columns (pad A G) (Nat.pair 0 j)) ≤
         degree (columns (pad A (tuples G (n + 1))) j) := by
-      simp only [pad_column, degree_join, tuples_degree]
+      simp only [pad_column, join_degree, tuples_degree]
       exact sup_le_sup_left (Finset.le_sup (f := fun i => degree (columns G (Nat.pair i j)))
         (by simp)) _
     have he := tag_below_tuple hAB hind (htag.trans hjk)
@@ -174,7 +176,7 @@ theorem relation_code {A R B G : Oracle} (hAB : Reduces A B) (hRB : Reduces R B)
   · rintro ⟨j, hj⟩
     let c := fun i : Fin n => degree (columns (pad A G) (Nat.pair i.val j))
     refine ⟨c, fun i => (hc i _ _).mpr ⟨j, hj i, rfl⟩, (ht _).mpr ⟨j, ?_⟩⟩
-    simp only [pad_column, degree_join, tuples_degree, c]
+    simp only [pad_column, join_degree, tuples_degree, c]
     rw [sup_padded, fin_sup]
 
 /-- Relativized effective coding, with a bound fixed before choosing tags. -/
