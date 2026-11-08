@@ -48,7 +48,14 @@ theorem pullback_sup {a : Degree} (e : Degree ≃o Set.Ici a) (x y : Degree) :
   have h : coneJoin a (x ⊔ y) = coneJoin a x ⊔ coneJoin a y := by
     apply Subtype.ext
     change a ⊔ (x ⊔ y) = (a ⊔ x) ⊔ (a ⊔ y)
-    simp only [sup_assoc, sup_left_comm, sup_comm, sup_idem]
+    apply le_antisymm
+    · exact sup_le
+        (le_trans le_sup_left le_sup_left)
+        (sup_le (le_trans le_sup_right le_sup_left)
+          (le_trans le_sup_right le_sup_right))
+    · exact sup_le
+        (sup_le le_sup_left (le_trans le_sup_left le_sup_right))
+        (sup_le le_sup_left (le_trans le_sup_right le_sup_right))
   unfold pullback
   rw [h, e.symm.map_sup]
 
@@ -150,7 +157,7 @@ theorem le_of_residual_le_join (c b : Degree)
   apply hpnot
   change degree Y ≤ degree X ⊔ realDegree p.1 ⊔ realDegree p.2
   rw [hY, hX]
-  exact Set.mem_setOf_eq.mp hp
+  exact Set.mem_ofPred_eq.mp hp
 
 /-- One Borel inverse lift supplies the upper half of the proposed squeeze. -/
 theorem image_le_join_of_inverse_borel_lift {a : Degree} (e : Degree ≃o Set.Ici a)
