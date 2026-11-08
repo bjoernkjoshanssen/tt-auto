@@ -54,7 +54,7 @@ theorem coordinate_code {A R B G : Oracle} (hAB : Reduces A B) (hRB : Reduces R 
       (hax : degree A ≤ x) (hay : degree A ≤ y) (j k : ℕ) :
       x ⊔ degree (columns T (Nat.pair i j)) ≤ y ⊔ degree (columns T (Nat.pair i k)) ↔
         x ≤ y ∧ j = k := by
-    simpa using padded_tag_order hind x y hx hy hax hay (Nat.pair i j) (Nat.pair i k)
+    simpa [T] using padded_tag_order hind x y hx hy hax hay (Nat.pair i j) (Nat.pair i k)
   have hanti : ∀ j k, degree (columns (slice T i) j) ≤ degree (columns (slice T i) k) →
       degree (columns (slice T i) j) = degree (columns (slice T i) k) := by
     intro j k hjk
@@ -95,6 +95,7 @@ theorem coordinate_code {A R B G : Oracle} (hAB : Reduces A B) (hRB : Reduces R 
   · rintro ⟨hax, hx, ⟨j, rfl⟩, ⟨k, hk⟩⟩
     have hl := (htag _ x (hdata k) hx (hbase k) hax k j).mp hk.le
     have hr := (htag x _ hx (hdata k) hax (hbase k) j k).mp hk.ge
+    have hkj := hl.2
     subst k
     exact ⟨j, le_antisymm hl.1 hr.1, rfl⟩
   · rintro ⟨j, rfl, rfl⟩
@@ -120,7 +121,7 @@ theorem padded_tuples_antichain {A B G : Oracle} (hAB : Reduces A B)
       degree (columns (pad A (tuples G n)) j) = degree (columns (pad A (tuples G n)) k) := by
   intro j k hjk
   cases n with
-  | zero => rfl
+  | zero => simp only [pad_column, join_degree, tuples_degree, Finset.range_zero, Finset.sup_empty]
   | succ n =>
     have htag : degree (columns (pad A G) (Nat.pair 0 j)) ≤
         degree (columns (pad A (tuples G (n + 1))) j) := by
@@ -142,10 +143,15 @@ theorem fin_sup (n : ℕ) (f : ℕ → Degree) :
 theorem sup_padded {ι : Type*} (a : Degree) (s : Finset ι) (f : ι → Degree) :
     a ⊔ s.sup (fun i => a ⊔ f i) = a ⊔ s.sup f := by
   apply le_antisymm
-  · exact sup_le le_sup_left (Finset.sup_le fun i hi =>
-      sup_le le_sup_left ((Finset.le_sup hi).trans le_sup_right))
-  · exact sup_le le_sup_left (Finset.sup_le fun i hi =>
-      le_sup_right.trans ((Finset.le_sup hi).trans le_sup_right))
+  · apply sup_le le_sup_left
+    apply Finset.sup_le
+    intro i hi
+    exact sup_le le_sup_left ((Finset.le_sup (f := f) hi).trans le_sup_right)
+  · apply sup_le le_sup_left
+    apply Finset.sup_le
+    intro i hi
+    exact (le_sup_right : f i ≤ a ⊔ f i).trans
+      ((Finset.le_sup (f := fun i => a ⊔ f i) hi).trans le_sup_right)
 
 theorem relation_code {A R B G : Oracle} (hAB : Reduces A B) (hRB : Reduces R B)
     (hind : Independent B G) (n : ℕ)
@@ -177,7 +183,9 @@ theorem relation_code {A R B G : Oracle} (hAB : Reduces A B) (hRB : Reduces R B)
     let c := fun i : Fin n => degree (columns (pad A G) (Nat.pair i.val j))
     refine ⟨c, fun i => (hc i _ _).mpr ⟨j, hj i, rfl⟩, (ht _).mpr ⟨j, ?_⟩⟩
     simp only [pad_column, join_degree, tuples_degree, c]
-    rw [sup_padded, fin_sup]
+    rw [sup_padded]
+    exact congrArg (fun z : Degree => degree A ⊔ z)
+      (fin_sup n (fun i => degree (columns G (Nat.pair i j)))).symm
 
 /-- Relativized effective coding, with a bound fixed before choosing tags. -/
 theorem relation_sequence (A R B : Oracle) (hAB : Reduces A B) (hRB : Reduces R B)
