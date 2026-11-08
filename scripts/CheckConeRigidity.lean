@@ -1,4 +1,4 @@
-import RequestProject.TuringConePresentationCountability
+import RequestProject.TuringConePersistentLocality
 
 -- These commands report transitive axiom dependencies, including imported proofs.
 #print axioms OAI.TuringRigidity.ConeRigidity.image_le_join_of_inverse_borel_lift
@@ -32,3 +32,18 @@ import RequestProject.TuringConePresentationCountability
 #print axioms OAI.TuringRigidity.ConePresentation.arithmetic_maps_countable
 #print axioms OAI.TuringRigidity.ConePresentation.jump_extendible_maps_countable
 #print axioms OAI.TuringRigidity.ConePresentation.persistent_maps_countable_of_jump_extension
+#print axioms OAI.TuringRigidity.ConeRelativeCoding.selected_antichain_code
+#print axioms OAI.TuringRigidity.ConeRelativeCoding.antichain_code
+#print axioms OAI.TuringRigidity.ConeRelativeCoding.relation_sequence
+#print axioms OAI.TuringRigidity.ConeRelativeCoding.localized_copy
+#print axioms OAI.TuringRigidity.ConeIdealBackCoding.map_backRelation
+#print axioms OAI.TuringRigidity.ConeIdealBackCoding.transport_copy
+#print axioms OAI.TuringRigidity.ConeIdealForwardCoding.transport_copy
+#print axioms OAI.TuringRigidity.ConeIdealLocality.image_arithmetic
+#print axioms OAI.TuringRigidity.ConeIdealLocality.inverse_arithmetic
+#print axioms OAI.TuringRigidity.ConeIdealLocality.invariant
+#print axioms OAI.TuringRigidity.ConeIdealLocality.restrict_jump_ideal
+#print axioms OAI.TuringRigidity.ConePersistentLocality.persistent_jump_extension
+#print axioms OAI.TuringRigidity.ConePersistentLocality.jump_extension_of_persistent
+#print axioms OAI.TuringRigidity.ConePersistentLocality.arithmetic_presentation_of_persistent
+#print axioms OAI.TuringRigidity.ConePersistentLocality.persistent_maps_countable
