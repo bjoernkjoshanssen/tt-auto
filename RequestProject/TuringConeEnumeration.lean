@@ -66,7 +66,7 @@ theorem path_sigma (a : Degree) (Y : Oracle) (ha : a ≤ degree Y)
     (twoIndex_primrec.comp (item_primrec.comp (r.comp f) r)
       (item_primrec.comp (r.comp f) (Primrec.succ.comp r)))).bounded_all f
   exact (hd.and (hl.and (hr.and hs))).congr (fun v => by
-    simp only [Path, Presented, Nat.unpair_pair])
+    simp only [Nat.unpair_pair] <;> rfl)
 
 def Defined (a : Degree) (Y : Oracle) (S P : RelationCode 2) (z n j : ℕ) : Prop :=
   ∃ t, Path a Y S z n t ∧ Presented a Y P (twoIndex (item t n) j)
