@@ -4,13 +4,14 @@ import RequestProject.TuringConePresentationCountability
 /-!
 # Persistent cone maps: prescribed extensions and arithmetic presentations
 
-The starting ideal must contain both 0' and a'. Persistence first gives an
-extension to a larger ideal. Two-sided locality then restricts that extension
-to the prescribed jump ideal. Consequently the arithmetic-presentation theorem
-no longer needs `HasJumpIdealExtension` as an additional hypothesis.
+The starting ideal need only contain a': downward closure and monotonicity of
+the jump then imply that it contains 0'. Persistence first gives an extension
+to a larger ideal. Two-sided locality restricts that extension to a prescribed
+jump ideal. The arithmetic-presentation theorem consequently needs no separate
+jump-ideal extension hypothesis.
 
-This is a theorem about countable partial maps. It is not yet the absoluteness
-or forcing-extension theorem, nor a generic representative of a global map.
+The restriction lemma below does not require the larger map to be persistent.
+This distinction is needed in the subsequent noncircular persistence argument.
 -/
 
 namespace OAI.TuringRigidity.ConePersistentLocality
@@ -20,27 +21,34 @@ open ConePersistence ConePresentation
 
 noncomputable section
 
+/-- In any downward-closed ideal, a' membership implies 0' membership.
+Jump closure of the ideal is not needed for this implication. -/
+theorem zero_jump_mem {I : CountableIdeal} {a : Degree}
+    (hza : degreeJump a ∈ I.carrier) :
+    degree (jump FixedArithmetic.zero) ∈ I.carrier := by
+  have hz : degree (jump FixedArithmetic.zero) ≤ degreeJump a :=
+    degreeJump_mono (show degree FixedArithmetic.zero ≤ a from bot_le)
+  exact I.lower hz hza
+
 def unlift {I : CountableIdeal} {a : Degree} (ha : a ∈ I.carrier)
     (σ : PersistentLocality.ideal I ≃o Set.Ici (⟨a, ha⟩ : PersistentLocality.ideal I)) :
     I ≃o Cone I a :=
   (PersistentLocality.bridge I).trans (σ.trans (coneBridge I a ha).symm)
 
-/-- A persistent cone map extends to any prescribed countable jump ideal
-containing its domain, provided the domain contains the two required anchors. -/
-theorem persistent_jump_extension {a : Degree} (I J : CountableIdeal)
-    (ρ : I ≃o Cone I a) (hp : ConePersistence.Persistent I ρ)
-    (hz : degree (jump FixedArithmetic.zero) ∈ I.carrier)
+/-- Restrict an arbitrary extension to an intermediate jump ideal. Both
+agreements are retained; no persistence of the larger map is assumed. -/
+theorem restrict_extension {a : Degree} {I J K : CountableIdeal}
+    (ρ : I ≃o Cone I a) (τ : K ≃o Cone K a)
+    (hIK : I.carrier ⊆ K.carrier) (he : ConePersistence.Extends hIK ρ τ)
     (hza : degreeJump a ∈ I.carrier)
-    (hIJ : I.carrier ⊆ J.carrier)
+    (hIJ : I.carrier ⊆ J.carrier) (hJK : J.carrier ⊆ K.carrier)
     (hjump : IdealLocality.JumpClosed (PersistentLocality.ideal J)) :
-    ∃ σ : J ≃o Cone J a, ConePersistence.Extends hIJ ρ σ := by
-  obtain ⟨b, hb⟩ := CountableBound.countable_bounded J.carrier J.countable
-  obtain ⟨K, hIK, τ, hbK, he⟩ := hp b
-  have hJK : J.carrier ⊆ K.carrier := fun x hx => K.lower (hb x hx) hbK
+    ∃ σ : J ≃o Cone J a,
+      ConePersistence.Extends hIJ ρ σ ∧ ConePersistence.Extends hJK σ τ := by
   have haI := ConePresentation.base_mem ρ
   have haJ := hIJ haI
   have haK := hIK haI
-  let z₀ : I := ⟨degree (jump FixedArithmetic.zero), hz⟩
+  let z₀ : I := ⟨degree (jump FixedArithmetic.zero), zero_jump_mem hza⟩
   let z₁ : Cone I a := ⟨degreeJump a, hza, degree_le_jump a⟩
   let α : PersistentLocality.ideal K := ⟨a, haK⟩
   let τ' := ConePresentation.lift τ haK
@@ -57,32 +65,48 @@ theorem persistent_jump_extension {a : Degree} (I J : CountableIdeal)
     exact hIJ (ρ.symm z₁).property
   obtain ⟨σ, hσ⟩ := ConeIdealLocality.restrict_jump_ideal τ' z₀K rfl z₁K rfl
     hJK haJ hjump hpost hpre
-  refine ⟨unlift haJ σ, ?_⟩
-  intro x
-  change ConeIdealCoding.image σ ⟨x.val, hIJ x.property⟩ = (ρ x).val
-  exact (hσ ⟨x.val, hIJ x.property⟩).trans (he x)
+  refine ⟨unlift haJ σ, ?_, ?_⟩
+  · intro x
+    change ConeIdealCoding.image σ ⟨x.val, hIJ x.property⟩ = (ρ x).val
+    exact (hσ ⟨x.val, hIJ x.property⟩).trans (he x)
+  · intro x
+    change (τ ⟨x.val, hJK x.property⟩).val =
+      ConeIdealCoding.image σ ⟨x.val, x.property⟩
+    exact (hσ ⟨x.val, x.property⟩).symm
 
-/-- The explicit extension hypothesis from the previous milestone now follows
-from persistence, with the additional `a'` membership stated openly. -/
+/-- A persistent cone map extends to any prescribed countable jump ideal
+containing its domain. The domain need only be assumed to contain a'. -/
+theorem persistent_jump_extension {a : Degree} (I J : CountableIdeal)
+    (ρ : I ≃o Cone I a) (hp : ConePersistence.Persistent I ρ)
+    (hza : degreeJump a ∈ I.carrier)
+    (hIJ : I.carrier ⊆ J.carrier)
+    (hjump : IdealLocality.JumpClosed (PersistentLocality.ideal J)) :
+    ∃ σ : J ≃o Cone J a, ConePersistence.Extends hIJ ρ σ := by
+  obtain ⟨b, hb⟩ := CountableBound.countable_bounded J.carrier J.countable
+  obtain ⟨K, hIK, τ, hbK, he⟩ := hp b
+  have hJK : J.carrier ⊆ K.carrier := fun x hx => K.lower (hb x hx) hbK
+  obtain ⟨σ, hρ, _⟩ := restrict_extension ρ τ hIK he hza hIJ hJK hjump
+  exact ⟨σ, hρ⟩
+
+/-- The prescribed arithmetic jump-ideal extension follows from persistence. -/
 theorem jump_extension_of_persistent {I : CountableIdeal} {a : Degree}
     (ρ : I ≃o Cone I a) (hp : ConePersistence.Persistent I ρ)
     {H : Oracle} (hpres : Presented I H)
-    (hz : degree (jump FixedArithmetic.zero) ∈ I.carrier)
     (hza : degreeJump a ∈ I.carrier) : HasJumpIdealExtension ρ hpres :=
-  persistent_jump_extension I (JumpIdeal.generated (degree H)) ρ hp hz hza
+  persistent_jump_extension I (JumpIdeal.generated (degree H)) ρ hp hza
     (presentation_subset_generated hpres) (JumpIdeal.closed _)
 
-/-- A single fixed finite-jump bound for the entire graph of a persistent map.
-The presentation is uniform in both indices, but no uniform choice of a
-representative for a global degree map is asserted. -/
+/-- A fixed finite-jump bound for the entire graph of a persistent map.
+The graph is uniform in both indices, but this does not assert a uniform
+representative of a global degree map on arbitrary real inputs. -/
 theorem arithmetic_presentation_of_persistent {I : CountableIdeal} {a : Degree}
     (ρ : I ≃o Cone I a) (hp : ConePersistence.Persistent I ρ)
     {H : Oracle} (hpres : Presented I H)
-    (hz : degree (jump FixedArithmetic.zero) ∈ I.carrier)
     (hza : degreeJump a ∈ I.carrier) :
     Sigma (iterate H 6) 5 (ConePresentation.Graph ρ hpres) ∧
       RecursivePred (iterate H 11) (ConePresentation.Graph ρ hpres) := by
-  obtain ⟨σ, he⟩ := jump_extension_of_persistent ρ hp hpres hz hza
+  have hz := zero_jump_mem hza
+  obtain ⟨σ, he⟩ := jump_extension_of_persistent ρ hp hpres hza
   let K := JumpIdeal.generated (degree H)
   have hIK : I.carrier ⊆ K.carrier := presentation_subset_generated hpres
   have haK := ConePresentation.base_mem σ
@@ -114,16 +138,15 @@ theorem arithmetic_presentation_of_persistent {I : CountableIdeal} {a : Degree}
       (he (presentationEntry hpres (Nat.unpair v).1)))
   exact ⟨hg.congr hgraph, Form.congr (n := 0) (s := true) hr hgraph⟩
 
-/-- Countability of persistent partial cone isomorphisms, without an extra
-locality or jump-extension hypothesis. -/
+/-- Countability of persistent partial cone maps, with no extra locality
+hypothesis and no redundant assumption that the ideal contains 0'. -/
 theorem persistent_maps_countable (I : CountableIdeal) (a : Degree)
-    (hz : degree (jump FixedArithmetic.zero) ∈ I.carrier)
     (hza : degreeJump a ∈ I.carrier) :
     {ρ : I ≃o Cone I a | ConePersistence.Persistent I ρ}.Countable := by
   obtain ⟨H, hpres⟩ := ConePresentation.presentation_exists I
   apply (recursive_maps_countable hpres (iterate H 11)).mono
   intro ρ hp
-  exact (arithmetic_presentation_of_persistent ρ hp hpres hz hza).2
+  exact (arithmetic_presentation_of_persistent ρ hp hpres hza).2
 
 end
 end OAI.TuringRigidity.ConePersistentLocality

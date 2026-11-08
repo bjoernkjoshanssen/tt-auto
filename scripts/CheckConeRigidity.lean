@@ -1,4 +1,4 @@
-import RequestProject.TuringConePersistentLocality
+import RequestProject.TuringConePersistentExtension
 
 -- These commands report transitive axiom dependencies, including imported proofs.
 #print axioms OAI.TuringRigidity.ConeRigidity.image_le_join_of_inverse_borel_lift
@@ -47,3 +47,11 @@ import RequestProject.TuringConePersistentLocality
 #print axioms OAI.TuringRigidity.ConePersistentLocality.jump_extension_of_persistent
 #print axioms OAI.TuringRigidity.ConePersistentLocality.arithmetic_presentation_of_persistent
 #print axioms OAI.TuringRigidity.ConePersistentLocality.persistent_maps_countable
+#print axioms OAI.TuringRigidity.ConePersistentLocality.zero_jump_mem
+#print axioms OAI.TuringRigidity.ConePersistentLocality.restrict_extension
+#print axioms OAI.TuringRigidity.ConePersistentRestriction.restriction
+#print axioms OAI.TuringRigidity.ConePersistentExtension.nonpersistent_witness
+#print axioms OAI.TuringRigidity.ConePersistentExtension.persistent_extension
+#print axioms OAI.TuringRigidity.ConePersistentExtension.persistent_extension_of_jump_closed
+#print axioms OAI.TuringRigidity.ConePersistentExtension.persistent_countable_jump_extension
+#print axioms OAI.TuringRigidity.ConePersistentExtension.persistent_iff_arithmetic_extensions
