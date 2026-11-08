@@ -30,7 +30,7 @@ jobs:
         with:
           auto-config: 'false'
           build: 'true'
-          build-args: 'RequestProject.TuringConePresentation'
+          build-args: 'RequestProject.TuringConePresentationCountability'
           test: 'false'
           lint: 'false'
           use-mathlib-cache: 'true'
