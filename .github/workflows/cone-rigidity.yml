@@ -1,0 +1,45 @@
+name: Cone rigidity Lean check
+
+on:
+  pull_request:
+    paths:
+      - 'RequestProject/TuringConeRigidity.lean'
+      - 'OAI/**'
+      - 'scripts/CheckConeRigidity.lean'
+      - 'lean-toolchain'
+      - 'lakefile.toml'
+      - 'lake-manifest.json'
+      - '.github/workflows/cone-rigidity.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cone-rigidity-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@v1
+        with:
+          auto-config: 'false'
+          build: 'true'
+          build-args: 'RequestProject.TuringConeRigidity'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+      - name: Report theorem axioms and reject sorryAx
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake env lean scripts/CheckConeRigidity.lean | tee cone-rigidity-axioms.txt
+          if grep -q 'sorryAx' cone-rigidity-axioms.txt; then
+            echo 'A cone theorem depends on sorryAx.' >&2
+            exit 1
+          fi
