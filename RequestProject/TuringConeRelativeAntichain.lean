@@ -69,8 +69,8 @@ theorem selected_antichain_code {F B X : Oracle} (a : Degree)
   have hB : degree B ≤ degree (join X (jump B)) :=
     (reduces_jump B).trans (reduces_join_right X (jump B))
   refine ⟨p, ⟨haB, le_sup_left, le_sup_left⟩,
-    ⟨hB, sup_le (haB.trans hB) (le_sup_left.trans hbound),
-      sup_le (haB.trans hB) (le_sup_right.trans hbound)⟩, ?_⟩
+    ⟨hB, sup_le (haB.trans hB) (reduces_trans (reduces_join_left G₀ G₁) hbound),
+      sup_le (haB.trans hB) (reduces_trans (reduces_join_right G₀ G₁) hbound)⟩, ?_⟩
   intro x
   constructor
   · rintro ⟨hax, hx, hmin⟩
@@ -93,8 +93,9 @@ theorem antichain_code {F B : Oracle} (a : Degree) (hFB : Reduces F B)
       ∀ x, ConeCoding.Antichain a p x ↔ ∃ k, degree (columns F k) = x := by
   obtain ⟨p, ha, hp, hs⟩ := selected_antichain_code (X := B) a hFB haB
     id (total_primrec Primrec.id) hbase hAnti
-  have he : degree (join B (jump B)) = degree (jump B) :=
-    sup_eq_right.mpr (reduces_jump B)
+  have he : degree (join B (jump B)) = degree (jump B) := by
+    change degree B ⊔ degree (jump B) = degree (jump B)
+    exact sup_eq_right.mpr (reduces_jump B)
   exact ⟨p, ha, he ▸ hp, hs⟩
 
 def repeatOracle (A : Oracle) : Oracle := fun n => A (Nat.unpair n).2
