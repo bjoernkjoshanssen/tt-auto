@@ -13,7 +13,8 @@ sequence. No uniform representative of the whole degree structure is assumed.
 
 namespace OAI.TuringRigidity.ConeEnumeration
 
-open IndexPresentation IndexTuples ArithmeticHierarchy ArithmeticModelDecoding
+open IndexPresentation IndexTuples ArithmeticHierarchy
+open ArithmeticModelDecoding (two twoIndex twoIndex_primrec)
 open SetCoding RelationCoding BoundedDecoding OracleJump ConeLocality
 
 structure Enumeration (a : Degree) where
