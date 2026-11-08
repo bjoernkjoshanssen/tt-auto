@@ -104,15 +104,14 @@ theorem predicate_code (A C G : Oracle) (hAC : Reduces A C)
     have hAntiT : ∀ i j, degree (columns T i) ≤ degree (columns T j) →
         degree (columns T i) = degree (columns T j) := by
       intro i j hij
-      have h := (htag (degree A) (degree A) hAC hAC le_rfl le_rfl i j).mp (by
-        simpa only [sup_eq_right.mpr (base_le_pad_column A G i),
-          sup_eq_right.mpr (base_le_pad_column A G j)] using hij)
+      have h := (htag (degree A) (degree A) hAC hAC le_rfl le_rfl i j).mp
+        (sup_le_sup_left hij (degree A))
       rw [h.2]
     have hAntiF : ∀ i j, degree (columns F (select i)) ≤ degree (columns F (select j)) →
         degree (columns F (select i)) = degree (columns F (select j)) := by
       intro i j hij
       have h := (htag _ _ (hcol _) (hcol _) (hbase _) (hbase _) _ _).mp (by
-        simpa only [F, EffectiveFamilies.mix_column] using hij)
+        simpa only [F, EffectiveFamilies.mix_column, join_degree] using hij)
       exact congrArg (fun k => degree (columns F k)) h.2
     have haB : degree A ≤ degree B := hAC.trans (reduces_join_left C G)
     obtain ⟨pc, hac, hpc, hpcspec⟩ := antichain_code (degree A) hT haB
@@ -137,7 +136,7 @@ theorem predicate_code (A C G : Oracle) (hAC : Reduces A C)
       obtain ⟨j, hj⟩ := (hptspec (x ⊔ degree (columns T i))).mp hd
       have he : degree (columns C (select j)) ⊔ degree (columns T (select j)) =
           x ⊔ degree (columns T i) := by
-        simpa only [F, EffectiveFamilies.mix_column] using hj
+        simpa only [F, EffectiveFamilies.mix_column, join_degree] using hj
       have h₀ := (htag _ x (hcol _) hx (hbase _) hax _ _).mp he.le
       have h₁ := (htag x _ hx (hcol _) hax (hbase _) _ _).mp he.ge
       exact ⟨select j, hsel j, le_antisymm h₁.1 h₀.1⟩
@@ -174,7 +173,7 @@ theorem localized_copy (A X : Oracle) :
   have hinj : Function.Injective (fun k => degree (columns N k)) := by
     intro i j he
     have hh := (hind (degree A) (degree A) le_rfl le_rfl i {j}).mp (by
-      simpa only [N, pad_column, Finset.sup_singleton] using he.le)
+      simpa only [N, pad_column, join_degree, Finset.sup_singleton] using he.le)
     simpa only [Finset.mem_singleton] using hh.2
   have hrows : Reduces (FixedArithmetic.rows N) B :=
     reduces_trans (FixedArithmetic.rows_reduces N) hNB
@@ -205,6 +204,9 @@ theorem localized_copy (A X : Oracle) :
     (base_le_pad_column A C) hglow' X
   let node (n : ℕ) : Set.Ici (degree A) :=
     ⟨degree (columns N n), Set.mem_Ici.mpr (base_le_pad_column A C n)⟩
+  have hnode (x : Set.Ici (degree A)) (k : ℕ) :
+      x.val = degree (columns N k) ↔ x = node k :=
+    ⟨fun h => Subtype.ext h, fun h => congrArg Subtype.val h⟩
   let c : ConeCoding.Copy (degree A) (fun n => X n = true) :=
     { node := node
       injective := fun i j h => hinj (congrArg Subtype.val h)
@@ -213,11 +215,11 @@ theorem localized_copy (A X : Oracle) :
       successor_spec := by
         intro x y
         rw [hspec]
-        exact exists_congr (fun k => and_congr Subtype.ext_iff.symm Subtype.ext_iff.symm)
+        exact exists_congr (fun k => and_congr (hnode x k) (hnode y (k + 1)))
       predicate_spec := by
         intro x
         rw [hp]
-        exact exists_congr (fun k => and_congr_right (fun _ => Subtype.ext_iff.symm)) }
+        exact exists_congr (fun k => and_congr_right (fun _ => hnode x k)) }
   exact ⟨c, haS, haP, hS'.mono (reduces_join_right _ _), hP⟩
 
 end
