@@ -53,7 +53,10 @@ theorem nontrivial_target (b g₀ g₁ x : Set.Ici a) :
     have h₁' : a.val ⊔ z ≤ g₁.val.val ⊔ x.val.val :=
       sup_le (hax.trans le_sup_right) h₁
     let w : I := ⟨a.val ⊔ z, I.lower h₀' (I.join_mem g₀.val.property x.val.property)⟩
-    exact ⟨hx, ⟨w, Set.mem_Ici.mpr le_sup_left⟩, h₀', h₁',
+    have haw : a ≤ w := by
+      change a.val ≤ a.val ⊔ z
+      exact le_sup_left
+    exact ⟨hx, ⟨w, Set.mem_Ici.mpr haw⟩, h₀', h₁',
       fun h => hn (le_sup_right.trans h)⟩
 
 theorem antichain_target (b g₀ g₁ x : Set.Ici a) :
