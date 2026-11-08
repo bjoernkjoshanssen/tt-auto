@@ -152,7 +152,7 @@ theorem arithmetic_presentation_of_jump_extension {I : CountableIdeal} {a : Degr
     exact Iff.of_eq (congrArg (fun x : Degree => x = degree (columns H (Nat.unpair v).2))
       (he (presentationEntry hpres (Nat.unpair v).1)))
   have h := hg.congr hgraph
-  exact ⟨n, h, form_recursive h⟩
+  exact ⟨n, h, Form.congr (n := 0) (s := true) hr hgraph⟩
 
 end
 end OAI.TuringRigidity.ConePresentation
