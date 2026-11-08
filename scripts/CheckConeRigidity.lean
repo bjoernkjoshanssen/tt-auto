@@ -1,4 +1,4 @@
-import RequestProject.TuringConePresentation
+import RequestProject.TuringConePresentationCountability
 
 -- These commands report transitive axiom dependencies, including imported proofs.
 #print axioms OAI.TuringRigidity.ConeRigidity.image_le_join_of_inverse_borel_lift
@@ -28,3 +28,7 @@ import RequestProject.TuringConePresentation
 #print axioms OAI.TuringRigidity.ConePresentation.graph_sigma_of_bound
 #print axioms OAI.TuringRigidity.ConePresentation.graph_arithmetic_on_jump_ideal
 #print axioms OAI.TuringRigidity.ConePresentation.arithmetic_presentation_of_jump_extension
+#print axioms OAI.TuringRigidity.ConePresentation.graphOracle_injective
+#print axioms OAI.TuringRigidity.ConePresentation.arithmetic_maps_countable
+#print axioms OAI.TuringRigidity.ConePresentation.jump_extendible_maps_countable
+#print axioms OAI.TuringRigidity.ConePresentation.persistent_maps_countable_of_jump_extension
