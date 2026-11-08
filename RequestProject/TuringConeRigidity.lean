@@ -24,7 +24,7 @@ open Set Filter Topology
 namespace OAI.TuringRigidity.ConeRigidity
 
 /-- Joining with `a`, regarded as a point of the cone above `a`. -/
-def coneJoin (a x : Degree) : Set.Ici a := ⟨a ⊔ x, le_sup_left⟩
+def coneJoin (a x : Degree) : Set.Ici a := ⟨a ⊔ x, Set.mem_Ici.mpr le_sup_left⟩
 
 /-- The inverse of a cone isomorphism, precomposed with joining with its base. -/
 def pullback {a : Degree} (e : Degree ≃o Set.Ici a) (x : Degree) : Degree :=
@@ -32,12 +32,15 @@ def pullback {a : Degree} (e : Degree ≃o Set.Ici a) (x : Degree) : Degree :=
 
 @[simp] theorem apply_pullback_val {a : Degree} (e : Degree ≃o Set.Ici a)
     (x : Degree) : (e (pullback e x)).val = a ⊔ x := by
-  exact congrArg Subtype.val (e.apply_symm_apply (coneJoin a x))
+  change (e (e.symm (coneJoin a x))).val = a ⊔ x
+  rw [e.apply_symm_apply]
+  rfl
 
 theorem pullback_mono {a : Degree} (e : Degree ≃o Set.Ici a) :
     Monotone (pullback e) := by
   intro x y hxy
   apply e.symm.monotone
+  change a ⊔ x ≤ a ⊔ y
   exact sup_le_sup_left hxy a
 
 theorem pullback_sup {a : Degree} (e : Degree ≃o Set.Ici a) (x y : Degree) :
@@ -52,14 +55,15 @@ theorem pullback_sup {a : Degree} (e : Degree ≃o Set.Ici a) (x y : Degree) :
 /-- Every order isomorphism onto a principal cone sends bottom to its base. -/
 theorem map_bot_val {a : Degree} (e : Degree ≃o Set.Ici a) :
     (e ⊥).val = a := by
-  have h : e ⊥ ≤ e (e.symm (⟨a, le_rfl⟩ : Set.Ici a)) := e.monotone bot_le
+  have h : e ⊥ ≤ e (e.symm (⟨a, Set.mem_Ici.mpr le_rfl⟩ : Set.Ici a)) :=
+    e.monotone bot_le
   rw [e.apply_symm_apply] at h
-  exact le_antisymm h (e ⊥).property
+  exact le_antisymm h (Set.mem_Ici.mp (e ⊥).property)
 
 /-- The purely order-theoretic endgame needs a bound only at the base degree. -/
 theorem eq_bot_of_image_base_le {a : Degree} (e : Degree ≃o Set.Ici a)
     (h : (e a).val ≤ a) : a = ⊥ := by
-  have hea : (e a).val = a := le_antisymm h (e a).property
+  have hea : (e a).val = a := le_antisymm h (Set.mem_Ici.mp (e a).property)
   apply e.injective
   exact Subtype.ext (hea.trans (map_bot_val e).symm)
 
@@ -145,7 +149,8 @@ theorem le_of_residual_le_join (c b : Degree)
   obtain ⟨p, hp, hpnot⟩ := (dense_of_mem_residual (inter_mem h hmeager)).nonempty
   apply hpnot
   change degree Y ≤ degree X ⊔ realDegree p.1 ⊔ realDegree p.2
-  simpa only [hY, hX] using hp
+  rw [hY, hX]
+  exact Set.mem_setOf_eq.mp hp
 
 /-- One Borel inverse lift supplies the upper half of the proposed squeeze. -/
 theorem image_le_join_of_inverse_borel_lift {a : Degree} (e : Degree ≃o Set.Ici a)
