@@ -1,5 +1,5 @@
 import RequestProject.TuringConePersistence
-import RequestProject.TuringConeCoding
+import RequestProject.TuringConeLocality
 
 -- These commands report transitive axiom dependencies, including imported proofs.
 #print axioms OAI.TuringRigidity.ConeRigidity.image_le_join_of_inverse_borel_lift
@@ -18,3 +18,7 @@ import RequestProject.TuringConeCoding
 #print axioms OAI.TuringRigidity.ConeCoding.transportCopy
 #print axioms OAI.TuringRigidity.ConeCoding.transport_copy_below
 #print axioms OAI.TuringRigidity.ConeCoding.local_antichain_iff
+#print axioms OAI.TuringRigidity.ConeArithmetic.sigma5_decoding
+#print axioms OAI.TuringRigidity.ConeLocality.unary_decoding
+#print axioms OAI.TuringRigidity.ConeLocality.pullback_reduces_fifth_jump
+#print axioms OAI.TuringRigidity.ConeLocality.inverse_arithmetic_bound
