@@ -13,8 +13,9 @@ It also transports coded copies of a unary predicate on the natural numbers,
 and preserves the bounds on all coding parameters.
 
 The relative antichain predicate has a bounded version, suitable for arithmetic
-decoding. This file does not yet prove an arithmetic complexity bound for the
-relative decoder, nor the proposed cone-locality or forcing-extension theorem.
+decoding. Arithmetic complexity bounds and the pointwise inverse bound are
+proved in `TuringConeArithmetic` and `TuringConeLocality`. No forcing-extension
+theorem or uniform generic representative is asserted here.
 -/
 
 namespace OAI.TuringRigidity.ConeCoding
@@ -41,7 +42,7 @@ theorem image_finset_sup {a : Degree} (e : Degree ≃o Set.Ici a)
     image e (s.sup f) = a ⊔ s.sup (fun i => image e (f i)) := by
   classical
   induction s using Finset.induction_on with
-  | empty => simpa only [Finset.sup_empty, sup_bot_eq] using ConeRigidity.map_bot_val e
+  | empty => simpa only [Finset.sup_empty, sup_bot_eq, image] using ConeRigidity.map_bot_val e
   | @insert i s hi ih =>
     rw [Finset.sup_insert, image_sup, ih, Finset.sup_insert]
     exact sup_left_comm _ _ _
@@ -190,6 +191,8 @@ def transportCopy {a : Degree} (e : Degree ≃o Set.Ici a) {U : ℕ → Prop}
     intro x y
     obtain ⟨u, rfl⟩ := e.surjective x
     obtain ⟨v, rfl⟩ := e.surjective y
+    change Holds a (mapRelation e c.successor) (two (image e u) (image e v)) ↔
+      ∃ k, e u = e (c.node k) ∧ e v = e (c.node (k + 1))
     rw [map_relation_two, c.successor_spec]
     constructor
     · rintro ⟨k, hk, hl⟩
@@ -199,6 +202,8 @@ def transportCopy {a : Degree} (e : Degree ≃o Set.Ici a) {U : ℕ → Prop}
   predicate_spec := by
     intro x
     obtain ⟨u, rfl⟩ := e.surjective x
+    change Holds a (mapRelation e c.predicate) (one (image e u)) ↔
+      ∃ k, U k ∧ e u = e (c.node k)
     rw [map_relation_one, c.predicate_spec]
     constructor
     · rintro ⟨k, hk, he⟩
