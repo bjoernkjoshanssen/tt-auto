@@ -1,4 +1,4 @@
-import RequestProject.TuringConeInternalPersistence
+import RequestProject.TuringConeForcingExtension
 
 -- These commands report transitive axiom dependencies, including imported proofs.
 #print axioms OAI.TuringRigidity.ConeRigidity.image_le_join_of_inverse_borel_lift
@@ -82,3 +82,27 @@ import RequestProject.TuringConeInternalPersistence
 #print axioms OAI.TuringRigidity.ConeInternalPersistence.matrix_of_extensions
 #print axioms OAI.TuringRigidity.ConeInternalPersistence.internal_extensions_iff_persistent
 #print axioms OAI.TuringRigidity.ConeInternalPersistence.internal_extensions_comparison
+
+-- Full set graphs, collapse/descent, relative constructibility, and forcing names.
+#print axioms OAI.TuringRigidity.ConeSetGraphs.mem_coneGraph
+#print axioms OAI.TuringRigidity.ConeSetGraphs.coneGraph_subset
+#print axioms OAI.TuringRigidity.ConeSetGraphs.extends_graphs
+#print axioms OAI.TuringRigidity.ConeSetGraphs.action_eq_coneGraph
+#print axioms OAI.TuringRigidity.ConeSetGraphs.graphImage_action
+#print axioms OAI.TuringRigidity.ConeSetGraphs.coded_sets
+#print axioms OAI.TuringRigidity.ConeModelGraphs.persistent_sets
+#print axioms OAI.TuringRigidity.ConeModelGraphs.persistent_mem_of_counted_reals
+#print axioms OAI.TuringRigidity.ConeModelGraphs.persistent_extension_sets
+#print axioms OAI.TuringRigidity.ConeForcingDescent.real_collapse_reconstructs
+#print axioms OAI.TuringRigidity.ConeForcingDescent.persistent_graph_mem_of_real_family
+#print axioms OAI.TuringRigidity.ConeConstructibleExtension.persistent_modelIdeal_graph_mem_relativeModel
+#print axioms OAI.TuringRigidity.ConeConstructibleExtension.persistent_modelIdeal_graph_in_relativeL
+#print axioms OAI.TuringRigidity.ConeConstructibleExtension.persistent_extension_in_relativeModel
+#print axioms OAI.TuringRigidity.ConeConstructibleExtension.persistent_extension_in_model
+#print axioms OAI.TuringRigidity.ConeConstructibleExtension.persistent_graph_construction
+#print axioms OAI.TuringRigidity.ConeConstructibleExtension.persistent_extension_construction
+#print axioms OAI.TuringRigidity.ConeForcingExtension.persistent_extension_name
+#print axioms OAI.TuringRigidity.ConeForcingExtension.ground_cone_extension_name
+#print axioms OAI.TuringRigidity.ConeForcingExtension.global_restriction_extension_name
+#print axioms OAI.TuringRigidity.ConeForcingExtension.model_cone_output_name
+#print axioms OAI.TuringRigidity.ConeForcingExtension.model_cone_inverse_output_name
