@@ -56,7 +56,7 @@ theorem base_arith : Arith (fun O k => Base (O 0) (O 1) k) := by
   have hi := (lower_arith hA).and (join_closed_arith hA)
   exact (hi.and (hz.and (ConeArithmeticCriterion.action_arith hB hA hR))).congr
     (fun _ _ => by simp only [Base, ArithmeticPersistence.IdealCode,
-      UniformArithmetic.left, UniformArithmetic.right, Nat.unpair_pair, degreeJump_degree])
+      UniformArithmetic.left, UniformArithmetic.right, Nat.unpair_pair, degreeJump_degree, id_eq])
 
 def PresentationMatrix (O : Oracles) (k : ℕ) : Prop :=
   Base (O 0) (O 1) k ∧ ConeArithmeticCriterion.Matrix O k

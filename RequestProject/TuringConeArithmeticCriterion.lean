@@ -124,7 +124,8 @@ theorem matrix_arith : Arith Matrix := by
   have he := ((action_arith (hB.comp l) (hH.comp l) hP).and
     (UniformArithmetic.compatible_arith (hA.comp l) (hH.comp l) (hR.comp l) hP)).ex
   exact ((jumpCode_arith hH).imp ((includes_arith hA hH).imp he)).congr
-    (fun _ _ => by simp only [Matrix, UniformArithmetic.left, UniformArithmetic.right, Nat.unpair_pair])
+    (fun _ _ => by simp only [Matrix, UniformArithmetic.left, UniformArithmetic.right,
+      Nat.unpair_pair, id_eq])
 
 end
 end OAI.TuringRigidity.ConeArithmeticCriterion
