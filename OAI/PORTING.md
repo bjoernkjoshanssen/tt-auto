@@ -1,52 +1,67 @@
-# Toolchain notes
+# Toolchain and provenance notes
 
-The whole project now builds with **Lean `v4.34.1`** and **Mathlib
-`d13f23b723b8a846827a245b89c10fc7d3f11612`**. These are the same versions that the upstream
-`DegreeRigidity` library pins. `lake build RequestProject OAI` succeeds without warnings.
+## Palomar module-system port
 
-## `OAI/Computability/DegreeRigidity`
+The submission pins **Lean `v4.35.0-rc2`** and Mathlib
+`065356127b1dc0016f66b7283ce0ce2c4055aa55`. All repository Lean sources have
+module headers, public imports, and exposed public interfaces. Existing private
+modifiers and attribution are retained. The `backward.privateInPublic` and
+`backward.proofsInPublic` compatibility options preserve pre-module elaboration;
+they do not introduce mathematical axioms or disable kernel checking.
 
-This directory is an **unmodified copy** of the `DegreeRigidity` library from
-<https://github.com/openai/math/tree/main/lean/OAI/Computability/DegreeRigidity>
-(commit `fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb`, Apache-2.0, see `LICENSE`). Every file is
-byte-for-byte identical to upstream.
+Two former `deriving Encodable` sites needed a module-boundary repair:
+`Computability/OracleCode.lean` and `SetModels/ElementaryLanguage.lean` now use
+explicit finite-tree encodings and proved decoding round trips. The helper
+`Effective/EncodableTree.lean` adapts Kyle Miller's Apache-2.0 Mathlib
+`DeriveEncodable` implementation and retains its attribution. Constructor tags
+and list layout match the former deriving scheme. The types of oracle programs,
+formulas, and their mathematical operations are unchanged.
 
-An earlier version of this project back-ported the library to Lean/Mathlib `v4.28.0`. All of
-that work has been removed, because it is no longer needed:
+The independent `Challenge.lean` imports only Mathlib and reproduces the
+ordinary degree quotient, order, concrete join, and computable bottom. Including
+the join instance makes the inherited order instance match exactly across the
+Challenge and Solution environments. `Solution.lean` exports the original cone
+theorem. Comparator and the transitive axiom audits are the verification gates.
 
-* the `Compat.lean` shim file;
-* renaming `Nat.RecursiveIn` to `RecursiveIn`;
-* the import rename and the `@[instance_reducible]` → `@[reducible]` change;
-* the roughly 25 local proof repairs.
+A successful old-toolchain build is not by itself evidence for the new port.
+Consult the checks at the submitted immutable commit. The primary target checks
+Challenge, Solution, and the cone proof's complete dependency closure; it is not
+a claim that every unrelated historical target was rebuilt.
 
-## `RequestProject`
+## Verified upstream origin
 
-The tt-degree development in `RequestProject/TT/` was written against `v4.28.0`. It has been
-ported forward to `v4.34.1`. **No definition or theorem statement was changed, and no `sorry`,
-`axiom` or other unproved assumption was added.** `#print axioms` on the main theorems still
-shows only `propext`, `Classical.choice` and `Quot.sound`. The changes are:
+Before this port, `OAI/Computability/DegreeRigidity` was an unmodified copy of:
 
-* **`Z2` is marked `@[implicit_reducible]`** (`TwoAdic.lean`). `Z2` is a type synonym for
-  `Oracle` that carries the 2-adic group structure. Since Lean 4.34, `isDefEq` checks implicit
-  arguments, and the types of metavariable assignments, at the `implicit` transparency level.
-  That level no longer unfolds ordinary definitions, so terms such as `trunc X` with `X : Z2`
-  stopped unifying with lemmas stated for `Oracle`. The new `implicit_reducible` attribute
-  lets `Z2` unfold at that level. It still does not unfold during instance search, so the
-  2-adic `+` on `Z2` stays separate from Mathlib's pointwise `+` on `ℕ → Bool`.
-* **`simp only` no longer closes some goals by `rfl`.** These are goals whose two sides agree
-  only up to unfolding, such as `OracleCode.eval` or `Nat.unpaired`. An explicit `rfl` was
-  added after the `simp only` (`Defs.lean`, `Uniform.lean`).
-* **Unneeded `dsimp only` steps removed.** These were added for `v4.28.0`, where goals stayed
-  as beta-redexes. Lean now beta-reduces them automatically, so `dsimp only` made no progress
-  and failed (`Cantor.lean`, `Degrees.lean`, `DecodeTools.lean`).
-* **`simp` now rewrites `id` to `fun x => x`.** This broke `filterMap_id_map_some`, which is now
-  proved with explicit `List.filterMap_cons_none` / `List.filterMap_cons_some` rewrites
-  (`Closure.lean`).
-* **One `simpa` changed to `simp at this; exact this`.** The final step needs to unfold
-  `Z2.of` at default transparency (`Prop31.lean`).
-* **Deprecation renames:**
-  * `if_pos` → `ite_eq_left`, `if_true` → `ite_true`, `if_false` → `ite_false`,
-    `dif_neg` → `dite_eq_right`, `cond_true` → `Bool.cond_true`;
-  * `Set.mem_setOf_eq` → `Set.mem_ofPred_eq`, `isGδ_induced` → `IsGδ.preimage`;
-  * the tactic `push_neg` → `push Not`;
-  * `haveI` → `have` for propositions.
+<https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/OAI/Computability/DegreeRigidity>
+
+That directory and the inherited directory at local commit
+`b934186a456258a055de59689e75b1d503f3c71f` share the Git tree hash
+`d979299cdac872372c8c2893b287ebf89fbb9258`. The license is Apache-2.0.
+The module-system and codec repairs are local modifications, so the current
+directory is no longer claimed to be byte-for-byte identical to upstream.
+
+## Historical Lean 4.34.1 port
+
+Before Palomar packaging, the original project notes recorded a successful
+`lake build RequestProject OAI` on Lean `v4.34.1` and Mathlib
+`d13f23b723b8a846827a245b89c10fc7d3f11612`, the upstream DegreeRigidity pins.
+An earlier backport to `v4.28.0` had been removed: the Compat shim,
+recursive-computability renames, import/attribute backports, and approximately
+25 proof repairs were no longer needed.
+
+The earlier truth-table development under `RequestProject/TT/` was also ported
+from `v4.28.0` to `v4.34.1`. Its recorded changes, without changed theorem
+statements or added unproved assumptions, were:
+
+- Mark `Z2` as `@[implicit_reducible]` for its oracle type synonym while
+  preserving the distinction between 2-adic and pointwise addition.
+- Add explicit `rfl` after selected `simp only` calls in Defs and Uniform.
+- Remove no-longer-needed `dsimp only` steps in Cantor, Degrees, and DecodeTools.
+- Use explicit cons rewrites in a filterMap identity proof in Closure.
+- Replace one final `simpa` in Prop31 by `simp at this; exact this`.
+- Update deprecated conditional, set, topology, and tactic names for Lean 4.34.
+
+The historical notes reported only `propext`, `Classical.choice`, and
+`Quot.sound` in those theorem audits. The present Palomar entry advertises the
+cone theorem, whose current CI and Comparator checks are separately specified
+at the repository root.
