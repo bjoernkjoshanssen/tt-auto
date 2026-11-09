@@ -1,4 +1,4 @@
-import RequestProject.TuringConePersistenceAbsoluteness
+import RequestProject.TuringConeInternalPersistence
 
 -- These commands report transitive axiom dependencies, including imported proofs.
 #print axioms OAI.TuringRigidity.ConeRigidity.image_le_join_of_inverse_borel_lift
@@ -79,3 +79,6 @@ import RequestProject.TuringConePersistenceAbsoluteness
 #print axioms OAI.TuringRigidity.ConePersistenceAbsoluteness.internalExistence_iff
 #print axioms OAI.TuringRigidity.ConePersistenceAbsoluteness.presentation_comparison
 #print axioms OAI.TuringRigidity.ConePersistenceAbsoluteness.existence_comparison
+#print axioms OAI.TuringRigidity.ConeInternalPersistence.matrix_of_extensions
+#print axioms OAI.TuringRigidity.ConeInternalPersistence.internal_extensions_iff_persistent
+#print axioms OAI.TuringRigidity.ConeInternalPersistence.internal_extensions_comparison

@@ -23,8 +23,8 @@ surjectivity is restricted to columns above the base. -/
 theorem action_arith {B H P : OracleFamily} (hB : ArithmeticOracle B)
     (hH : ArithmeticOracle H) (hP : ArithmeticOracle P) :
     Arith (fun O v => ConeNumerical.Action (B O v) (H O v) (fun w => P O v w = true)) := by
-  let l := left_primrec
-  let r := right_primrec
+  let l := UniformArithmetic.left_primrec
+  let r := UniformArithmetic.right_primrec
   have ht := (query_at hP (l.comp l) (Primrec₂.natPair.comp (r.comp l) r)).ex.all
   have hpAbove := query_at hP (l.comp l) (Primrec₂.natPair.comp (r.comp l) r)
   have hAbove := reduces_arith (hB.comp (l.comp l)) (columns_at hH (l.comp l) r)
@@ -49,14 +49,14 @@ theorem action_arith {B H P : OracleFamily} (hB : ArithmeticOracle B)
   have hu := (hp'.imp (he.imp hq')).all.all.all
   apply (ht.and (ha.and (hs.and (ho.and hu)))).congr
   intro O v
-  simp only [left, right, Nat.unpair_pair]
+  simp only [UniformArithmetic.left, UniformArithmetic.right, Nat.unpair_pair]
   exact ⟨fun h => ⟨h.1, h.2.1, h.2.2.1, h.2.2.2.1, h.2.2.2.2⟩,
     fun h => ⟨h.total, h.above, h.onto, h.order, h.saturated⟩⟩
 
 theorem graph_program {I : CountableIdeal} {a : Degree} {H Y : Oracle}
     (hH : Presented I H) (ρ : I ≃o Cone I a)
-    (hr : RecursivePred Y (Graph ρ hH)) :
-    ∃ e : ℕ, ∀ v, tableOracle Y e v = true ↔ Graph ρ hH v := by
+    (hr : RecursivePred Y (ConePresentation.Graph ρ hH)) :
+    ∃ e : ℕ, ∀ v, tableOracle Y e v = true ↔ ConePresentation.Graph ρ hH v := by
   obtain ⟨d, hd⟩ := TableIndices.reduces_represents (graphOracle_reduces hH ρ hr)
   have hd' : TableIndices.Represents Y (IndexMatrix.machine (encode d)) (graphOracle hH ρ) := by
     simpa only [IndexMatrix.machine_encode] using hd
@@ -76,7 +76,7 @@ property, not an additional hypothesis on persistent maps. -/
 theorem persistent_iff {I : CountableIdeal} {A R : Oracle} (hA : Presented I A)
     (k : ℕ) (ρ : I ≃o Cone I (degree (columns A k)))
     (hza : degreeJump (degree (columns A k)) ∈ I.carrier)
-    (hR : ∀ v, R v = true ↔ Graph ρ hA v) :
+    (hR : ∀ v, R v = true ↔ ConePresentation.Graph ρ hA v) :
     ConePersistence.Persistent I ρ ↔ Criterion A R k := by
   constructor
   · intro hp H hc hi
@@ -118,13 +118,13 @@ theorem matrix_arith : Arith Matrix := by
   have hR := parameter_arith 1
   have hH := parameter_arith 2
   have hB := column_arith hA Primrec.id
-  let l := left_primrec
-  let r := right_primrec
+  let l := UniformArithmetic.left_primrec
+  let r := UniformArithmetic.right_primrec
   have hP := tableOracle_arith (iterate_arith (hH.comp l) 11) r
   have he := ((action_arith (hB.comp l) (hH.comp l) hP).and
     (UniformArithmetic.compatible_arith (hA.comp l) (hH.comp l) (hR.comp l) hP)).ex
   exact ((jumpCode_arith hH).imp ((includes_arith hA hH).imp he)).congr
-    (fun _ _ => by simp only [Matrix, left, right, Nat.unpair_pair])
+    (fun _ _ => by simp only [Matrix, UniformArithmetic.left, UniformArithmetic.right, Nat.unpair_pair])
 
 end
 end OAI.TuringRigidity.ConeArithmeticCriterion

@@ -29,7 +29,7 @@ def Property (A R : Oracle) (k : ℕ) : Prop :=
   ∃ I : CountableIdeal, ∃ hA : Presented I A,
     degreeJump (degree (columns A k)) ∈ I.carrier ∧
       ∃ ρ : I ≃o Cone I (degree (columns A k)),
-        (∀ v, R v = true ↔ Graph ρ hA v) ∧ ConePersistence.Persistent I ρ
+        (∀ v, R v = true ↔ ConePresentation.Graph ρ hA v) ∧ ConePersistence.Persistent I ρ
 
 theorem property_iff (A R : Oracle) (k : ℕ) :
     Property A R k ↔ Base A R k ∧ ConeArithmeticCriterion.Criterion A R k := by
@@ -51,12 +51,12 @@ theorem base_arith : Arith (fun O k => Base (O 0) (O 1) k) := by
   have hA := parameter_arith 0
   have hR := parameter_arith 1
   have hB := column_arith hA Primrec.id
-  have hz := (degree_equal_arith (jump_arith (hB.comp left_primrec))
-    (columns_at hA left_primrec right_primrec)).ex
+  have hz := (degree_equal_arith (jump_arith (hB.comp UniformArithmetic.left_primrec))
+    (columns_at hA UniformArithmetic.left_primrec UniformArithmetic.right_primrec)).ex
   have hi := (lower_arith hA).and (join_closed_arith hA)
   exact (hi.and (hz.and (ConeArithmeticCriterion.action_arith hB hA hR))).congr
     (fun _ _ => by simp only [Base, ArithmeticPersistence.IdealCode,
-      left, right, Nat.unpair_pair, degreeJump_degree])
+      UniformArithmetic.left, UniformArithmetic.right, Nat.unpair_pair, degreeJump_degree])
 
 def PresentationMatrix (O : Oracles) (k : ℕ) : Prop :=
   Base (O 0) (O 1) k ∧ ConeArithmeticCriterion.Matrix O k
