@@ -1,52 +1,62 @@
-# Toolchain notes
+# Toolchain and provenance notes
 
-The whole project now builds with **Lean `v4.34.1`** and **Mathlib
-`d13f23b723b8a846827a245b89c10fc7d3f11612`**. These are the same versions that the upstream
-`DegreeRigidity` library pins. `lake build RequestProject OAI` succeeds without warnings.
+## Palomar port
 
-## `OAI/Computability/DegreeRigidity`
+The Palomar submission branch uses **Lean `v4.35.0-rc2`** and matching Mathlib
+`065356127b1dc0016f66b7283ce0ce2c4055aa55`. See the CI results at the submitted
+commit for verification; a prior-toolchain build alone does not validate this port.
 
-This directory is an **unmodified copy** of the `DegreeRigidity` library from
-<https://github.com/openai/math/tree/main/lean/OAI/Computability/DegreeRigidity>
-(commit `fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb`, Apache-2.0, see `LICENSE`). Every file is
-byte-for-byte identical to upstream.
+All repository Lean sources have been migrated to the module system: `module`
+headers, public imports, and `@[expose] public section`. Explicit private
+modifiers and existing attribution are retained. The compatibility options
+`backward.privateInPublic` and `backward.proofsInPublic` preserve pre-module
+elaboration; they do not add axioms or disable kernel checking. The two
+`deriving Encodable` sites explicitly import all of the deriving module so its
+private helper representation is available during elaboration.
 
-An earlier version of this project back-ported the library to Lean/Mathlib `v4.28.0`. All of
-that work has been removed, because it is no longer needed:
+The independent `Challenge.lean` imports only Mathlib and repeats the elementary
+Turing-degree definitions. `Solution.lean` exports the original cone theorem.
+Comparator and the transitive axiom audits are the verification gates.
 
-* the `Compat.lean` shim file;
-* renaming `Nat.RecursiveIn` to `RecursiveIn`;
-* the import rename and the `@[instance_reducible]` → `@[reducible]` change;
-* the roughly 25 local proof repairs.
+## Verified upstream origin
 
-## `RequestProject`
+Before the Palomar port, `OAI/Computability/DegreeRigidity` was an unmodified copy
+of the library at:
 
-The tt-degree development in `RequestProject/TT/` was written against `v4.28.0`. It has been
-ported forward to `v4.34.1`. **No definition or theorem statement was changed, and no `sorry`,
-`axiom` or other unproved assumption was added.** `#print axioms` on the main theorems still
-shows only `propext`, `Classical.choice` and `Quot.sound`. The changes are:
+<https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/OAI/Computability/DegreeRigidity>
 
-* **`Z2` is marked `@[implicit_reducible]`** (`TwoAdic.lean`). `Z2` is a type synonym for
-  `Oracle` that carries the 2-adic group structure. Since Lean 4.34, `isDefEq` checks implicit
-  arguments, and the types of metavariable assignments, at the `implicit` transparency level.
-  That level no longer unfolds ordinary definitions, so terms such as `trunc X` with `X : Z2`
-  stopped unifying with lemmas stated for `Oracle`. The new `implicit_reducible` attribute
-  lets `Z2` unfold at that level. It still does not unfold during instance search, so the
-  2-adic `+` on `Z2` stays separate from Mathlib's pointwise `+` on `ℕ → Bool`.
-* **`simp only` no longer closes some goals by `rfl`.** These are goals whose two sides agree
-  only up to unfolding, such as `OracleCode.eval` or `Nat.unpaired`. An explicit `rfl` was
-  added after the `simp only` (`Defs.lean`, `Uniform.lean`).
-* **Unneeded `dsimp only` steps removed.** These were added for `v4.28.0`, where goals stayed
-  as beta-redexes. Lean now beta-reduces them automatically, so `dsimp only` made no progress
-  and failed (`Cantor.lean`, `Degrees.lean`, `DecodeTools.lean`).
-* **`simp` now rewrites `id` to `fun x => x`.** This broke `filterMap_id_map_some`, which is now
-  proved with explicit `List.filterMap_cons_none` / `List.filterMap_cons_some` rewrites
-  (`Closure.lean`).
-* **One `simpa` changed to `simp at this; exact this`.** The final step needs to unfold
-  `Z2.of` at default transparency (`Prop31.lean`).
-* **Deprecation renames:**
-  * `if_pos` → `ite_eq_left`, `if_true` → `ite_true`, `if_false` → `ite_false`,
-    `dif_neg` → `dite_eq_right`, `cond_true` → `Bool.cond_true`;
-  * `Set.mem_setOf_eq` → `Set.mem_ofPred_eq`, `isGδ_induced` → `IsGδ.preimage`;
-  * the tactic `push_neg` → `push Not`;
-  * `haveI` → `have` for propositions.
+The directory at local commit `b934186a456258a055de59689e75b1d503f3c71f` and the
+upstream directory have the identical Git tree hash
+`d979299cdac872372c8c2893b287ebf89fbb9258`. Its license is Apache-2.0. The module
+visibility port is a local modification, so the current directory is no longer
+claimed to be byte-for-byte identical to that upstream snapshot.
+
+## Historical Lean 4.34.1 port
+
+Before Palomar packaging, the whole project built with Lean `v4.34.1` and Mathlib
+`d13f23b723b8a846827a245b89c10fc7d3f11612`, the versions pinned by the upstream
+DegreeRigidity library. The pre-Palomar notes recorded a successful
+`lake build RequestProject OAI` without warnings. This historical statement is
+not a claim that every unrelated target has been rebuilt on the new toolchain.
+
+An earlier local backport of the OAI library to `v4.28.0` was removed when the
+project moved to `v4.34.1`: the Compat shim, recursive-computability renames,
+import/attribute backports, and approximately 25 local proof repairs were no
+longer needed.
+
+The earlier truth-table development in `RequestProject/TT/` was itself ported
+from `v4.28.0` to `v4.34.1`, without changing theorem statements or adding
+unproved assumptions. Its recorded changes were:
+
+- Mark `Z2` as `@[implicit_reducible]` so its oracle type synonym unfolds at
+  implicit transparency without mixing its 2-adic addition with pointwise
+  addition during instance search.
+- Add explicit `rfl` after selected `simp only` calls in Defs and Uniform.
+- Remove no-longer-needed `dsimp only` steps in Cantor, Degrees, and DecodeTools.
+- Replace a filterMap identity proof in Closure with explicit cons rewrites.
+- Replace one final `simpa` in Prop31 with `simp at this; exact this`.
+- Update deprecated conditional, set, topology, and tactic names for Lean 4.34.
+
+The original notes reported only `propext`, `Classical.choice`, and `Quot.sound`
+in those theorem audits. The present Palomar entry advertises the cone theorem;
+its CI and Comparator checks are separately specified at the repository root.
