@@ -5,7 +5,7 @@ on:
     paths:
       - 'RequestProject/TuringCone*.lean'
       - 'OAI/**'
-      - 'scripts/CheckConeRigidity.lean'
+      - 'scripts/CheckCone*.lean'
       - 'lean-toolchain'
       - 'lakefile.toml'
       - 'lake-manifest.json'
@@ -30,7 +30,7 @@ jobs:
         with:
           auto-config: 'false'
           build: 'true'
-          build-args: 'RequestProject.TuringConePrescribedModels'
+          build-args: 'RequestProject.TuringConeOracleProgram'
           test: 'false'
           lint: 'false'
           use-mathlib-cache: 'true'
@@ -45,7 +45,8 @@ jobs:
         run: |
           set -euo pipefail
           lake env lean scripts/CheckConeRigidity.lean | tee cone-rigidity-axioms.txt
-          if grep -q 'sorryAx' cone-rigidity-axioms.txt; then
+          lake env lean scripts/CheckConeOracleProgram.lean | tee cone-program-axioms.txt
+          if grep -q 'sorryAx' cone-rigidity-axioms.txt cone-program-axioms.txt; then
             echo 'A cone theorem depends on sorryAx.' >&2
             exit 1
           fi
