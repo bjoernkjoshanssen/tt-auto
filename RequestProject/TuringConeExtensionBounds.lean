@@ -32,7 +32,9 @@ theorem inverse_bound_of_extension {I J : CountableIdeal} {a : Degree}
   let z : PersistentLocality.ideal J :=
     ⟨degree (jump FixedArithmetic.zero), hIJ hz⟩
   let y : Set.Ici (⟨a, haJ⟩ : PersistentLocality.ideal J) :=
-    ⟨⟨a ⊔ degree X, J.join_mem haJ hX⟩, Set.mem_Ici.mpr le_sup_left⟩
+    ⟨⟨a ⊔ degree X, J.join_mem haJ hX⟩, by
+      change a ≤ a ⊔ degree X
+      exact le_sup_left⟩
   obtain ⟨Y, Z, hY, hZ, hYZ⟩ := ConeIdealLocality.inverse_arithmetic τ z rfl y
   have hb : ConeIdealCoding.image τ z = degree B := by
     change (σ ⟨degree (jump FixedArithmetic.zero), hIJ hz⟩).val = degree B
