@@ -51,7 +51,9 @@ theorem prescribed_program {a : Degree} (e : Degree ≃o Set.Ici a)
   let J := modelIdeal E hE hTE
   have hIJ : I.carrier ⊆ J.carrier := by
     rintro d ⟨D, hD, rfl⟩
-    exact ⟨D, hME hD, rfl⟩
+    refine ⟨D, ?_, rfl⟩
+    change realCode D ∈ E
+    exact hME hD
   obtain ⟨ρ, hρ, _, _⟩ := ConePrescribedModels.model_restriction_of_anchors e M hM hT hpost hpre
   obtain ⟨σ, hσ, hpσ, _⟩ := ConePrescribedModels.model_restriction_of_anchors
     e E hE hTE (hIJ hpost) (hIJ hpre)
@@ -61,6 +63,7 @@ theorem prescribed_program {a : Degree} (e : Degree ≃o Set.Ici a)
   have hz : degree (jump FixedArithmetic.zero) ∈ I.carrier :=
     ⟨jump FixedArithmetic.zero, sourceT_real_jump M hM hT (sourceT_zero_real M hM hT), rfl⟩
   obtain ⟨R, hRM, hR⟩ := hpost
+  change realCode R ∈ M at hRM
   have hRρ : degree R = (ρ ⟨degree (jump FixedArithmetic.zero), hz⟩).val :=
     hR.trans (hρ ⟨degree (jump FixedArithmetic.zero), hz⟩)
   have houtputs := ConeRealParameterProgram.model_extension_outputs E hE hTE I ρ hIJ σ he hz R hRρ
@@ -87,8 +90,11 @@ theorem prescribed_program {a : Degree} (e : Degree ≃o Set.Ici a)
       τ f hτ hf G hG hreal δ hδM φ hXL hdef' houtputs'
   rw [hτv] at hN hsem
   let N := RealGeneratedModel.hull M (realCode P)
+  have hRN : R ∈ modelReals N := by
+    change realCode R ∈ N
+    exact hN.2.2.1 hRM
   have hRP : realCode (iterate R 5) ∈ N :=
-    sourceT_real_iterate N hN.1 hN.2.1 (hN.2.2.1 hRM) 5
+    sourceT_real_iterate N hN.1 hN.2.1 hRN 5
   obtain ⟨A, hA⟩ := degree_surjective a
   have hAR : Reduces A R := by
     change degree A ≤ degree R
