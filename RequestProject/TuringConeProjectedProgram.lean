@@ -108,7 +108,7 @@ theorem projected_program (M C B : ZFSet.{0}) [Countable (Conditions M)]
   have houtput : ∃ u ∈ degreeUniverse (groundReals (genericExtensionSet M (conditions C) G.carrier)),
       ∃ v ∈ degreeUniverse (groundReals (genericExtensionSet M (conditions C) G.carrier)),
         x.val G.carrier ∈ u ∧ y.val G.carrier ∈ v ∧ ZFSet.pair u v ∈ f.val G.carrier := by
-    simpa only [hxG, hyG] using hout
+    simpa only [Output, hxG, hyG] using hout
   obtain ⟨q, hq, hqp₀, hqout⟩ := defined_output_tail_cone M C B hM hT hct hC hB hBC
     δ Z φ f x y hf hx hy hfv hxfix hyfix G hG houtput p₀ hp₀
   obtain ⟨p, hp, hpq, hpcode⟩ := fixed_arithmetic_tail_cone M C B hM hT hct hC hB hBC
@@ -121,7 +121,7 @@ theorem projected_program (M C B : ZFSet.{0}) [Countable (Conditions M)]
     simpa only [label_project] using restrict_mono B _ _ hpq
   obtain ⟨A', X', hxa, hya, hrep⟩ := hpcode H hH hpH
   refine ⟨A', X', hxa, hrep, ?_⟩
-  simpa only [hxa, hya] using hqout H hH hqH
+  simpa only [Output, hxa, hya] using hqout H hH hqH
 
 /-- Specialize to one Cohen column and express the condition as agreement
 with a finite input prefix. -/

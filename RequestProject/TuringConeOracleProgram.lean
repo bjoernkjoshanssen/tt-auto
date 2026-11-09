@@ -110,7 +110,7 @@ theorem column_program_of_extension (M K i : ZFSet.{0}) [Countable (Conditions M
     ⟨realName K i, realName_internal M K i hM hT hK hi, hA⟩
   have hAJ : degree A ∈ J.carrier := ⟨A, hAE, rfl⟩
   have hD : degreeUniverse (groundReals E) = idealSet J :=
-    ownDegreeUniverse_eq_idealSet E hE hTE (groundReals E) (mem_groundReals E)
+    ground_degreeUniverse_eq_idealSet E hE hTE
   obtain ⟨X, hred, hout⟩ := output_of_extension ρ σ hIJ he hz R hR E hD A hAJ
   have hw : ∃ A X : Oracle, (realName K i).val G.carrier = realCode A ∧
       Reduces X (iterate (join A R) 5) ∧

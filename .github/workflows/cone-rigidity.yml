@@ -30,7 +30,7 @@ jobs:
         with:
           auto-config: 'false'
           build: 'true'
-          build-args: 'RequestProject.TuringConeOracleProgram'
+          build-args: 'RequestProject.TuringConeRealParameterProgram RequestProject.TuringConeProgramGlobalization'
           test: 'false'
           lint: 'false'
           use-mathlib-cache: 'true'
