@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.Degrees
-import Mathlib.Data.Nat.Pairing
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.Degrees
+public import Mathlib.Data.Nat.Pairing
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

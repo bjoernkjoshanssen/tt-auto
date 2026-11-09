@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticTestApproximation
-import Mathlib.SetTheory.Descriptive.Tree
-import Mathlib.Order.WellFounded
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticTestApproximation
+public import Mathlib.SetTheory.Descriptive.Tree
+public import Mathlib.Order.WellFounded
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

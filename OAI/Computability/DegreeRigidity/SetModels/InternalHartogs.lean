@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.CollapseCoding
-import OAI.Computability.DegreeRigidity.OrdinalCodes.RankOrdinal
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.CollapseCoding
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.RankOrdinal
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,4 +1,12 @@
-import RequestProject.TT.DecodeTools
+module
+
+public import RequestProject.TT.DecodeTools
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # The decoding step of the coding lemma (Proposition 4.3)

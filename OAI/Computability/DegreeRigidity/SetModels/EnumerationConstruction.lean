@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.EnumerationDecoding
-import OAI.Computability.DegreeRigidity.SetModels.FixedArithmetic
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.EnumerationDecoding
+public import OAI.Computability.DegreeRigidity.SetModels.FixedArithmetic
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

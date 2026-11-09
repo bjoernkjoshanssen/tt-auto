@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.CategoryReduction
-import OAI.Computability.DegreeRigidity.Representation.Assembly
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.CategoryReduction
+public import OAI.Computability.DegreeRigidity.Representation.Assembly
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

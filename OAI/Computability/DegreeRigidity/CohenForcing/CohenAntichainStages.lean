@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenSizeLevels
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenFiniteAntichains
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenGroundGeneric
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenSizeLevels
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenFiniteAntichains
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenGroundGeneric
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

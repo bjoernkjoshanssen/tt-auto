@@ -1,4 +1,12 @@
-import RequestProject.TT.TwoAdic
+module
+
+public import RequestProject.TT.TwoAdic
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Strings, basic open sets, and some concrete tt-functionals

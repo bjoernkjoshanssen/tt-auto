@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Effective.ProgramTopology
-import OAI.Computability.DegreeRigidity.Computability.Joins
-import OAI.Computability.DegreeRigidity.Representation.Category
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.ProgramTopology
+public import OAI.Computability.DegreeRigidity.Computability.Joins
+public import OAI.Computability.DegreeRigidity.Representation.Category
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

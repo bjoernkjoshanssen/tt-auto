@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Effective.LocalExtraction
-import OAI.Computability.DegreeRigidity.Effective.StageNormalization
-import OAI.Computability.DegreeRigidity.Effective.AntichainParameters
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.LocalExtraction
+public import OAI.Computability.DegreeRigidity.Effective.StageNormalization
+public import OAI.Computability.DegreeRigidity.Effective.AntichainParameters
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

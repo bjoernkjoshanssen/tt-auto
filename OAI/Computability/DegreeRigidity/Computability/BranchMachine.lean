@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Effective.PartialComputability
-import OAI.Computability.DegreeRigidity.SetModels.ParametricEval
-import OAI.Computability.DegreeRigidity.Effective.FiniteApproximation
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.PartialComputability
+public import OAI.Computability.DegreeRigidity.SetModels.ParametricEval
+public import OAI.Computability.DegreeRigidity.Effective.FiniteApproximation
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

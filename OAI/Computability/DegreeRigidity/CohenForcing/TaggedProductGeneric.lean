@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenProductSplitting
-import OAI.Computability.DegreeRigidity.SetModels.RegularTreeExtension
-import OAI.Computability.DegreeRigidity.Representation.SourceEquationTail
-import OAI.Computability.DegreeRigidity.Representation.AutomorphismName
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenProductSplitting
+public import OAI.Computability.DegreeRigidity.SetModels.RegularTreeExtension
+public import OAI.Computability.DegreeRigidity.Representation.SourceEquationTail
+public import OAI.Computability.DegreeRigidity.Representation.AutomorphismName
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

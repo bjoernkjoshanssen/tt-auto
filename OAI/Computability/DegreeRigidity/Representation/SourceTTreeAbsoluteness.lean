@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticTreeDescent
-import OAI.Computability.DegreeRigidity.SetModels.InternalNaturalRelationReal
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticTreeDescent
+public import OAI.Computability.DegreeRigidity.SetModels.InternalNaturalRelationReal
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

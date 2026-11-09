@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenRun
-import OAI.Computability.DegreeRigidity.Effective.CodingSplitting
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenRun
+public import OAI.Computability.DegreeRigidity.Effective.CodingSplitting
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,4 +1,12 @@
-import Mathlib
+module
+
+public import Mathlib
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 open scoped BigOperators
 open scoped Real

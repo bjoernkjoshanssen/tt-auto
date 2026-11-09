@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.CollapseDenseWithoutChoice
-import OAI.Computability.DegreeRigidity.SetModels.InternalCollapseCounting
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.CollapseDenseWithoutChoice
+public import OAI.Computability.DegreeRigidity.SetModels.InternalCollapseCounting
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.NaturalPrimitiveRecursion
-import OAI.Computability.DegreeRigidity.Syntax.SentenceCodeDefinability
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.NaturalPrimitiveRecursion
+public import OAI.Computability.DegreeRigidity.Syntax.SentenceCodeDefinability
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

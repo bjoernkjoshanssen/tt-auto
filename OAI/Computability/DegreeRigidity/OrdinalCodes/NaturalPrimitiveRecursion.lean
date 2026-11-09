@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.NaturalProjectionFormula
-import Mathlib.Computability.Primrec.Basic
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.NaturalProjectionFormula
+public import Mathlib.Computability.Primrec.Basic
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

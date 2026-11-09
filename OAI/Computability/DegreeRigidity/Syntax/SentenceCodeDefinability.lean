@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Syntax.SentenceCode
-import OAI.Computability.DegreeRigidity.SetModels.SetModelArithmeticSyntax
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.SentenceCode
+public import OAI.Computability.DegreeRigidity.SetModels.SetModelArithmeticSyntax
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

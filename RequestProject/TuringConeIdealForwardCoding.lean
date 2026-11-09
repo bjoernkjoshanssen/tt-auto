@@ -1,4 +1,12 @@
-import RequestProject.TuringConeIdealBackCoding
+module
+
+public import RequestProject.TuringConeIdealBackCoding
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Forward transport of bounded unary copies on an ideal

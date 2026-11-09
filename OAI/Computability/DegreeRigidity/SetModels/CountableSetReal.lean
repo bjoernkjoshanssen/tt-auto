@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.ModelDegreeUniverse
-import OAI.Computability.DegreeRigidity.SetModels.InternalPresentationEnumeration
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ModelDegreeUniverse
+public import OAI.Computability.DegreeRigidity.SetModels.InternalPresentationEnumeration
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaPowerSyntax
-import OAI.Computability.DegreeRigidity.SetModels.InternalOrdinalCodes
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaPowerSyntax
+public import OAI.Computability.DegreeRigidity.SetModels.InternalOrdinalCodes
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

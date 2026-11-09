@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.TupleLookupAdequacy
-import OAI.Computability.DegreeRigidity.Syntax.SatisfactionRecursion
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.TupleLookupAdequacy
+public import OAI.Computability.DegreeRigidity.Syntax.SatisfactionRecursion
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnRealValue
-import OAI.Computability.DegreeRigidity.SetModels.ProjectedArithmeticOutputCone
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnRealValue
+public import OAI.Computability.DegreeRigidity.SetModels.ProjectedArithmeticOutputCone
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

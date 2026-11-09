@@ -1,4 +1,12 @@
-import RequestProject.TuringConePrescribedModels
+module
+
+public import RequestProject.TuringConePrescribedModels
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 -- These commands report transitive axiom dependencies, including imported proofs.
 #print axioms OAI.TuringRigidity.ConeRigidity.image_le_join_of_inverse_borel_lift

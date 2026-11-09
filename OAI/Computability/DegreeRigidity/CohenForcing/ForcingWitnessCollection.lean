@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Syntax.SigmaCollection
-import OAI.Computability.DegreeRigidity.Syntax.SigmaDefinability
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.SigmaCollection
+public import OAI.Computability.DegreeRigidity.Syntax.SigmaDefinability
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.RealHullQuotient
-import OAI.Computability.DegreeRigidity.Representation.OriginalRealGeneratedModel
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.RealHullQuotient
+public import OAI.Computability.DegreeRigidity.Representation.OriginalRealGeneratedModel
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

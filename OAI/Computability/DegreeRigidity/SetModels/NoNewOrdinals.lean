@@ -1,8 +1,16 @@
-import OAI.Computability.DegreeRigidity.Representation.SourceTheory
-import OAI.Computability.DegreeRigidity.SetModels.NameEncoding
-import OAI.Computability.DegreeRigidity.Syntax.FiniteTerm
-import OAI.Computability.DegreeRigidity.OrdinalCodes.RankOrdinal
-import OAI.Computability.DegreeRigidity.SetModels.NameExtension
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.SourceTheory
+public import OAI.Computability.DegreeRigidity.SetModels.NameEncoding
+public import OAI.Computability.DegreeRigidity.Syntax.FiniteTerm
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.RankOrdinal
+public import OAI.Computability.DegreeRigidity.SetModels.NameExtension
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Effective.FiniteSumDomains
-import OAI.Computability.DegreeRigidity.Effective.FiniteSumGraph
-import OAI.Computability.DegreeRigidity.SetModels.FinitePresentation
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.FiniteSumDomains
+public import OAI.Computability.DegreeRigidity.Effective.FiniteSumGraph
+public import OAI.Computability.DegreeRigidity.SetModels.FinitePresentation
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

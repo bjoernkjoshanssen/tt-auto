@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Constructibility.InternalHeightDomains
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalConstruction
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.InternalHeightDomains
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalConstruction
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenConservative
-import OAI.Computability.DegreeRigidity.Effective.CodingOnePoint
-import OAI.Computability.DegreeRigidity.Effective.CodingExtraction
-import Mathlib.Data.Finset.Lattice.Fold
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenConservative
+public import OAI.Computability.DegreeRigidity.Effective.CodingOnePoint
+public import OAI.Computability.DegreeRigidity.Effective.CodingExtraction
+public import Mathlib.Data.Finset.Lattice.Fold
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.UniformCohenPrefix
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeCohenJump
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.UniformCohenPrefix
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeCohenJump
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

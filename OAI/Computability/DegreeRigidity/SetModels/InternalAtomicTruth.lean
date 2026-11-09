@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Syntax.AtomicDecisionFormula
-import OAI.Computability.DegreeRigidity.Syntax.AtomicTruth
-import OAI.Computability.DegreeRigidity.SetModels.InternalContainer
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.AtomicDecisionFormula
+public import OAI.Computability.DegreeRigidity.Syntax.AtomicTruth
+public import OAI.Computability.DegreeRigidity.SetModels.InternalContainer
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

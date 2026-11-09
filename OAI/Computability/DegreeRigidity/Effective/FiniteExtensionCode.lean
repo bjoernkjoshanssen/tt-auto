@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Syntax.SigmaHull
-import OAI.Computability.DegreeRigidity.SetModels.CollapseCoding
-import Mathlib.Data.List.Basic
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.SigmaHull
+public import OAI.Computability.DegreeRigidity.SetModels.CollapseCoding
+public import Mathlib.Data.List.Basic
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

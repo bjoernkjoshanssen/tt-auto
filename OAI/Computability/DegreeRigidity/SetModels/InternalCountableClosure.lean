@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalCountableFamily
-import OAI.Computability.DegreeRigidity.SetModels.InternalCountableMap
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalCountableFamily
+public import OAI.Computability.DegreeRigidity.SetModels.InternalCountableMap
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

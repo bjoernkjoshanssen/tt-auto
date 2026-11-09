@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.ExtensionBasicAxioms
-import OAI.Computability.DegreeRigidity.SetModels.RecursiveNameSymmetry
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ExtensionBasicAxioms
+public import OAI.Computability.DegreeRigidity.SetModels.RecursiveNameSymmetry
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

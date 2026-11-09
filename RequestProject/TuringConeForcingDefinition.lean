@@ -1,5 +1,13 @@
-import RequestProject.TuringConeExtensionBounds
-import OAI.Computability.DegreeRigidity.Constructibility.OneRealConstructionDefinition
+module
+
+public import RequestProject.TuringConeExtensionBounds
+public import OAI.Computability.DegreeRigidity.Constructibility.OneRealConstructionDefinition
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # One-real definitions of the cone graphs obtained by forcing

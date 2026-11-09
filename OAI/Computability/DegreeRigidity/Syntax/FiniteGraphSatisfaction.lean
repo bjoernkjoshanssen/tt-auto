@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Syntax.SetSatisfactionBounded
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleTupleSpace
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.SetSatisfactionBounded
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleTupleSpace
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

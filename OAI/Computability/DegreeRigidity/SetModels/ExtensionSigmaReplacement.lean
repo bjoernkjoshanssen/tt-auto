@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.ExtensionWitnessCover
-import OAI.Computability.DegreeRigidity.SetModels.ExtensionSigmaSeparation
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ExtensionWitnessCover
+public import OAI.Computability.DegreeRigidity.SetModels.ExtensionSigmaSeparation
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,13 @@
-import RequestProject.TuringConeInternalPersistence
-import OAI.Computability.DegreeRigidity.SetModels.SetModelPersistence
+module
+
+public import RequestProject.TuringConeInternalPersistence
+public import OAI.Computability.DegreeRigidity.SetModels.SetModelPersistence
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Set-valued graphs of partial cone isomorphisms

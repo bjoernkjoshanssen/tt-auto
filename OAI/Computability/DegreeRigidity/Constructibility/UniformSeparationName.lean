@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalBoundedTruth
-import OAI.Computability.DegreeRigidity.SetModels.NameSupport
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalBoundedTruth
+public import OAI.Computability.DegreeRigidity.SetModels.NameSupport
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

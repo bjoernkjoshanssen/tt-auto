@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.CollapseCertificate
-import OAI.Computability.DegreeRigidity.Syntax.SigmaSeparationName
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.CollapseCertificate
+public import OAI.Computability.DegreeRigidity.Syntax.SigmaSeparationName
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

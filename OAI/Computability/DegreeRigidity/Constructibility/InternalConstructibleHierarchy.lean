@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Constructibility.InternalHierarchyRecursion
-import OAI.Computability.DegreeRigidity.SetModels.InternalContainer
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleGroundReals
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.InternalHierarchyRecursion
+public import OAI.Computability.DegreeRigidity.SetModels.InternalContainer
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleGroundReals
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

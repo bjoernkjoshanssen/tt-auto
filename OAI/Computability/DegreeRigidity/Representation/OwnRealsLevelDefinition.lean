@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Representation.OwnRealsConstruction
-import OAI.Computability.DegreeRigidity.Constructibility.FiniteDefinitionTransfer
-import OAI.Computability.DegreeRigidity.OrdinalCodes.LevelSubsetDefinition
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.OwnRealsConstruction
+public import OAI.Computability.DegreeRigidity.Constructibility.FiniteDefinitionTransfer
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.LevelSubsetDefinition
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

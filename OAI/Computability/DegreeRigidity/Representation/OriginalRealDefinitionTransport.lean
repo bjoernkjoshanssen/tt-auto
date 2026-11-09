@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Representation.OriginalRealCohenFactorization
-import OAI.Computability.DegreeRigidity.Constructibility.OneRealDefinitionSentence
-import OAI.Computability.DegreeRigidity.Representation.GroundInclusion
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.OriginalRealCohenFactorization
+public import OAI.Computability.DegreeRigidity.Constructibility.OneRealDefinitionSentence
+public import OAI.Computability.DegreeRigidity.Representation.GroundInclusion
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

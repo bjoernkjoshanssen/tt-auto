@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.CutArithmetic
-import OAI.Computability.DegreeRigidity.Computability.EffectiveRecovery
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.CutArithmetic
+public import OAI.Computability.DegreeRigidity.Computability.EffectiveRecovery
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

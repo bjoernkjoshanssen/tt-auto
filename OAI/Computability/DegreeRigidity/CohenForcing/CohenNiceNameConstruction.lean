@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenAntichainFamilySupport
-import OAI.Computability.DegreeRigidity.SetModels.InternalPositiveNameFamily
-import OAI.Computability.DegreeRigidity.SetModels.InternalNiceName
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenAntichainFamilySupport
+public import OAI.Computability.DegreeRigidity.SetModels.InternalPositiveNameFamily
+public import OAI.Computability.DegreeRigidity.SetModels.InternalNiceName
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

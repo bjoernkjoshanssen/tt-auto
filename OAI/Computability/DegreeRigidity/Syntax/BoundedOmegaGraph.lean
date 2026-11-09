@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.LimitOmegaCertificates
-import OAI.Computability.DegreeRigidity.SetModels.FinitePresentation
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.LimitOmegaCertificates
+public import OAI.Computability.DegreeRigidity.SetModels.FinitePresentation
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

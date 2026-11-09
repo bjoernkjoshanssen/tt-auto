@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.PresentedDegreeEmbedding
-import OAI.Computability.DegreeRigidity.SetModels.ModelPersistenceReals
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.PresentedDegreeEmbedding
+public import OAI.Computability.DegreeRigidity.SetModels.ModelPersistenceReals
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

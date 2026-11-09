@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Constructibility.UniformSentenceSupport
-import OAI.Computability.DegreeRigidity.Effective.TuplePrefixSyntax
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformSentenceSupport
+public import OAI.Computability.DegreeRigidity.Effective.TuplePrefixSyntax
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

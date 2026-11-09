@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.OracleCode
-import Lean.Elab.Tactic.Omega
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.OracleCode
+public import Lean.Elab.Tactic.Omega
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

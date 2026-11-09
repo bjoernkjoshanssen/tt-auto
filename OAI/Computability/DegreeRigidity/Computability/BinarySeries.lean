@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.Cuts
-import Mathlib.Analysis.Real.OfDigits
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.Cuts
+public import Mathlib.Analysis.Real.OfDigits
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

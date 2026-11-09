@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenPrefixOverwrite
-import OAI.Computability.DegreeRigidity.Effective.UniformTableSimulation
-import OAI.Computability.DegreeRigidity.SetModels.ModelDegreeUniverse
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleGroundReals
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenPrefixOverwrite
+public import OAI.Computability.DegreeRigidity.Effective.UniformTableSimulation
+public import OAI.Computability.DegreeRigidity.SetModels.ModelDegreeUniverse
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleGroundReals
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

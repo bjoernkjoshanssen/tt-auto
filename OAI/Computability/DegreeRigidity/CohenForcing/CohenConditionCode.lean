@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalFiniteSubsets
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenConditions
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenCoordinates
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalFiniteSubsets
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenConditions
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenCoordinates
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

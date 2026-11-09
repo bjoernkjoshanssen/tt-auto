@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.SourceTArithmeticAbsoluteness
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticParameterFormula
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.SourceTArithmeticAbsoluteness
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticParameterFormula
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

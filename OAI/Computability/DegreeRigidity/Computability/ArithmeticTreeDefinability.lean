@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticWitnessTree
-import Mathlib.Computability.Primrec.List
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticWitnessTree
+public import Mathlib.Computability.Primrec.List
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,11 +1,19 @@
-import Mathlib.Algebra.Order.Archimedean.Real.Basic
-import Mathlib.Data.Rat.Encodable
-import Mathlib.NumberTheory.Real.Irrational
-import Mathlib.Data.Set.Countable
-import Mathlib.Algebra.BigOperators.Group.Finset.Basic
-import Mathlib.Tactic.Linarith
-import Mathlib.Tactic.Ring
-import Mathlib.Tactic.FieldSimp
+module
+
+public import Mathlib.Algebra.Order.Archimedean.Real.Basic
+public import Mathlib.Data.Rat.Encodable
+public import Mathlib.NumberTheory.Real.Irrational
+public import Mathlib.Data.Set.Countable
+public import Mathlib.Algebra.BigOperators.Group.Finset.Basic
+public import Mathlib.Tactic.Linarith
+public import Mathlib.Tactic.Ring
+public import Mathlib.Tactic.FieldSimp
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

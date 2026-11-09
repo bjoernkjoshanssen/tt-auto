@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalUncountableComplement
-import OAI.Computability.DegreeRigidity.SetModels.InternalProductBijection
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenReindex
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenColumnReading
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalUncountableComplement
+public import OAI.Computability.DegreeRigidity.SetModels.InternalProductBijection
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenReindex
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenColumnReading
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

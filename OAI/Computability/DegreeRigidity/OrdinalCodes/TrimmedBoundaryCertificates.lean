@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.TrimmedProductGraph
-import OAI.Computability.DegreeRigidity.OrdinalCodes.TrimmedSumGraph
-import OAI.Computability.DegreeRigidity.OrdinalCodes.PaddedOmegaBoundary
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.TrimmedProductGraph
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.TrimmedSumGraph
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.PaddedOmegaBoundary
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

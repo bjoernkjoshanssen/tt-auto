@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.PrefixSingletonRealization
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenPrefixOverwrite
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.PrefixSingletonRealization
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenPrefixOverwrite
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

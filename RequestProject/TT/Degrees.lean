@@ -1,4 +1,12 @@
-import RequestProject.TT.Cantor
+module
+
+public import RequestProject.TT.Cantor
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Joins, the least tt-degree, and functions inducing automorphisms (Lemma 2.2)

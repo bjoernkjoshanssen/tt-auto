@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnAbsorption
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenPartitionJoint
-import OAI.Computability.DegreeRigidity.SetModels.InternalInverseIso
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnAbsorption
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenPartitionJoint
+public import OAI.Computability.DegreeRigidity.SetModels.InternalInverseIso
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

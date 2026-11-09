@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenBitFlip
-import OAI.Computability.DegreeRigidity.SetModels.InternalOrderIsoTransport
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnRealValue
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenBitFlip
+public import OAI.Computability.DegreeRigidity.SetModels.InternalOrderIsoTransport
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnRealValue
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Constructibility.UniformExtensionWitnessCover
-import OAI.Computability.DegreeRigidity.Constructibility.UniformSigmaSeparationName
-import OAI.Computability.DegreeRigidity.Representation.SourceTheory
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformExtensionWitnessCover
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformSigmaSeparationName
+public import OAI.Computability.DegreeRigidity.Representation.SourceTheory
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

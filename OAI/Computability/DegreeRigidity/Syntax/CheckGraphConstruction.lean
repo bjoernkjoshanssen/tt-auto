@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Syntax.CheckedCode
-import OAI.Computability.DegreeRigidity.SetModels.NameUnionCode
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.CheckedCode
+public import OAI.Computability.DegreeRigidity.SetModels.NameUnionCode
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

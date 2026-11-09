@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.SparseCohenRealName
-import OAI.Computability.DegreeRigidity.CohenForcing.SparseCohenFilter
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.SparseCohenRealName
+public import OAI.Computability.DegreeRigidity.CohenForcing.SparseCohenFilter
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

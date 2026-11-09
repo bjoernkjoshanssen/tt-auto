@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Syntax.BooleanProjection
-import Mathlib.Order.Heyting.Regular
-import Mathlib.Order.UpperLower.Principal
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.BooleanProjection
+public import Mathlib.Order.Heyting.Regular
+public import Mathlib.Order.UpperLower.Principal
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

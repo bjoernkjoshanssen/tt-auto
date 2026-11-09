@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.DenseInclusionExtension
-import OAI.Computability.DegreeRigidity.Representation.AutomorphismName
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.DenseInclusionExtension
+public import OAI.Computability.DegreeRigidity.Representation.AutomorphismName
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

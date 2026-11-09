@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.SparseCohenPrefixGeneric
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnRealValue
-import OAI.Computability.DegreeRigidity.SetModels.InternalSingletonColumn
-import OAI.Computability.DegreeRigidity.SetModels.InternalOrderIsoTransport
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.SparseCohenPrefixGeneric
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnRealValue
+public import OAI.Computability.DegreeRigidity.SetModels.InternalSingletonColumn
+public import OAI.Computability.DegreeRigidity.SetModels.InternalOrderIsoTransport
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

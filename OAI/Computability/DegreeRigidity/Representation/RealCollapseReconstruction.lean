@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.SetModels.CountedRealsPresentation
-import OAI.Computability.DegreeRigidity.Syntax.WeakExtensionContext
-import OAI.Computability.DegreeRigidity.SetModels.CollapseInternalCountingWithoutChoice
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.CountedRealsPresentation
+public import OAI.Computability.DegreeRigidity.Syntax.WeakExtensionContext
+public import OAI.Computability.DegreeRigidity.SetModels.CollapseInternalCountingWithoutChoice
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

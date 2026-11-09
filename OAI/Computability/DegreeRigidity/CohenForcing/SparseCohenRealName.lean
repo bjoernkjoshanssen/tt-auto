@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenName
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenNiceNameConstruction
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenGenericUnion
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenName
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenNiceNameConstruction
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenGenericUnion
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

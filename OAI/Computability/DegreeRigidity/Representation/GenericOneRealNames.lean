@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Constructibility.PersistentOneRealDefinition
-import OAI.Computability.DegreeRigidity.Syntax.SetSatisfactionBounded
-import OAI.Computability.DegreeRigidity.Constructibility.PersistentExtensionName
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.PersistentOneRealDefinition
+public import OAI.Computability.DegreeRigidity.Syntax.SetSatisfactionBounded
+public import OAI.Computability.DegreeRigidity.Constructibility.PersistentExtensionName
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

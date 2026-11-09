@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.OriginalRealUniformDefinition
-import OAI.Computability.DegreeRigidity.Effective.UniformCohenDefinitionExtension
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.OriginalRealUniformDefinition
+public import OAI.Computability.DegreeRigidity.Effective.UniformCohenDefinitionExtension
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

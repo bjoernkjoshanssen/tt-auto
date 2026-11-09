@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenHomogeneity
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenPartition
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenHomogeneity
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenPartition
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

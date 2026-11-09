@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.TupleRelation
-import OAI.Computability.DegreeRigidity.SetModels.InternalUniformization
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.TupleRelation
+public import OAI.Computability.DegreeRigidity.SetModels.InternalUniformization
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

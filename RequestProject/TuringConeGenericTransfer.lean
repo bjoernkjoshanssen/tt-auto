@@ -1,5 +1,13 @@
-import RequestProject.TuringConeSourceIdentity
-import OAI.Computability.DegreeRigidity.Representation.RealHullPrescribedTruth
+module
+
+public import RequestProject.TuringConeSourceIdentity
+public import OAI.Computability.DegreeRigidity.Representation.RealHullPrescribedTruth
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Transferring inverse representation from columns to arithmetic generics

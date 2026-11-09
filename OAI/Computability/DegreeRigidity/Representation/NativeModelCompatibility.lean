@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.SourceTGenericPersistence
-import OAI.Computability.DegreeRigidity.Constructibility.ParameterPersistentCollapse
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.SourceTGenericPersistence
+public import OAI.Computability.DegreeRigidity.Constructibility.ParameterPersistentCollapse
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

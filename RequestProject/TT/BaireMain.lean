@@ -1,4 +1,12 @@
-import RequestProject.TT.Decode
+module
+
+public import RequestProject.TT.Decode
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Baire measurable functions induce only the trivial automorphism

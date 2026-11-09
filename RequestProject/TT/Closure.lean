@@ -1,4 +1,12 @@
-import RequestProject.TT.Approx
+module
+
+public import RequestProject.TT.Approx
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Closure properties of tt-functionals

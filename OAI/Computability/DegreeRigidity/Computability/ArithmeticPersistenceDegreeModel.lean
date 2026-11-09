@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Constructibility.PersistenceExtensionAbsoluteness
-import OAI.Computability.DegreeRigidity.Representation.SourceTModelBridge
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.PersistenceExtensionAbsoluteness
+public import OAI.Computability.DegreeRigidity.Representation.SourceTModelBridge
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

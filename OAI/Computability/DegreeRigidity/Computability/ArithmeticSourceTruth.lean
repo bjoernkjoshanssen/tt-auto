@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticSourceEquation
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticGenericDensity
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticSourceEquation
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticGenericDensity
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

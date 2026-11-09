@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.RealHullPrescribedTruth
-import OAI.Computability.DegreeRigidity.Representation.PrescribedOracleValue
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.RealHullPrescribedTruth
+public import OAI.Computability.DegreeRigidity.Representation.PrescribedOracleValue
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

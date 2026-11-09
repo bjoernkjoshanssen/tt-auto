@@ -1,4 +1,12 @@
-import RequestProject.TT.BaireMain
+module
+
+public import RequestProject.TT.BaireMain
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Borel functions induce only the trivial automorphism (Theorem 1.1)

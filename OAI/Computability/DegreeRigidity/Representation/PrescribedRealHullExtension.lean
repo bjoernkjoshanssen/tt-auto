@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Representation.OriginalRealUniformExtension
-import OAI.Computability.DegreeRigidity.Representation.OwnDegreeExtensionMeaning
-import OAI.Computability.DegreeRigidity.Representation.PrescribedOneRealNames
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.OriginalRealUniformExtension
+public import OAI.Computability.DegreeRigidity.Representation.OwnDegreeExtensionMeaning
+public import OAI.Computability.DegreeRigidity.Representation.PrescribedOneRealNames
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

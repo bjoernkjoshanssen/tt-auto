@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Representation.PrescribedUnrestrictedGroundProgram
-import OAI.Computability.DegreeRigidity.Representation.OwnProgramValue
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenProgramTotality
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.PrescribedUnrestrictedGroundProgram
+public import OAI.Computability.DegreeRigidity.Representation.OwnProgramValue
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenProgramTotality
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

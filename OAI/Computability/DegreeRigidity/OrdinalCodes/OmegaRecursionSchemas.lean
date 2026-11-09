@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaPowerGraph
-import OAI.Computability.DegreeRigidity.Constructibility.ContextHierarchyGraph
-import OAI.Computability.DegreeRigidity.Syntax.SigmaCollectionClosure
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaPowerGraph
+public import OAI.Computability.DegreeRigidity.Constructibility.ContextHierarchyGraph
+public import OAI.Computability.DegreeRigidity.Syntax.SigmaCollectionClosure
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

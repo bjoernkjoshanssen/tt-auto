@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.CodeOperationCertificates
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalCodeBranch
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.CodeOperationCertificates
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalCodeBranch
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

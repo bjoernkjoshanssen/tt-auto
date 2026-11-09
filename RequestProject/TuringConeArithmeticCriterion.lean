@@ -1,5 +1,13 @@
-import RequestProject.TuringConeNumerical
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticPersistence
+module
+
+public import RequestProject.TuringConeNumerical
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticPersistence
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # An arithmetic matrix for cone persistence

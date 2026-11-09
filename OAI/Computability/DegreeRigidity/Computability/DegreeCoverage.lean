@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Computability.BinaryCut
-import OAI.Computability.DegreeRigidity.Computability.BinaryRecovery
-import OAI.Computability.DegreeRigidity.Representation.Assembly
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.BinaryCut
+public import OAI.Computability.DegreeRigidity.Computability.BinaryRecovery
+public import OAI.Computability.DegreeRigidity.Representation.Assembly
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Representation.RealHullGenericTriple
-import OAI.Computability.DegreeRigidity.Representation.RealHullColumnRealization
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticFiniteTruthTransfer
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.RealHullGenericTriple
+public import OAI.Computability.DegreeRigidity.Representation.RealHullColumnRealization
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticFiniteTruthTransfer
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalHartogs
-import OAI.Computability.DegreeRigidity.SetModels.InternalChoice
-import OAI.Computability.DegreeRigidity.Syntax.TermFunctionality
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalHartogs
+public import OAI.Computability.DegreeRigidity.SetModels.InternalChoice
+public import OAI.Computability.DegreeRigidity.Syntax.TermFunctionality
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

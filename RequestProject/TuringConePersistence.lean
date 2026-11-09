@@ -1,7 +1,15 @@
-import RequestProject.TuringConeRepresentation
-import OAI.Computability.DegreeRigidity.Constructibility.PersistentRestrictions
-import OAI.Computability.DegreeRigidity.Computability.JumpProperties
-import OAI.Computability.DegreeRigidity.SetModels.CountableBound
+module
+
+public import RequestProject.TuringConeRepresentation
+public import OAI.Computability.DegreeRigidity.Constructibility.PersistentRestrictions
+public import OAI.Computability.DegreeRigidity.Computability.JumpProperties
+public import OAI.Computability.DegreeRigidity.SetModels.CountableBound
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Countable restrictions of cone isomorphisms

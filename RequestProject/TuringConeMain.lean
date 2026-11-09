@@ -1,6 +1,14 @@
-import RequestProject.TuringConePrescribedProgram
-import OAI.Computability.DegreeRigidity.SetModels.ValidFirstUncountable
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenGroundGeneric
+module
+
+public import RequestProject.TuringConePrescribedProgram
+public import OAI.Computability.DegreeRigidity.SetModels.ValidFirstUncountable
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenGroundGeneric
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Cone rigidity from a uniform generic inverse program

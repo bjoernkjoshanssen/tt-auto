@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.GenericIdentity
-import OAI.Computability.DegreeRigidity.Representation.GenericRepresentation
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.GenericIdentity
+public import OAI.Computability.DegreeRigidity.Representation.GenericRepresentation
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

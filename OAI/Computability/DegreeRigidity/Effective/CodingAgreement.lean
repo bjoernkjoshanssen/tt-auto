@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.CodingForcing
-import OAI.Computability.DegreeRigidity.Representation.CommonIdealSearch
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.CodingForcing
+public import OAI.Computability.DegreeRigidity.Representation.CommonIdealSearch
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Representation.SameExtensionIteration
-import OAI.Computability.DegreeRigidity.Representation.GroundIteratedTriple
-import OAI.Computability.DegreeRigidity.Effective.TriplePrefix
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.SameExtensionIteration
+public import OAI.Computability.DegreeRigidity.Representation.GroundIteratedTriple
+public import OAI.Computability.DegreeRigidity.Effective.TriplePrefix
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

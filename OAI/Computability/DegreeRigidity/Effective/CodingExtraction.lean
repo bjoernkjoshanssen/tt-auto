@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.CodingSplitSearch
-import OAI.Computability.DegreeRigidity.Effective.RecursiveInfiniteSubset
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.CodingSplitSearch
+public import OAI.Computability.DegreeRigidity.Effective.RecursiveInfiniteSubset
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

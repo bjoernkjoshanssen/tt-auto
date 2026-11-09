@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.Representation.NativeGenericWitness
-import OAI.Computability.DegreeRigidity.Constructibility.RelativePersistentDescent
-import OAI.Computability.DegreeRigidity.Constructibility.FixedRelativeGround
-import OAI.Computability.DegreeRigidity.Representation.CommonGenericModels
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.NativeGenericWitness
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativePersistentDescent
+public import OAI.Computability.DegreeRigidity.Constructibility.FixedRelativeGround
+public import OAI.Computability.DegreeRigidity.Representation.CommonGenericModels
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

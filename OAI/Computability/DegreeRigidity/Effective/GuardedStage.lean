@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.Effective.GuardedPair
-import OAI.Computability.DegreeRigidity.CohenForcing.EffectiveForcing
-import OAI.Computability.DegreeRigidity.Effective.FiniteInjuryLimits
-import OAI.Computability.DegreeRigidity.Effective.FiniteInjurySchedule
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.GuardedPair
+public import OAI.Computability.DegreeRigidity.CohenForcing.EffectiveForcing
+public import OAI.Computability.DegreeRigidity.Effective.FiniteInjuryLimits
+public import OAI.Computability.DegreeRigidity.Effective.FiniteInjurySchedule
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

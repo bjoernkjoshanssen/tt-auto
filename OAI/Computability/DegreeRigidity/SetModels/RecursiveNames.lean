@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CountableForcing
-import Mathlib.SetTheory.ZFC.Basic
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CountableForcing
+public import Mathlib.SetTheory.ZFC.Basic
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

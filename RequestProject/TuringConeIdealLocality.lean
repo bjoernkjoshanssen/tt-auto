@@ -1,7 +1,15 @@
-import RequestProject.TuringConeRelativeUnary
-import RequestProject.TuringConeIdealForwardCoding
-import RequestProject.TuringConeLocality
-import OAI.Computability.DegreeRigidity.SetModels.IdealLocality
+module
+
+public import RequestProject.TuringConeRelativeUnary
+public import RequestProject.TuringConeIdealForwardCoding
+public import RequestProject.TuringConeLocality
+public import OAI.Computability.DegreeRigidity.SetModels.IdealLocality
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Two-sided locality for partial cone isomorphisms

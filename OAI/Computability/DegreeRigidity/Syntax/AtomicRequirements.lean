@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Syntax.AtomicEncoding
-import OAI.Computability.DegreeRigidity.SetModels.NameExtension
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.AtomicEncoding
+public import OAI.Computability.DegreeRigidity.SetModels.NameExtension
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,4 +1,12 @@
-import RequestProject.TT.Closure
+module
+
+public import RequestProject.TT.Closure
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # The 2-adic group structure on Cantor space

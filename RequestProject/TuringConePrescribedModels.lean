@@ -1,6 +1,14 @@
-import RequestProject.TuringConeForcingDefinition
-import OAI.Computability.DegreeRigidity.Representation.GlobalJumpRestriction
-import OAI.Computability.DegreeRigidity.Representation.ParameterCoveringModels
+module
+
+public import RequestProject.TuringConeForcingDefinition
+public import OAI.Computability.DegreeRigidity.Representation.GlobalJumpRestriction
+public import OAI.Computability.DegreeRigidity.Representation.ParameterCoveringModels
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Prescribed models for an arbitrary global cone map

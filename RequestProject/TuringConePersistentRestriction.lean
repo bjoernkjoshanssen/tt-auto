@@ -1,4 +1,12 @@
-import RequestProject.TuringConePersistentLocality
+module
+
+public import RequestProject.TuringConePersistentLocality
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Arithmetic restrictions without assuming persistence

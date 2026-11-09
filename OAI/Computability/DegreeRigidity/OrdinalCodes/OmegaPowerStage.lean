@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalProductReplacement
-import OAI.Computability.DegreeRigidity.Constructibility.HierarchySyntax
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalProductReplacement
+public import OAI.Computability.DegreeRigidity.Constructibility.HierarchySyntax
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

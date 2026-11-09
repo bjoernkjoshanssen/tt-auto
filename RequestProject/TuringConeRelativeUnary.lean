@@ -1,5 +1,13 @@
-import RequestProject.TuringConeRelativeRelations
-import OAI.Computability.DegreeRigidity.Effective.LocalUnary
+module
+
+public import RequestProject.TuringConeRelativeRelations
+public import OAI.Computability.DegreeRigidity.Effective.LocalUnary
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Localized unary coding in a principal cone

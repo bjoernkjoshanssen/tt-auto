@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticPresentation
-import OAI.Computability.DegreeRigidity.SetModels.IdealEnumeration
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticPresentation
+public import OAI.Computability.DegreeRigidity.SetModels.IdealEnumeration
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

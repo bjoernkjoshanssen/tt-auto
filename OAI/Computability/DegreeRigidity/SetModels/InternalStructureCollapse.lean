@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.MostowskiCollapse
-import OAI.Computability.DegreeRigidity.Syntax.FormulaIsomorphism
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.MostowskiCollapse
+public import OAI.Computability.DegreeRigidity.Syntax.FormulaIsomorphism
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

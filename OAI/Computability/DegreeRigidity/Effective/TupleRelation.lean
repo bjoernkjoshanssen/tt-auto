@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.TupleFormula
-import OAI.Computability.DegreeRigidity.SetModels.InternalContainer
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.TupleFormula
+public import OAI.Computability.DegreeRigidity.SetModels.InternalContainer
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

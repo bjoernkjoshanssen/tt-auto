@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticOracles
-import OAI.Computability.DegreeRigidity.Effective.FiniteShuffleComputation
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticOracles
+public import OAI.Computability.DegreeRigidity.Effective.FiniteShuffleComputation
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

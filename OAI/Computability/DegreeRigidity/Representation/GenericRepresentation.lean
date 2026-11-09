@@ -1,8 +1,16 @@
-import OAI.Computability.DegreeRigidity.Representation.PairGenericSelection
-import OAI.Computability.DegreeRigidity.Representation.CommonIdealSelection
-import OAI.Computability.DegreeRigidity.SetModels.ContinuousCode
-import OAI.Computability.DegreeRigidity.Representation.RepresentationEndgame
-import OAI.Computability.DegreeRigidity.Representation.CoverageMain
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.PairGenericSelection
+public import OAI.Computability.DegreeRigidity.Representation.CommonIdealSelection
+public import OAI.Computability.DegreeRigidity.SetModels.ContinuousCode
+public import OAI.Computability.DegreeRigidity.Representation.RepresentationEndgame
+public import OAI.Computability.DegreeRigidity.Representation.CoverageMain
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

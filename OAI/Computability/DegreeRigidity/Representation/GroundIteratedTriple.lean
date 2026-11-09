@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticIteratedJoin
-import OAI.Computability.DegreeRigidity.Representation.GroundArithmeticGeneric
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenPrefixHull
-import OAI.Computability.DegreeRigidity.Representation.GenericSourceTransfer
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticIteratedJoin
+public import OAI.Computability.DegreeRigidity.Representation.GroundArithmeticGeneric
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenPrefixHull
+public import OAI.Computability.DegreeRigidity.Representation.GenericSourceTransfer
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

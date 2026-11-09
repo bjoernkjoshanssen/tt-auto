@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.CutTranscript
-import OAI.Computability.DegreeRigidity.Computability.RationalCut
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.CutTranscript
+public import OAI.Computability.DegreeRigidity.Computability.RationalCut
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

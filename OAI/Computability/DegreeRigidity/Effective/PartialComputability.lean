@@ -1,4 +1,12 @@
-import Mathlib.Computability.PartrecCode
+module
+
+public import Mathlib.Computability.PartrecCode
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

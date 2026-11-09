@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.MostowskiCollapse
-import Mathlib.SetTheory.ZFC.Ordinal
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.MostowskiCollapse
+public import Mathlib.SetTheory.ZFC.Ordinal
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

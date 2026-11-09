@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Computability.OracleCode
-import OAI.Computability.DegreeRigidity.Representation.Category
-import Mathlib.MeasureTheory.Constructions.BorelSpace.Real
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.OracleCode
+public import OAI.Computability.DegreeRigidity.Representation.Category
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Real
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Constructibility.UniformPowerName
-import OAI.Computability.DegreeRigidity.Representation.GroundInclusion
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeConstruction
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformPowerName
+public import OAI.Computability.DegreeRigidity.Representation.GroundInclusion
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeConstruction
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

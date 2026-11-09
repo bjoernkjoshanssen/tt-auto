@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Syntax.LevySigmaSchemas
-import OAI.Computability.DegreeRigidity.SetModels.ExtensionChoice
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.LevySigmaSchemas
+public import OAI.Computability.DegreeRigidity.SetModels.ExtensionChoice
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

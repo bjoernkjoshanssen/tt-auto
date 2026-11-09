@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenBorelForcing
-import OAI.Computability.DegreeRigidity.CohenForcing.ForcingSymmetry
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenBorelForcing
+public import OAI.Computability.DegreeRigidity.CohenForcing.ForcingSymmetry
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

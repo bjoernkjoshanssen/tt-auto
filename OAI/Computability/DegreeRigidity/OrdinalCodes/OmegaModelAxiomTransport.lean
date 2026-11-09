@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaModelSyntax
-import OAI.Computability.DegreeRigidity.SetModels.SetModelFunctionGraphs
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaModelSyntax
+public import OAI.Computability.DegreeRigidity.SetModels.SetModelFunctionGraphs
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

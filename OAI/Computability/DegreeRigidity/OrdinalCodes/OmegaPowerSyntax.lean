@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaGraphSyntax
-import OAI.Computability.DegreeRigidity.OrdinalCodes.CanonicalOmegaSyntax
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaGraphRestriction
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaGraphSyntax
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.CanonicalOmegaSyntax
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaGraphRestriction
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

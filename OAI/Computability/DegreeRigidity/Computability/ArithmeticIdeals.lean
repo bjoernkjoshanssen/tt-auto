@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticRelations
-import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericalIdeal
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticRelations
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericalIdeal
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

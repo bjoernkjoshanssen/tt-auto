@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalQuotientRequirement
-import OAI.Computability.DegreeRigidity.CohenForcing.RestrictedForcingFilter
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalQuotientRequirement
+public import OAI.Computability.DegreeRigidity.CohenForcing.RestrictedForcingFilter
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

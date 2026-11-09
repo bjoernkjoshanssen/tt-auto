@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.UniformPrograms
-import OAI.Computability.DegreeRigidity.Representation.GenericTopology
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.UniformPrograms
+public import OAI.Computability.DegreeRigidity.Representation.GenericTopology
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

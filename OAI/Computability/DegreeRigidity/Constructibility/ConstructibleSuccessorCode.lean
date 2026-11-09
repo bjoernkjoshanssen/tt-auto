@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleSatisfaction
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleStages
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleSatisfaction
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleStages
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

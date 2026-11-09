@@ -1,5 +1,13 @@
-import RequestProject.TuringConeOracleProgram
-import OAI.Computability.DegreeRigidity.Representation.OriginalRealUniformDefinition
+module
+
+public import RequestProject.TuringConeOracleProgram
+public import OAI.Computability.DegreeRigidity.Representation.OriginalRealUniformDefinition
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Absorb an extension-real parameter before selecting the program

@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenChainCondition
-import Mathlib.Order.Zorn
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenChainCondition
+public import Mathlib.Order.Zorn
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

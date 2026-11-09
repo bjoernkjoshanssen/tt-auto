@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Syntax.PrimitivePredicateFormula
-import OAI.Computability.DegreeRigidity.SetModels.ModelReals
-import OAI.Computability.DegreeRigidity.Computability.UniformArithmetic
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.PrimitivePredicateFormula
+public import OAI.Computability.DegreeRigidity.SetModels.ModelReals
+public import OAI.Computability.DegreeRigidity.Computability.UniformArithmetic
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

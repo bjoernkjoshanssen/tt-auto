@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.Computability.BinaryMachine
-import OAI.Computability.DegreeRigidity.Computability.BranchFrequency
-import OAI.Computability.DegreeRigidity.Effective.ProgramSelection
-import Mathlib.Order.Interval.Finset.Basic
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.BinaryMachine
+public import OAI.Computability.DegreeRigidity.Computability.BranchFrequency
+public import OAI.Computability.DegreeRigidity.Effective.ProgramSelection
+public import Mathlib.Order.Interval.Finset.Basic
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

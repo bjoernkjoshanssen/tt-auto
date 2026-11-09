@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.SetModels.RecursiveOmegaBound
-import OAI.Computability.DegreeRigidity.Constructibility.InternalOmegaFixedPoint
-import OAI.Computability.DegreeRigidity.OrdinalCodes.VectorCodeLevels
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.RecursiveOmegaBound
+public import OAI.Computability.DegreeRigidity.Constructibility.InternalOmegaFixedPoint
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.VectorCodeLevels
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

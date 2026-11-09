@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Syntax.AtomicTruth
-import OAI.Computability.DegreeRigidity.Syntax.BoundedRelations
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.AtomicTruth
+public import OAI.Computability.DegreeRigidity.Syntax.BoundedRelations
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

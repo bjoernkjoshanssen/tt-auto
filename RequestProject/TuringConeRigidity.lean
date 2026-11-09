@@ -1,4 +1,12 @@
-import OAI.Computability.DegreeRigidity.Representation.CoverageMain
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.CoverageMain
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # A one-sided Borel obstruction to isomorphisms with proper Turing cones

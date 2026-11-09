@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenConditionCode
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenChainCondition
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenConditionCode
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenChainCondition
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

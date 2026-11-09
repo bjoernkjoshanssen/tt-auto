@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Constructibility.UniformSigmaHull
-import OAI.Computability.DegreeRigidity.Syntax.BoundedSupport
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformSigmaHull
+public import OAI.Computability.DegreeRigidity.Syntax.BoundedSupport
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

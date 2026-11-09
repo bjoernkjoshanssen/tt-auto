@@ -1,4 +1,12 @@
-import RequestProject.TuringConePersistenceAbsoluteness
+module
+
+public import RequestProject.TuringConePersistenceAbsoluteness
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Internal persistence witnessed by real codes

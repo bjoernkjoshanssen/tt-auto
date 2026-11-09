@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.SetModelArithmeticDischarge
-import OAI.Computability.DegreeRigidity.SetModels.CountableSetReal
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.SetModelArithmeticDischarge
+public import OAI.Computability.DegreeRigidity.SetModels.CountableSetReal
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

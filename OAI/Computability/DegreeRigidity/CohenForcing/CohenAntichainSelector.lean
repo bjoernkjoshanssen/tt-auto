@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalRelationSelection
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenInternalDecision
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalRelationSelection
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenInternalDecision
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

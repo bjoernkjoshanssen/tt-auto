@@ -1,5 +1,13 @@
-import RequestProject.TuringConePrescribedModels
-import OAI.Computability.DegreeRigidity.Representation.OwnProgramValue
+module
+
+public import RequestProject.TuringConePrescribedModels
+public import OAI.Computability.DegreeRigidity.Representation.OwnProgramValue
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # The inverse-join graph and oracle-program semantics

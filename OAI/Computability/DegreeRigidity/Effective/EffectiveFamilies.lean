@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Effective.GuardedCoding
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumns
-import OAI.Computability.DegreeRigidity.Syntax.BoundedDecoding
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.GuardedCoding
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumns
+public import OAI.Computability.DegreeRigidity.Syntax.BoundedDecoding
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

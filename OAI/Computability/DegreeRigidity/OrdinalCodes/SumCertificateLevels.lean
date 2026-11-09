@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.SumCertificates
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalSumLevels
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.SumCertificates
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalSumLevels
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

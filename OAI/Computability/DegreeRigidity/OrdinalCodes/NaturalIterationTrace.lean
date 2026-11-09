@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.FiniteNaturalGraph
-import OAI.Computability.DegreeRigidity.Effective.TupleFormula
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.FiniteNaturalGraph
+public import OAI.Computability.DegreeRigidity.Effective.TupleFormula
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

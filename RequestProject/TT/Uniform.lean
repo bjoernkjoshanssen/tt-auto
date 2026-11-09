@@ -1,4 +1,12 @@
-import RequestProject.TT.Defs
+module
+
+public import RequestProject.TT.Defs
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Uniform oracle programs

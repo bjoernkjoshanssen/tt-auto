@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalCheckRecursion
-import OAI.Computability.DegreeRigidity.SetModels.InternalContainer
-import OAI.Computability.DegreeRigidity.SetModels.InternalSequenceRange
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalCheckRecursion
+public import OAI.Computability.DegreeRigidity.SetModels.InternalContainer
+public import OAI.Computability.DegreeRigidity.SetModels.InternalSequenceRange
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

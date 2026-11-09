@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.IdealInterpretation
-import OAI.Computability.DegreeRigidity.Effective.CodingBounds
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.IdealInterpretation
+public import OAI.Computability.DegreeRigidity.Effective.CodingBounds
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

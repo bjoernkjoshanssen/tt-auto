@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalOrderIsoTransport
-import OAI.Computability.DegreeRigidity.SetModels.InternalInverseGraph
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalOrderIsoTransport
+public import OAI.Computability.DegreeRigidity.SetModels.InternalInverseGraph
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

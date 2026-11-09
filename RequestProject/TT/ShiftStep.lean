@@ -1,4 +1,12 @@
-import RequestProject.TT.Degrees
+module
+
+public import RequestProject.TT.Degrees
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Step 3 of Proposition 3.1: the shift functional

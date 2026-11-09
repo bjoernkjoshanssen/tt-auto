@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.LocalCoding
-import OAI.Computability.DegreeRigidity.SetModels.FixedArithmetic
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.LocalCoding
+public import OAI.Computability.DegreeRigidity.SetModels.FixedArithmetic
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

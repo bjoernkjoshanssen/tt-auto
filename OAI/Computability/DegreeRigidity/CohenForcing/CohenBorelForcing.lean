@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CountableForcing
-import OAI.Computability.DegreeRigidity.Representation.GenericTruth
-import OAI.Computability.DegreeRigidity.Representation.GenericFiberIdeal
-import OAI.Computability.DegreeRigidity.Representation.GenericSourceTransfer
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CountableForcing
+public import OAI.Computability.DegreeRigidity.Representation.GenericTruth
+public import OAI.Computability.DegreeRigidity.Representation.GenericFiberIdeal
+public import OAI.Computability.DegreeRigidity.Representation.GenericSourceTransfer
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

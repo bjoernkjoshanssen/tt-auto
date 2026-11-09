@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Computability.CutAddition
-import OAI.Computability.DegreeRigidity.Computability.ScalarCoding
-import OAI.Computability.DegreeRigidity.Representation.Assembly
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.CutAddition
+public import OAI.Computability.DegreeRigidity.Computability.ScalarCoding
+public import OAI.Computability.DegreeRigidity.Representation.Assembly
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

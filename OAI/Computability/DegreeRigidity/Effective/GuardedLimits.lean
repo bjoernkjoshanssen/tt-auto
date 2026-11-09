@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.Effective.GuardedComputability
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenCompleteness
-import OAI.Computability.DegreeRigidity.Effective.CodingDiagonal
-import OAI.Computability.DegreeRigidity.Effective.CodingExtraction
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.GuardedComputability
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenCompleteness
+public import OAI.Computability.DegreeRigidity.Effective.CodingDiagonal
+public import OAI.Computability.DegreeRigidity.Effective.CodingExtraction
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

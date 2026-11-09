@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.FiniteShuffleCertificate
-import OAI.Computability.DegreeRigidity.CohenForcing.EncodedForcing
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.FiniteShuffleCertificate
+public import OAI.Computability.DegreeRigidity.CohenForcing.EncodedForcing
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

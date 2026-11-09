@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.CollapsePrefixAbsolute
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenRecursiveName
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.CollapsePrefixAbsolute
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenRecursiveName
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

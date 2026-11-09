@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenFreshColumn
-import OAI.Computability.DegreeRigidity.SetModels.InternalOrderIsoTransport
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenFreshColumn
+public import OAI.Computability.DegreeRigidity.SetModels.InternalOrderIsoTransport
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

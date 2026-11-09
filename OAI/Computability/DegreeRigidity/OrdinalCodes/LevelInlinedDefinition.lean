@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructionStageBound
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeModelPower
-import OAI.Computability.DegreeRigidity.Constructibility.PersistentConstruction
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructionStageBound
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeModelPower
+public import OAI.Computability.DegreeRigidity.Constructibility.PersistentConstruction
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

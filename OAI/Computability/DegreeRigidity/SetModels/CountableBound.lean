@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.UniformOracle
-import OAI.Computability.DegreeRigidity.Computability.Joins
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.UniformOracle
+public import OAI.Computability.DegreeRigidity.Computability.Joins
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

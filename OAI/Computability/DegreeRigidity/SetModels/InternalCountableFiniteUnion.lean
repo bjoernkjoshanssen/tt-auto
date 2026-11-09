@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalFiniteEnumeration
-import OAI.Computability.DegreeRigidity.SetModels.CountableSetReal
-import OAI.Computability.DegreeRigidity.SetModels.InternalFunctionOrbit
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalFiniteEnumeration
+public import OAI.Computability.DegreeRigidity.SetModels.CountableSetReal
+public import OAI.Computability.DegreeRigidity.SetModels.InternalFunctionOrbit
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

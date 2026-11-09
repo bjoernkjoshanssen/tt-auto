@@ -1,4 +1,12 @@
-import RequestProject.TuringConeMain
+module
+
+public import RequestProject.TuringConeMain
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 #print axioms OAI.TuringRigidity.ConeSourceIdentity.imageJoin_degree
 #print axioms OAI.TuringRigidity.ConeSourceIdentity.source_intersection

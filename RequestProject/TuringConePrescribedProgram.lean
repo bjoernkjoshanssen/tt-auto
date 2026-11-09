@@ -1,7 +1,15 @@
-import RequestProject.TuringConeRealParameterProgram
-import RequestProject.TuringConePullbackDefinition
-import RequestProject.TuringConeGenericTransfer
-import OAI.Computability.DegreeRigidity.SetModels.NoNewOrdinals
+module
+
+public import RequestProject.TuringConeRealParameterProgram
+public import RequestProject.TuringConePullbackDefinition
+public import RequestProject.TuringConeGenericTransfer
+public import OAI.Computability.DegreeRigidity.SetModels.NoNewOrdinals
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # A prescribed inverse program for one Cohen extension

@@ -1,6 +1,14 @@
-import RequestProject.TuringConeForcingDescent
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeDegreeIdeal
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructionDefinition
+module
+
+public import RequestProject.TuringConeForcingDescent
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeDegreeIdeal
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructionDefinition
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Persistent cone extensions in the relative constructible model

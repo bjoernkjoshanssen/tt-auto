@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalOrderPresentation
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeLevySchemas
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalOrderPresentation
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeLevySchemas
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

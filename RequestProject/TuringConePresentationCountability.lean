@@ -1,4 +1,12 @@
-import RequestProject.TuringConePresentation
+module
+
+public import RequestProject.TuringConePresentation
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Countability of arithmetic partial cone isomorphisms

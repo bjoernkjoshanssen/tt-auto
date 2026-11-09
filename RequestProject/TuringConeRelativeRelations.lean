@@ -1,5 +1,13 @@
-import RequestProject.TuringConeRelativeAntichain
-import OAI.Computability.DegreeRigidity.Effective.EffectiveRelations
+module
+
+public import RequestProject.TuringConeRelativeAntichain
+public import OAI.Computability.DegreeRigidity.Effective.EffectiveRelations
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Uniform relation codes inside a principal cone

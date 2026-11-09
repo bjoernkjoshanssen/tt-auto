@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenGroundJump
-import OAI.Computability.DegreeRigidity.Effective.UniformCohenIteration
-import OAI.Computability.DegreeRigidity.Effective.UniformTableSimulation
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenGroundJump
+public import OAI.Computability.DegreeRigidity.Effective.UniformCohenIteration
+public import OAI.Computability.DegreeRigidity.Effective.UniformTableSimulation
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.CountedOriginalRealQuotient
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenFactorIteration
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.CountedOriginalRealQuotient
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenFactorIteration
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

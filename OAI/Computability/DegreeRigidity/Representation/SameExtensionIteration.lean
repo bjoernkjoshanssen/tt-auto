@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.SameExtensionCommonIdeal
-import OAI.Computability.DegreeRigidity.Effective.FiniteOverwriteHull
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.SameExtensionCommonIdeal
+public import OAI.Computability.DegreeRigidity.Effective.FiniteOverwriteHull
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

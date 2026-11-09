@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalFunctionOrbit
-import OAI.Computability.DegreeRigidity.SetModels.InternalSerialSelection
-import OAI.Computability.DegreeRigidity.Representation.SourceTWellFounded
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalFunctionOrbit
+public import OAI.Computability.DegreeRigidity.SetModels.InternalSerialSelection
+public import OAI.Computability.DegreeRigidity.Representation.SourceTWellFounded
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

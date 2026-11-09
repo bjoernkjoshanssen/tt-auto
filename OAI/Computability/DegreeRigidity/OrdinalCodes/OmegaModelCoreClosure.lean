@@ -1,4 +1,12 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaModelCollapse
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaModelCollapse
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

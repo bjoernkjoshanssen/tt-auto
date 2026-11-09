@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalHull
-import OAI.Computability.DegreeRigidity.OrdinalCodes.RankGraphConstruction
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalHull
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.RankGraphConstruction
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticShuffleCertificate
-import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericalCohenSets
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenFilters
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticShuffleCertificate
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericalCohenSets
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenFilters
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

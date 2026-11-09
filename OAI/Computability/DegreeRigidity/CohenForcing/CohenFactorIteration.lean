@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenUntouchedGeneric
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenFactorReconstruction
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenUntouchedGeneric
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenFactorReconstruction
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

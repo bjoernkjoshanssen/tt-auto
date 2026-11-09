@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Constructibility.ParameterFreeOrdinalStage
-import OAI.Computability.DegreeRigidity.Representation.OwnRealsLevelDefinition
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.ParameterFreeOrdinalStage
+public import OAI.Computability.DegreeRigidity.Representation.OwnRealsLevelDefinition
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

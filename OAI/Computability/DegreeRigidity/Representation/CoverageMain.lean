@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.CategoryMain
-import OAI.Computability.DegreeRigidity.Computability.DegreeCoverage
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.CategoryMain
+public import OAI.Computability.DegreeRigidity.Computability.DegreeCoverage
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

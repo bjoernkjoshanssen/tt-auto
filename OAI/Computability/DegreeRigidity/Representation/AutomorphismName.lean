@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Representation.AutomorphismUnion
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenSymmetry
-import OAI.Computability.DegreeRigidity.Representation.SourceEquationTail
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.AutomorphismUnion
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenSymmetry
+public import OAI.Computability.DegreeRigidity.Representation.SourceEquationTail
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

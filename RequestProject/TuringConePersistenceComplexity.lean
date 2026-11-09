@@ -1,5 +1,13 @@
-import RequestProject.TuringConeArithmeticCriterion
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticPresentationProperty
+module
+
+public import RequestProject.TuringConeArithmeticCriterion
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticPresentationProperty
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # A uniform Pi-1-1 definition of persistent cone maps

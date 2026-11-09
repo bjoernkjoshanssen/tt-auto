@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.RegularProjection
-import OAI.Computability.DegreeRigidity.SetModels.GeneratedBooleanPart
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.RegularProjection
+public import OAI.Computability.DegreeRigidity.SetModels.GeneratedBooleanPart
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

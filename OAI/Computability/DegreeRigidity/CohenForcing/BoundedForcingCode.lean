@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.BoundedForcing
-import OAI.Computability.DegreeRigidity.Syntax.AtomicCertificate
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.BoundedForcing
+public import OAI.Computability.DegreeRigidity.Syntax.AtomicCertificate
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

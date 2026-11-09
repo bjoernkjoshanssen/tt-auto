@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.ParameterCoveringModels
-import OAI.Computability.DegreeRigidity.Representation.GroundDegreeCollapse
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.ParameterCoveringModels
+public import OAI.Computability.DegreeRigidity.Representation.GroundDegreeCollapse
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

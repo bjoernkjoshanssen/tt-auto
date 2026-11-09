@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Constructibility.UniformSigmaHierarchy
-import OAI.Computability.DegreeRigidity.Constructibility.UniformSigmaUniqueName
-import OAI.Computability.DegreeRigidity.Constructibility.UniformOwnRealsName
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformSigmaHierarchy
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformSigmaUniqueName
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformOwnRealsName
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

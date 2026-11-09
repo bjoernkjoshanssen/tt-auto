@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.ForcingProjection
-import Mathlib.Order.CompleteSublattice
-import Mathlib.Order.CompleteBooleanAlgebra
-import Mathlib.Data.Set.Countable
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.ForcingProjection
+public import Mathlib.Order.CompleteSublattice
+public import Mathlib.Order.CompleteBooleanAlgebra
+public import Mathlib.Data.Set.Countable
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

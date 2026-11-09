@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeConstruction
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleSuccessorCode
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeConstruction
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleSuccessorCode
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

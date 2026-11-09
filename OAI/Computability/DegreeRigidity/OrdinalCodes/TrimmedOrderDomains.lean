@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Constructibility.FiniteStageSetBounds
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalProductSets
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalSumSets
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.FiniteStageSetBounds
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalProductSets
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalSumSets
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

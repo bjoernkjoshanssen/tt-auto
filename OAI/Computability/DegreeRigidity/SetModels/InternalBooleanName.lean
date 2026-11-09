@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalBooleanTop
-import OAI.Computability.DegreeRigidity.SetModels.InternalSubsetSequence
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalBooleanTop
+public import OAI.Computability.DegreeRigidity.SetModels.InternalSubsetSequence
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

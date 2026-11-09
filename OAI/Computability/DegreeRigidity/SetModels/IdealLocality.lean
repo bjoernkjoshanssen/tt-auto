@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.LocalUnary
-import OAI.Computability.DegreeRigidity.SetModels.IdealCopy
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.LocalUnary
+public import OAI.Computability.DegreeRigidity.SetModels.IdealCopy
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

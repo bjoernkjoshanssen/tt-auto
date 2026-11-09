@@ -1,4 +1,12 @@
-import RequestProject.TuringConePersistentRestriction
+module
+
+public import RequestProject.TuringConePersistentRestriction
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Persistent extensions of partial cone isomorphisms

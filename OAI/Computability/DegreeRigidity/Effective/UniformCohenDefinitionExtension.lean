@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.HomogeneousDegreeExtension
-import OAI.Computability.DegreeRigidity.Effective.UniformCohenDefinitionSymmetry
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.HomogeneousDegreeExtension
+public import OAI.Computability.DegreeRigidity.Effective.UniformCohenDefinitionSymmetry
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.SourceTAbsolutenessEndpoint
-import OAI.Computability.DegreeRigidity.Representation.SourceTGenericExistence
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.SourceTAbsolutenessEndpoint
+public import OAI.Computability.DegreeRigidity.Representation.SourceTGenericExistence
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticTables
-import OAI.Computability.DegreeRigidity.Computability.OracleJump
-import OAI.Computability.DegreeRigidity.CohenForcing.EncodedForcing
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticTables
+public import OAI.Computability.DegreeRigidity.Computability.OracleJump
+public import OAI.Computability.DegreeRigidity.CohenForcing.EncodedForcing
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

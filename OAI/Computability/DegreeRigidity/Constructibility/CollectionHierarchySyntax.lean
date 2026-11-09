@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Constructibility.ContextHierarchyGraph
-import OAI.Computability.DegreeRigidity.Syntax.SigmaCollectionClosure
-import OAI.Computability.DegreeRigidity.Constructibility.HierarchySyntax
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.ContextHierarchyGraph
+public import OAI.Computability.DegreeRigidity.Syntax.SigmaCollectionClosure
+public import OAI.Computability.DegreeRigidity.Constructibility.HierarchySyntax
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

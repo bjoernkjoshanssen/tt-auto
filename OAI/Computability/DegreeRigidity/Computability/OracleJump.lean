@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticHierarchy
-import OAI.Computability.DegreeRigidity.OrdinalCodes.IndexMatrix
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticHierarchy
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.IndexMatrix
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

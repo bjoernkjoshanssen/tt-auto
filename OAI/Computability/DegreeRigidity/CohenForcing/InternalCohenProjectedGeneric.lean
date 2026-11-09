@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenFactor
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenProductFilters
-import OAI.Computability.DegreeRigidity.Representation.CountableGroundGeneric
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenFactor
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenProductFilters
+public import OAI.Computability.DegreeRigidity.Representation.CountableGroundGeneric
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

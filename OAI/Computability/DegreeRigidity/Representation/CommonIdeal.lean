@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Effective.FiniteTranscript
-import OAI.Computability.DegreeRigidity.Representation.BorelGeneric
-import OAI.Computability.DegreeRigidity.Computability.Joins
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.FiniteTranscript
+public import OAI.Computability.DegreeRigidity.Representation.BorelGeneric
+public import OAI.Computability.DegreeRigidity.Computability.Joins
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

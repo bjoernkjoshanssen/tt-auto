@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Effective.LocalPair
-import OAI.Computability.DegreeRigidity.Effective.LocalOpen
-import OAI.Computability.DegreeRigidity.Effective.LocalColumnIndices
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.LocalPair
+public import OAI.Computability.DegreeRigidity.Effective.LocalOpen
+public import OAI.Computability.DegreeRigidity.Effective.LocalColumnIndices
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

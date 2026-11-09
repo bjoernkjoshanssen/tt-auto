@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.Representation.RealGeneratedPart
-import OAI.Computability.DegreeRigidity.CohenForcing.QuotientNames
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenInternalDecision
-import OAI.Computability.DegreeRigidity.SetModels.InternalNiceName
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.RealGeneratedPart
+public import OAI.Computability.DegreeRigidity.CohenForcing.QuotientNames
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenInternalDecision
+public import OAI.Computability.DegreeRigidity.SetModels.InternalNiceName
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

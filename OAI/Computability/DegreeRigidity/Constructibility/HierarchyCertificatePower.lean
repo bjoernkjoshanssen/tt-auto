@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Constructibility.DefSystemCertificate
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeModelPower
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.DefSystemCertificate
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeModelPower
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

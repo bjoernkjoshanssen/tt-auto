@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenProjectionSymmetry
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenSupportedValue
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenProjectionSymmetry
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenSupportedValue
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

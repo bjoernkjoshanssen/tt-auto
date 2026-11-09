@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.ModelOmegaJump
-import OAI.Computability.DegreeRigidity.Constructibility.PersistenceRealClosure
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ModelOmegaJump
+public import OAI.Computability.DegreeRigidity.Constructibility.PersistenceRealClosure
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

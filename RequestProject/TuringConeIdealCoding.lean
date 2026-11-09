@@ -1,5 +1,13 @@
-import RequestProject.TuringConeCoding
-import OAI.Computability.DegreeRigidity.SetModels.IdealLift
+module
+
+public import RequestProject.TuringConeCoding
+public import OAI.Computability.DegreeRigidity.SetModels.IdealLift
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Bounded coding for partial cone isomorphisms

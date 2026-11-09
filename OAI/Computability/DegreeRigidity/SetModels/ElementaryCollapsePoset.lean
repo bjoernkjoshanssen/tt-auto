@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.SetModels.ElementaryDefinableSets
-import OAI.Computability.DegreeRigidity.Representation.AmbientDegreeSyntax
-import OAI.Computability.DegreeRigidity.SetModels.InternalCollapseConditions
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ElementaryDefinableSets
+public import OAI.Computability.DegreeRigidity.Representation.AmbientDegreeSyntax
+public import OAI.Computability.DegreeRigidity.SetModels.InternalCollapseConditions
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

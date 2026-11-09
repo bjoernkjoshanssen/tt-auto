@@ -1,6 +1,14 @@
-import RequestProject.TuringConeIdealCoding
-import RequestProject.TuringConeLocality
-import OAI.Computability.DegreeRigidity.SetModels.EnumerationDecoding
+module
+
+public import RequestProject.TuringConeIdealCoding
+public import RequestProject.TuringConeLocality
+public import OAI.Computability.DegreeRigidity.SetModels.EnumerationDecoding
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Enumeration graphs in a principal cone

@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.ExactOmegaGraph
-import OAI.Computability.DegreeRigidity.Constructibility.FiniteStageSetBounds
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ExactOmegaGraph
+public import OAI.Computability.DegreeRigidity.Constructibility.FiniteStageSetBounds
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

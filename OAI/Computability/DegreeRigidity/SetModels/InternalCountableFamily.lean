@@ -1,4 +1,12 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalCountableUnion
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalCountableUnion
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

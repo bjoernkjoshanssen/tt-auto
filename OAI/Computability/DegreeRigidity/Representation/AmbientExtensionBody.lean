@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Representation.AmbientDegreeActual
-import OAI.Computability.DegreeRigidity.SetModels.ElementaryModelIdeal
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.AmbientDegreeActual
+public import OAI.Computability.DegreeRigidity.SetModels.ElementaryModelIdeal
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

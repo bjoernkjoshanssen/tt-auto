@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.ColumnSetFormula
-import OAI.Computability.DegreeRigidity.Representation.SourceTDependentChoice
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ColumnSetFormula
+public import OAI.Computability.DegreeRigidity.Representation.SourceTDependentChoice
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

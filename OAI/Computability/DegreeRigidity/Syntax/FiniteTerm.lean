@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Effective.FiniteCodeBound
-import Mathlib.SetTheory.ZFC.Rank
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.FiniteCodeBound
+public import Mathlib.SetTheory.ZFC.Rank
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

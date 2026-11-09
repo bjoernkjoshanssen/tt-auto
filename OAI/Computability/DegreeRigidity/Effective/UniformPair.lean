@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Effective.UniformSplit
-import OAI.Computability.DegreeRigidity.Effective.UniformAgreement
-import OAI.Computability.DegreeRigidity.Effective.EffectiveSplitConditions
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.UniformSplit
+public import OAI.Computability.DegreeRigidity.Effective.UniformAgreement
+public import OAI.Computability.DegreeRigidity.Effective.EffectiveSplitConditions
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

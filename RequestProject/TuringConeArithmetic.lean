@@ -1,4 +1,12 @@
-import RequestProject.TuringConeCoding
+module
+
+public import RequestProject.TuringConeCoding
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Arithmetic presentation of relation codes in a principal cone

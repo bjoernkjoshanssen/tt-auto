@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalRegularSplitter
-import Mathlib.Data.List.Induction
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalRegularSplitter
+public import Mathlib.Data.List.Induction
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

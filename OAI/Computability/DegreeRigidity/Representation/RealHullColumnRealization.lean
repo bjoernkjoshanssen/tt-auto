@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.TwoRealHull
-import OAI.Computability.DegreeRigidity.Representation.GenericRealColumnRealization
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.TwoRealHull
+public import OAI.Computability.DegreeRigidity.Representation.GenericRealColumnRealization
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

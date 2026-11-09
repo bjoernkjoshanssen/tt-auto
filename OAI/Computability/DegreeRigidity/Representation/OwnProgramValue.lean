@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.Effective.UniformTableSimulation
-import OAI.Computability.DegreeRigidity.Syntax.BoundedAutomorphismOutput
-import OAI.Computability.DegreeRigidity.Representation.GenericIdentity
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleGroundReals
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.UniformTableSimulation
+public import OAI.Computability.DegreeRigidity.Syntax.BoundedAutomorphismOutput
+public import OAI.Computability.DegreeRigidity.Representation.GenericIdentity
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleGroundReals
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

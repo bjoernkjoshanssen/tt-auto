@@ -1,5 +1,13 @@
-import RequestProject.TuringConeProgramGlobalization
-import RequestProject.TuringConeRealParameterProgram
+module
+
+public import RequestProject.TuringConeProgramGlobalization
+public import RequestProject.TuringConeRealParameterProgram
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 #print axioms OAI.TuringRigidity.ConePullbackProgram.inverseAt_prescribed
 #print axioms OAI.TuringRigidity.ConePullbackProgram.mem_pullbackGraph

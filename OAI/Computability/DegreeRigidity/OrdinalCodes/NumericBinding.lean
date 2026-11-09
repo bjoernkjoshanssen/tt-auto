@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericHierarchy
-import OAI.Computability.DegreeRigidity.SetModels.BindCanonicalArithmetic
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericHierarchy
+public import OAI.Computability.DegreeRigidity.SetModels.BindCanonicalArithmetic
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

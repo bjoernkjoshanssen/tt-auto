@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticPresentationProperty
-import Mathlib.MeasureTheory.Constructions.Polish.Basic
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticPresentationProperty
+public import Mathlib.MeasureTheory.Constructions.Polish.Basic
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

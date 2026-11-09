@@ -1,7 +1,15 @@
-import OAI.Computability.DegreeRigidity.Syntax.BoundedCertificate
-import OAI.Computability.DegreeRigidity.SetModels.InternalNameValidity
-import OAI.Computability.DegreeRigidity.Syntax.SigmaSyntax
-import OAI.Computability.DegreeRigidity.CohenForcing.SigmaForcing
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.BoundedCertificate
+public import OAI.Computability.DegreeRigidity.SetModels.InternalNameValidity
+public import OAI.Computability.DegreeRigidity.Syntax.SigmaSyntax
+public import OAI.Computability.DegreeRigidity.CohenForcing.SigmaForcing
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

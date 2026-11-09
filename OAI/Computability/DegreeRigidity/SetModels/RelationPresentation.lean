@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.Effective.AntichainDecoding
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticFinite
-import OAI.Computability.DegreeRigidity.OrdinalCodes.IndexTuples
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.AntichainDecoding
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticFinite
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.IndexTuples
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

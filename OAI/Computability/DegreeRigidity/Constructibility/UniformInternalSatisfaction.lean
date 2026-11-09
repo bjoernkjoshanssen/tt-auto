@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Constructibility.UniformTruthRecursion
-import OAI.Computability.DegreeRigidity.Syntax.SatisfactionCertificateBound
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformTruthRecursion
+public import OAI.Computability.DegreeRigidity.Syntax.SatisfactionCertificateBound
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

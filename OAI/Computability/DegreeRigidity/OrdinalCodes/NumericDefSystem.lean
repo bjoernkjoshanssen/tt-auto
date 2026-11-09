@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericTruth
-import OAI.Computability.DegreeRigidity.Syntax.VariableCertificateBounds
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericTruth
+public import OAI.Computability.DegreeRigidity.Syntax.VariableCertificateBounds
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

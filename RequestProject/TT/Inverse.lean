@@ -1,4 +1,12 @@
-import RequestProject.TT.Borel
+module
+
+public import RequestProject.TT.Borel
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # The inverse automorphism (Proposition 4.8) and Theorem 1.1 in full generality

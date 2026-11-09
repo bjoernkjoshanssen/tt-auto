@@ -1,6 +1,14 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.CanonicalRealsSyntax
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticFreeConstruction
-import OAI.Computability.DegreeRigidity.Constructibility.FiniteStageDefinition
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.CanonicalRealsSyntax
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticFreeConstruction
+public import OAI.Computability.DegreeRigidity.Constructibility.FiniteStageDefinition
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

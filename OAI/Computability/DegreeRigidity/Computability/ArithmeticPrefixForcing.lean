@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticCommonRequirement
-import OAI.Computability.DegreeRigidity.SetModels.ShuffleRequirements
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticCommonRequirement
+public import OAI.Computability.DegreeRigidity.SetModels.ShuffleRequirements
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

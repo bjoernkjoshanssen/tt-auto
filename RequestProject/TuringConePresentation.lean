@@ -1,7 +1,15 @@
-import RequestProject.TuringConeEnumeration
-import RequestProject.TuringConePersistence
-import OAI.Computability.DegreeRigidity.SetModels.EnumerationConstruction
-import OAI.Computability.DegreeRigidity.Computability.JumpIdeal
+module
+
+public import RequestProject.TuringConeEnumeration
+public import RequestProject.TuringConePersistence
+public import OAI.Computability.DegreeRigidity.SetModels.EnumerationConstruction
+public import OAI.Computability.DegreeRigidity.Computability.JumpIdeal
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Arithmetic presentations of partial cone isomorphisms

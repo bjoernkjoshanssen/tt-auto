@@ -1,4 +1,12 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.TrimmedSumGraph
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.TrimmedSumGraph
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

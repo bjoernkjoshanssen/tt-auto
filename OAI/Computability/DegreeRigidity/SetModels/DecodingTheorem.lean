@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.SetModels.RelationPresentation
-import OAI.Computability.DegreeRigidity.Computability.OracleJump
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.RelationPresentation
+public import OAI.Computability.DegreeRigidity.Computability.OracleJump
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

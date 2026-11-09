@@ -1,5 +1,13 @@
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeModel
-import OAI.Computability.DegreeRigidity.Constructibility.UniformHierarchyStage
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeModel
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformHierarchyStage
+
+-- Palomar port: module visibility updated; mathematical declarations retained.
+set_option backward.privateInPublic true
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 
