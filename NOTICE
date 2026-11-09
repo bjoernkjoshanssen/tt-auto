@@ -1,0 +1,24 @@
+Turing cone rigidity and truth-table degree formalization
+
+The OAI/Computability/DegreeRigidity source is inherited from the OpenAI math
+Turing-rigidity development, distributed under the Apache License, Version 2.0.
+Upstream reference:
+https://github.com/openai/math/tree/4eaee87548250b2682affda7d05d947c05554bae/lean
+
+The exact retained tt-auto snapshot before the cone additions is
+6fd36538ca9afaeedcf895ff8c03926e87a7d27e. This notice does not assert that all
+retained files are byte-identical to the upstream reference above.
+
+RequestProject/TuringCone*.lean contains the cone-specific additions developed
+with ChatGPT 6 Pro under the direction of Bjorn Kjos-Hanssen. The original
+project's Aristotle attribution is retained in README.md.
+
+The Palomar preparation modifies source module headers, visibility and pinned
+build dependencies, and adds statement wrappers, metadata and validation. Each
+mechanically ported source file carries a module-port notice. Subsequent
+compatibility repairs, if needed, are recorded in the Git history.
+
+Mathlib and other dependencies retain their own licenses and attributions.
+The license of this repository does not relicense the cited mathematical
+manuscripts. No endorsement by upstream authors, OpenAI, Harmonic, or the
+Palomar Registry is implied.

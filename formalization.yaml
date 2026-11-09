@@ -1,0 +1,148 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: v0.4
+
+project:
+  name: No proper Turing cone is isomorphic to all Turing degrees
+  description: >-
+    For every noncomputable Turing degree a, the partially ordered set of
+    degrees greater than or equal to a is not order-isomorphic to the whole
+    partially ordered set of Turing degrees. The statement uses ordinary
+    Turing reducibility on Boolean characteristic functions and the quotient
+    by mutual reducibility. It has no measurability, determinacy, or
+    representation hypothesis. The proof adapts degree coding, persistence,
+    forcing and generic representation arguments to an isomorphism onto a
+    principal cone, and then applies the analytic rigidity argument to its
+    inverse composed with joining with the base degree.
+  authors:
+    - Bjørn Kjos-Hanssen
+  responsible_maintainers:
+    - Bjørn Kjos-Hanssen
+  license: Apache-2.0
+
+classification:
+  arxiv: [math.LO]
+  msc2020: ['03D28', '03B35', '03E40']
+
+# This repository contains the substantive proof development, not only a wrapper.
+sources:
+  - title: Slaman–Woodin manuscript on the Turing degrees (sw.pdf)
+    authors:
+      - Theodore A. Slaman
+      - W. Hugh Woodin
+    type: other
+    id: https://math.berkeley.edu/~slaman/talks/sw.pdf
+    relationship: adapts
+    note: >-
+      The coding, persistence and generic-representation arguments motivated
+      the cone adaptation. This source is not claimed to state the exact
+      cone-rigidity theorem submitted here; novelty has not been independently
+      assessed. The linked manuscript has no immutable version identifier.
+    author_endorsement: not-contacted
+  - title: OpenAI math — Turing degree rigidity formalization
+    type: other
+    id: https://github.com/openai/math/tree/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/Computability/DegreeRigidity
+    relationship: adapts
+    license: Apache-2.0
+    note: >-
+      The OAI library supplies the original degree definitions and the
+      analytic, coding, arithmetic and model-theoretic infrastructure.
+      Cone-specific additions are in RequestProject/TuringCone*.lean.
+      The exact inherited tt-auto source snapshot before those additions is
+      6fd36538ca9afaeedcf895ff8c03926e87a7d27e. The upstream URL records a
+      stable reference, not an assertion that every inherited file is
+      byte-for-byte identical to that upstream revision.
+    author_endorsement: not-contacted
+  - title: Cone-rigidity development and original checked snapshot
+    type: web discussion
+    id: https://github.com/bjoernkjoshanssen/tt-auto/pull/1
+    relationship: other
+    note: >-
+      PR 1 records the staged development and validation. Its merged snapshot
+      is b934186a456258a055de59689e75b1d503f3c71f. This submission preparation
+      ports that development to the module system and a newer pinned toolchain.
+
+related_formalizations:
+  - id: https://github.com/openai/math/tree/4eaee87548250b2682affda7d05d947c05554bae/lean
+    relationship: builds-on
+    note: >-
+      Reuses the Turing-rigidity development. The principal-cone theorem is
+      proved by additional lemmas; the automorphism representation theorem
+      is not simply assumed to apply to an isomorphism onto a cone.
+
+status:
+  scope: >-
+    The selected result is exactly
+    OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso. Challenge.lean contains
+    its independent statement and one deliberate sorry. Solution.lean
+    imports the existing proof. No new mathematical axiom is introduced.
+    Other truth-table-degree results retained in this repository are outside
+    this Palomar submission. The proof is in Lean's foundations; no separate
+    syntactic derivation in ZFC or ZF has been extracted.
+  axioms: [propext, Classical.choice, Quot.sound]
+
+automation:
+  methods:
+    - method: agent
+      models: ['ChatGPT 6 Pro']
+      framework: ChatGPT with the GitHub integration
+      tool_setup: >-
+        AI-assisted mathematical development, Lean proof writing, repository
+        inspection, GitHub Actions build/debug iterations, and submission
+        preparation. Human supplied the problem, discussed the mathematics,
+        directed milestones, and authorized repository changes.
+      prompting_notes: >-
+        The conversation successively requested analytic cone rigidity,
+        arithmetic presentation, persistence, absoluteness, forcing and a
+        generic inverse oracle program. No complete prompt archive is
+        published in this repository.
+    - method: other
+      framework: Inherited proof development
+      tool_setup: >-
+        The original README credits Aristotle (Harmonic) for earlier edits to
+        this project. That attribution is retained in README.md. The exact
+        scope and model version of those earlier edits have not been
+        reconstructed; they are not attributed to the cone-rigidity agent.
+  notes: >-
+    ChatGPT 6 Pro is the attribution requested for the cone development.
+    AI systems are credited here, not listed as human authors or maintainers.
+    Upstream OAI and Mathlib contributions retain their separate provenance.
+    Costs and wall-clock effort were not systematically recorded.
+
+fidelity:
+  divergences: >-
+    This is an adaptation to principal cones, not a line-for-line
+    formalization of an existing stated cone theorem. The Challenge exposes
+    the exact ordinary reducibility, quotient, order and bottom used by the
+    proof, and Comparator checks the selected statement against that proof.
+    No weakening or extra hypothesis is intended. Foundational strength
+    relative to ZFC and independent assessment of novelty remain unreviewed.
+
+review:
+  status: self-assessed
+  notes: >-
+    The authorship workflow includes discussion and automated proof checking,
+    not independent expert peer review. The pre-port theorem passed the Lean
+    build and transitive axiom audit at commit
+    7d19177df0328b1906c9357ae22cca761631f5ad. The new-toolchain build,
+    Comparator and independent kernel checks must pass for the exact commit
+    submitted; their CI logs are the evidence. Palomar has not reviewed or
+    registered this project merely because these preparation files exist.
+
+alignment:
+  namespace: OAI.TuringRigidity.ConeMain
+  statements:
+    - source: Principal-cone adaptation of the Turing degree rigidity argument
+      lean: OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso
+      module: RequestProject.TuringConeMain
+      status: proved
+      note: >-
+        For every Degree a with a not equal to bottom, there is no order
+        isomorphism Degree ≃o Set.Ici a. The public signature has no
+        regularity or model-existence hypothesis.
+
+acknowledgements: >-
+  Theodore A. Slaman and W. Hugh Woodin for the source arguments; OpenAI for
+  the upstream rigidity formalization; the Lean and Mathlib communities;
+  ChatGPT 6 Pro for the AI-assisted cone development; and the inherited
+  Aristotle attribution described above. No endorsement by these parties
+  or by the Palomar Registry is asserted.

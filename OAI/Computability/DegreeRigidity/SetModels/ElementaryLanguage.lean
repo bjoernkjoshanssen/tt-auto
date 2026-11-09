@@ -1,7 +1,7 @@
 module
 
 public import OAI.Computability.DegreeRigidity.Syntax.BoundedSetTheory
-public import Mathlib.Tactic.DeriveEncodable
+public import OAI.Computability.DegreeRigidity.Effective.EncodableTree
 
 
 
@@ -25,7 +25,36 @@ inductive SentenceForm where
   | conj (p q : SentenceForm)
   | neg (p : SentenceForm)
   | ex (p : SentenceForm)
-  deriving Encodable
+
+namespace SentenceForm
+
+/-- Preserve the constructor-tag layout of the former Encodable derivation. -/
+def toTree : SentenceForm → EncodableTree
+  | .equal i j => .cons (.nat 0) (.cons (.nat i) (.cons (.nat j) (.nat 0)))
+  | .member i j => .cons (.nat 1) (.cons (.nat i) (.cons (.nat j) (.nat 0)))
+  | .conj p q => .cons (.nat 2) (.cons (toTree p) (.cons (toTree q) (.nat 0)))
+  | .neg p => .cons (.nat 3) (.cons (toTree p) (.nat 0))
+  | .ex p => .cons (.nat 4) (.cons (toTree p) (.nat 0))
+
+def fromTree : EncodableTree → Option SentenceForm
+  | .cons (.nat 0) (.cons (.nat i) (.cons (.nat j) (.nat 0))) => some (.equal i j)
+  | .cons (.nat 1) (.cons (.nat i) (.cons (.nat j) (.nat 0))) => some (.member i j)
+  | .cons (.nat 2) (.cons p (.cons q (.nat 0))) => do
+    return .conj (← fromTree p) (← fromTree q)
+  | .cons (.nat 3) (.cons p (.nat 0)) => do
+    return .neg (← fromTree p)
+  | .cons (.nat 4) (.cons p (.nat 0)) => do
+    return .ex (← fromTree p)
+  | _ => none
+
+theorem fromTree_toTree (p : SentenceForm) : fromTree (toTree p) = some p := by
+  induction p <;> simp_all [toTree, fromTree]
+
+end SentenceForm
+
+-- Module-port repair: no generated reference to Mathlib's private helper type.
+instance : Encodable SentenceForm :=
+  Encodable.ofLeftInjection SentenceForm.toTree SentenceForm.fromTree SentenceForm.fromTree_toTree
 
 namespace SentenceForm
 
