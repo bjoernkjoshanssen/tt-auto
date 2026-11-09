@@ -1,0 +1,24 @@
+Turing cone rigidity and truth-table degree automorphisms
+
+This repository includes an inherited OpenAI DegreeRigidity development under
+OAI/Computability/DegreeRigidity, originally distributed under Apache-2.0 in
+https://github.com/openai/math. The exact local pre-cone source snapshot is
+6fd36538ca9afaeedcf895ff8c03926e87a7d27e in bjoernkjoshanssen/tt-auto.
+The exact upstream import revision has not been established from the local
+metadata. Existing source attribution is retained.
+
+The cone-specific development under RequestProject/TuringCone*.lean was
+produced with ChatGPT 6 Pro under Bjorn Kjos-Hanssen's mathematical direction.
+The earlier repository README's Aristotle (Harmonic) credit is preserved in
+README.md and concerns the earlier work, not the new cone proof.
+
+Palomar compatibility modifications include module headers, explicit public
+visibility, a supported Lean/Mathlib pin, an independent Challenge/Solution
+interface, and verification scripts. Modified Lean sources carry a port notice.
+Submission tooling follows Palomar's public documentation and template at
+https://github.com/PalomarRegistry/PalomarTemplate.
+
+The Apache-2.0 license in LICENSE applies to this repository's code; mathematical
+papers and external dependencies retain their own licenses. These attribution
+notices do not imply endorsement by OpenAI, Harmonic, the cited mathematicians,
+Lean, Mathlib, or Palomar.

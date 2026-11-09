@@ -1,10 +1,11 @@
 module
 
 public import OAI.Computability.DegreeRigidity.SetModels.Degrees
-public import Mathlib.Tactic.DeriveEncodable
+public import all Mathlib.Tactic.DeriveEncodable
 public import Mathlib.Data.Set.Countable
 
 -- Palomar port: module visibility updated; mathematical declarations retained.
+-- DeriveEncodable uses its private syntax-tree representation during elaboration.
 set_option backward.privateInPublic true
 set_option backward.proofsInPublic true
 

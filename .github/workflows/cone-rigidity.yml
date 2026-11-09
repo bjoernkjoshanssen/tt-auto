@@ -1,53 +1,78 @@
-name: Cone rigidity Lean check
+name: Cone rigidity and Palomar verification
 
 on:
   pull_request:
-    paths:
-      - 'RequestProject/TuringCone*.lean'
-      - 'OAI/**'
-      - 'scripts/CheckCone*.lean'
-      - 'lean-toolchain'
-      - 'lakefile.toml'
-      - 'lake-manifest.json'
-      - '.github/workflows/cone-rigidity.yml'
+  push:
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: cone-rigidity-${{ github.event.pull_request.number }}
+  group: cone-rigidity-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   lean:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee # v1
-        with:
-          auto-config: 'false'
-          build: 'true'
-          build-args: 'RequestProject.TuringConeMain'
-          test: 'false'
-          lint: 'false'
-          use-mathlib-cache: 'true'
-      - name: Preserve dependencies after a failed build
-        if: failure()
-        uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25 # v5
+      - name: Install metadata and sandbox prerequisites
+        run: |
+          sudo apt-get update -qq >/dev/null
+          sudo apt-get install -y -qq python3-yaml python3-jsonschema bubblewrap >/dev/null
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+      - name: Check full source snapshot and submission metadata
+        run: |
+          /usr/bin/python3 scripts/check-palomar.py
+          /usr/bin/python3 scripts/check-formalization.py
+      - name: Restore dependencies from preparation or earlier checks
+        uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
         with:
           path: ./.lake
           key: lake-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-${{ github.sha }}
-      - name: Report theorem axioms and reject sorryAx
+          restore-keys: |
+            lake-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-
+            palomar-lake-${{ runner.os }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-
+      - uses: leanprover/lean-action@ba3fdfe5c4476c925da13bf11a005ddb47e47aee
+        with:
+          auto-config: 'false'
+          build: 'true'
+          build-args: 'Challenge Solution'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+      - name: Verify toolchain agreement and transitive axiom dependencies
         shell: bash
         run: |
           set -euo pipefail
+          /usr/bin/python3 scripts/check-palomar.py
           lake env lean scripts/CheckConeRigidity.lean | tee cone-rigidity-axioms.txt
           lake env lean scripts/CheckConeOracleProgram.lean | tee cone-program-axioms.txt
           lake env lean scripts/CheckConeMain.lean | tee cone-main-axioms.txt
-          if grep -q 'sorryAx' cone-rigidity-axioms.txt cone-program-axioms.txt cone-main-axioms.txt; then
-            echo 'A cone theorem depends on sorryAx.' >&2
-            exit 1
-          fi
+          lake env lean scripts/CheckPalomar.lean | tee cone-palomar-axioms.txt
+          python3 scripts/check-axioms.py cone-*-axioms.txt
+      - name: Compare independent Challenge with Solution using bundled kernels
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash scripts/verify-comparator.sh 2>&1 | tee palomar-comparator.log
+      - name: Preserve dependencies after a failed check
+        if: failure()
+        uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: ./.lake
+          key: lake-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-${{ github.sha }}
+      - name: Preserve verification reports
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: palomar-verification-${{ github.sha }}
+          path: |
+            cone-*-axioms.txt
+            palomar-comparator.log
+          if-no-files-found: ignore
