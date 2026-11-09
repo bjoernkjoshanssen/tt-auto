@@ -87,9 +87,9 @@ theorem relation_iff_graph {I : CountableIdeal} {a : Degree} (ρ : I ≃o Cone I
       rw [hyt]
       exact (degreeSet_injective hzT).symm.trans hj'
     have hout : (inverseAt ρ ⟨x, hx⟩).val = y := by
-      change (ρ.symm ⟨a ⊔ x, _, _⟩).val = y
+      change (ρ.symm ⟨a ⊔ x, I.join_mem ha hx, le_sup_left⟩).val = y
       rw [←hmap, ρ.symm_apply_apply]
-    exact (mem_pullbackGraph ρ _).mpr ⟨⟨x, hx⟩, by rw [hout]; rfl⟩
+    exact (mem_pullbackGraph ρ _).mpr ⟨⟨x, hx⟩, by rw [hout]⟩
   · intro hp
     obtain ⟨x, rfl⟩ := (mem_pullbackGraph ρ _).mp hp
     have hz := I.join_mem ha x.property

@@ -86,6 +86,7 @@ theorem program_from_one_real_definition (M K i : ZFSet.{0}) [Countable (Conditi
   obtain ⟨hN, fX, hfX, hall, GX, hGX, hExt, hval, _⟩ :=
     OriginalRealDefinitionTransport.original_uniform_definition M K hM hT hK
       τ f hτ hf G hG hreal δ hδ φ hX hdef
+  change genericExtensionSet N c GX.carrier = E at hExt
   have hct : (M : Set ZFSet.{0}).Countable := by
     apply (Set.countable_range (label M)).mono
     intro z hz; exact label_surjective M hz
