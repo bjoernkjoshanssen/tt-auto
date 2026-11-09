@@ -34,14 +34,14 @@ theorem action_congr {B H : Oracle} {P Q : ℕ → Prop} (h : ∀ v, P v ↔ Q v
 
 theorem action_of_iso {I : CountableIdeal} {B H : Oracle}
     (hpres : Presented I H) (ρ : I ≃o Cone I (degree B)) :
-    Action B H (Graph ρ hpres) := by
+    Action B H (ConePresentation.Graph ρ hpres) := by
   constructor
   · intro n
     obtain ⟨m, hm⟩ := (hpres (ρ (presentationEntry hpres n)).val).mp
       (ρ (presentationEntry hpres n)).property.1
-    exact ⟨m, by simpa only [Graph, Nat.unpair_pair] using hm.symm⟩
+    exact ⟨m, by simpa only [ConePresentation.Graph, Nat.unpair_pair] using hm.symm⟩
   · intro n m hp
-    simp only [Graph, Nat.unpair_pair] at hp
+    simp only [ConePresentation.Graph, Nat.unpair_pair] at hp
     rw [← hp]
     exact (ρ (presentationEntry hpres n)).property.2
   · intro m hm
@@ -50,22 +50,22 @@ theorem action_of_iso {I : CountableIdeal} {B H : Oracle}
     obtain ⟨n, hn⟩ := (hpres (ρ.symm y).val).mp (ρ.symm y).property
     have he : presentationEntry hpres n = ρ.symm y := Subtype.ext hn
     refine ⟨n, ?_⟩
-    simp only [Graph, Nat.unpair_pair]
+    simp only [ConePresentation.Graph, Nat.unpair_pair]
     rw [he, ρ.apply_symm_apply]
     rfl
   · intro n m n' m' hp hq
-    simp only [Graph, Nat.unpair_pair] at hp hq
+    simp only [ConePresentation.Graph, Nat.unpair_pair] at hp hq
     rw [← hp, ← hq]
     change presentationEntry hpres n ≤ presentationEntry hpres n' ↔
       ρ (presentationEntry hpres n) ≤ ρ (presentationEntry hpres n')
     exact ρ.le_iff_le.symm
   · intro n m m' hp he
-    simpa only [Graph, Nat.unpair_pair, ← he] using hp
+    simpa only [ConePresentation.Graph, Nat.unpair_pair, ← he] using hp
 
 /-- Reconstruct the isomorphism from natural-number conditions on its graph. -/
 theorem reconstruct {I : CountableIdeal} {B H : Oracle} (hpres : Presented I H)
     {P : ℕ → Prop} (ha : Action B H P) :
-    ∃ ρ : I ≃o Cone I (degree B), ∀ v, P v ↔ Graph ρ hpres v := by
+    ∃ ρ : I ≃o Cone I (degree B), ∀ v, P v ↔ ConePresentation.Graph ρ hpres v := by
   classical
   let idx (x : I) : ℕ := Classical.choose ((hpres x.val).mp x.property)
   have hidx (x : I) : degree (columns H (idx x)) = x.val :=
@@ -98,8 +98,8 @@ theorem reconstruct {I : CountableIdeal} {B H : Oracle} (hpres : Presented I H)
       map_rel_iff' := by intro x y; exact hle x y }
   refine ⟨ρ, fun v => ?_⟩
   obtain ⟨⟨n, m⟩, rfl⟩ := Nat.pairEquiv.surjective v
-  change P (Nat.pair n m) ↔ Graph ρ hpres (Nat.pair n m)
-  simp only [Graph, Nat.unpair_pair]
+  change P (Nat.pair n m) ↔ ConePresentation.Graph ρ hpres (Nat.pair n m)
+  simp only [ConePresentation.Graph, Nat.unpair_pair]
   constructor
   · exact fun hp => hf (presentationEntry hpres n) n m rfl hp
   · intro hg
@@ -111,7 +111,7 @@ theorem reconstruct {I : CountableIdeal} {B H : Oracle} (hpres : Presented I H)
 theorem compatible_iff {I J : CountableIdeal} {a : Degree} {A H : Oracle}
     (hA : Presented I A) (hH : Presented J H) (hIJ : I.carrier ⊆ J.carrier)
     (ρ : I ≃o Cone I a) (σ : J ≃o Cone J a) :
-    NumericalExtension.Compatible A H (Graph ρ hA) (Graph σ hH) ↔
+    NumericalExtension.Compatible A H (ConePresentation.Graph ρ hA) (ConePresentation.Graph σ hH) ↔
       ConePersistence.Extends hIJ ρ σ := by
   constructor
   · intro hc x
@@ -122,11 +122,11 @@ theorem compatible_iff {I J : CountableIdeal} {a : Degree} {A H : Oracle}
       (σ ⟨x.val, hIJ x.property⟩).property.1
     have heI : presentationEntry hA i = x := Subtype.ext hi
     have heJ : presentationEntry hH n = ⟨x.val, hIJ x.property⟩ := Subtype.ext hn
-    have hR : Graph ρ hA (Nat.pair i j) := by
-      simp only [Graph, Nat.unpair_pair]
+    have hR : ConePresentation.Graph ρ hA (Nat.pair i j) := by
+      simp only [ConePresentation.Graph, Nat.unpair_pair]
       rw [heI, hj]
-    have hP : Graph σ hH (Nat.pair n m) := by
-      simp only [Graph, Nat.unpair_pair]
+    have hP : ConePresentation.Graph σ hH (Nat.pair n m) := by
+      simp only [ConePresentation.Graph, Nat.unpair_pair]
       rw [heJ, hm]
     exact hm.symm.trans ((hc i j n m hR hP (hi.trans hn.symm)).symm.trans hj)
   · intro he i j n m hR hP hin
@@ -134,7 +134,7 @@ theorem compatible_iff {I J : CountableIdeal} {a : Degree} {A H : Oracle}
         presentationEntry hH n := Subtype.ext hin
     have hh := he (presentationEntry hA i)
     rw [hi] at hh
-    simp only [Graph, Nat.unpair_pair] at hR hP
+    simp only [ConePresentation.Graph, Nat.unpair_pair] at hR hP
     exact hR.symm.trans (hh.symm.trans hP)
 
 end
