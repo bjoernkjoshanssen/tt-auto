@@ -1,0 +1,21 @@
+import RequestProject.TuringConeProgramGlobalization
+import RequestProject.TuringConeRealParameterProgram
+
+#print axioms OAI.TuringRigidity.ConePullbackProgram.inverseAt_prescribed
+#print axioms OAI.TuringRigidity.ConePullbackProgram.mem_pullbackGraph
+#print axioms OAI.TuringRigidity.ConePullbackProgram.output_of_degree
+#print axioms OAI.TuringRigidity.ConePullbackProgram.output_action
+#print axioms OAI.TuringRigidity.ConePullbackProgram.output_of_extension
+#print axioms OAI.TuringRigidity.ConePullbackProgram.own_program_action
+#print axioms OAI.TuringRigidity.ConePullbackProgram.own_program_prescribed
+#print axioms OAI.TuringRigidity.ConeProjectedProgram.projected_bounded_output_name
+#print axioms OAI.TuringRigidity.ConeProjectedProgram.projected_program
+#print axioms OAI.TuringRigidity.ConeProjectedProgram.column_prefix_program
+#print axioms OAI.TuringRigidity.ConeOracleProgram.column_oracle_program
+#print axioms OAI.TuringRigidity.ConeOracleProgram.column_program_of_extension
+#print axioms OAI.TuringRigidity.ConeProgramGlobalization.program_of_countable_tests
+#print axioms OAI.TuringRigidity.ConeProgramGlobalization.generic_lift_of_arithmetic_program
+#print axioms OAI.TuringRigidity.ConeProgramGlobalization.generic_lift_of_countable_tests
+#print axioms OAI.TuringRigidity.ConeProgramGlobalization.eq_bot_of_countable_tests
+#print axioms OAI.TuringRigidity.ConeRealParameterProgram.model_extension_outputs
+#print axioms OAI.TuringRigidity.ConeRealParameterProgram.program_from_one_real_definition
