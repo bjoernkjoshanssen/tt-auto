@@ -36,7 +36,7 @@ def encode : EncodableTree → ℕ
   | nat n => Nat.pair 0 n
   | cons a b => Nat.pair (encode a + 1) (encode b)
 
-private theorem unpair_right_lt {n : ℕ} (h : (Nat.unpair n).1 ≠ 0) :
+theorem unpair_right_lt {n : ℕ} (h : (Nat.unpair n).1 ≠ 0) :
     (Nat.unpair n).2 < n := by
   obtain ⟨⟨a, b⟩, rfl⟩ := Nat.pairEquiv.surjective n
   simp only [Nat.pairEquiv_apply, Function.uncurry_apply_pair, Nat.unpair_pair] at *
