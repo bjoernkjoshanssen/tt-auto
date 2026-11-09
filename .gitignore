@@ -1,0 +1,11 @@
+.lake/
+**/.lake/
+.lake-workspace/
+*.olean
+*.ilean
+*.olean.private
+*.olean.server
+*.trace
+palomar-*.log
+cone-*-axioms.txt
+__pycache__/
