@@ -18,6 +18,9 @@ open TransitiveNameModel BoundedSetTheory ElementaryModel RelationCollapse
 open PersistentRestrictions OracleJump InternalCountableOrdinals
 open CountableForcing ConeProgramGlobalization ConeRigidity
 
+attribute [local instance] InternalCollapse.order InternalCollapse.collapsePreorder
+  CohenNiceNameConstruction.cohenTop
+
 noncomputable section
 
 /-- The source models can be chosen to have an internal first uncountable
