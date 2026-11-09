@@ -87,7 +87,7 @@ predicate, rather than introducing a new complexity convention. -/
 theorem piOneOne (k : ℕ) :
     ArithmeticPersistence.PiOneOne (fun A R => Property A R k) := by
   refine ⟨fun O _ => PresentationMatrix O k,
-    presentationMatrix_arith.comp (Primrec.const k), ?_⟩
+    Arith.comp (fun _ => k) presentationMatrix_arith (Primrec.const k), ?_⟩
   exact fun A R => (presentationMatrix_iff A R k).symm
 
 end
