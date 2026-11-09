@@ -30,7 +30,7 @@ jobs:
         with:
           auto-config: 'false'
           build: 'true'
-          build-args: 'RequestProject.TuringConePersistentExtension'
+          build-args: 'RequestProject.TuringConePersistenceAbsoluteness'
           test: 'false'
           lint: 'false'
           use-mathlib-cache: 'true'

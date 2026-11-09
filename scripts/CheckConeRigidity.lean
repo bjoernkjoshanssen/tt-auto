@@ -1,4 +1,4 @@
-import RequestProject.TuringConePersistentExtension
+import RequestProject.TuringConePersistenceAbsoluteness
 
 -- These commands report transitive axiom dependencies, including imported proofs.
 #print axioms OAI.TuringRigidity.ConeRigidity.image_le_join_of_inverse_borel_lift
@@ -55,3 +55,27 @@ import RequestProject.TuringConePersistentExtension
 #print axioms OAI.TuringRigidity.ConePersistentExtension.persistent_extension_of_jump_closed
 #print axioms OAI.TuringRigidity.ConePersistentExtension.persistent_countable_jump_extension
 #print axioms OAI.TuringRigidity.ConePersistentExtension.persistent_iff_arithmetic_extensions
+
+-- Coded persistence, arithmetic syntax, real closure, and model comparison.
+#print axioms OAI.TuringRigidity.ConeNumerical.action_congr
+#print axioms OAI.TuringRigidity.ConeNumerical.action_of_iso
+#print axioms OAI.TuringRigidity.ConeNumerical.reconstruct
+#print axioms OAI.TuringRigidity.ConeNumerical.compatible_iff
+#print axioms OAI.TuringRigidity.ConeArithmeticCriterion.action_arith
+#print axioms OAI.TuringRigidity.ConeArithmeticCriterion.graph_program
+#print axioms OAI.TuringRigidity.ConeArithmeticCriterion.persistent_iff
+#print axioms OAI.TuringRigidity.ConeArithmeticCriterion.matrix_arith
+#print axioms OAI.TuringRigidity.ConePersistenceComplexity.property_iff
+#print axioms OAI.TuringRigidity.ConePersistenceComplexity.base_arith
+#print axioms OAI.TuringRigidity.ConePersistenceComplexity.presentationMatrix_arith
+#print axioms OAI.TuringRigidity.ConePersistenceComplexity.presentationMatrix_iff
+#print axioms OAI.TuringRigidity.ConePersistenceComplexity.piOneOne_uniform
+#print axioms OAI.TuringRigidity.ConePersistenceComplexity.piOneOne
+#print axioms OAI.TuringRigidity.ConeRealClosure.graph_mem
+#print axioms OAI.TuringRigidity.ConeRealClosure.extension_witnesses
+#print axioms OAI.TuringRigidity.ConePersistenceAbsoluteness.internalPresentation_iff
+#print axioms OAI.TuringRigidity.ConePersistenceAbsoluteness.internal_criterion_iff_persistent
+#print axioms OAI.TuringRigidity.ConePersistenceAbsoluteness.persistent_presentation_mem
+#print axioms OAI.TuringRigidity.ConePersistenceAbsoluteness.internalExistence_iff
+#print axioms OAI.TuringRigidity.ConePersistenceAbsoluteness.presentation_comparison
+#print axioms OAI.TuringRigidity.ConePersistenceAbsoluteness.existence_comparison
