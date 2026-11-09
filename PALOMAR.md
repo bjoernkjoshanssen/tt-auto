@@ -1,118 +1,101 @@
-# Palomar submission: Turing cone rigidity
+# Mathematical account for the Palomar submission
 
-## Statement of record
+## The result and its meaning
 
-The single selected declaration is
+A real here is a subset of the natural numbers, represented by its Boolean
+characteristic function. A set is Turing reducible to another when a computer
+with membership-query access to the latter can decide membership in the former.
+Two sets have the same Turing degree when each is reducible to the other. The
+order of degrees records this relative computational power; its least element
+is the degree of the computable sets.
+
+For a Turing degree `a`, the principal upper cone `Set.Ici a` consists of all
+degrees greater than or equal to `a`, including `a` itself. The compared theorem
+states that, unless `a` is the computable degree, this ordered set is not
+order-isomorphic to the whole ordered set of Turing degrees:
 
 ```lean
 OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso
+    (a : Degree) (ha : a ≠ ⊥) :
+    ¬ Nonempty (Degree ≃o Set.Ici a)
 ```
 
-It says that for every nonzero Turing degree `a`, there is no order isomorphism
-from all Turing degrees onto the principal upper cone `{x : Degree // a ≤ x}`.
-It is an order-theoretic assertion, not merely a prohibition on continuous or
-Borel isomorphisms. There is no determinacy, measurability or representation
-hypothesis in the final statement.
+The degrees are unrestricted degrees of sets, not merely computably enumerable
+degrees. The structure has only its order; the isomorphism is not separately
+assumed to preserve the jump, to be measurable, or to have a definable lift.
+Since every degree is above bottom, `a ≠ ⊥` is equivalent to `a > ⊥`.
 
-`Challenge.lean` independently defines the ordinary notions using Mathlib:
-Boolean characteristic functions, Turing reducibility, the quotient by mutual
-reducibility, its induced order, and the computable bottom degree. It imports
-no local proof file. Its one deliberate `sorry` is the theorem to be checked.
-`Solution.lean` imports the existing proved declaration with the same fully
-qualified name. Neither module imports the other. Comparator must verify that
-the theorem and all statement dependencies agree; a matching spelling alone
-would not be sufficient.
+This is distinct from saying that every automorphism of the whole structure is
+the identity. For example, the natural numbers with their usual order have no
+nonidentity automorphism, yet shifting by one is an order isomorphism onto a
+proper upper cone. Thus automorphism rigidity alone is not a formal
+order-theoretic proof of the cone assertion.
 
-## Mathematical account
+## Independent statement surface
 
-Suppose `e : Degree ≃o Set.Ici a`. Set `g(x) = e⁻¹(a ⊔ x)`. The development
-adapts bounded degree coding and arithmetic presentations to partial cone
-isomorphisms. Persistence and its absoluteness give suitable countable model
-restrictions. Graph reconstruction in counting extensions and descent into
-relative `L(R)` supply definitions for those restrictions.
+`Challenge.lean` imports only Mathlib. It defines characteristic functions,
+ordinary `TuringReducible`, their quotient by mutual reducibility, the quotient
+order, and the empty-set degree. These are concrete definitions, not arbitrary
+axiomatized surrogates. It then states precisely the theorem above, leaving only
+that theorem's proof as a deliberate placeholder.
 
-Cohen forcing and program selection then produce one fixed oracle program for
-`g` on sufficiently generic inputs. The parameter is a finite jump of a
-representative of `e(0')`; the program does not depend on the varying input.
-The relative minimal-pair calculation is over `A ⊕ X`, where `deg(A) = a`.
-A countable-candidate diagonalization gives a global generic representative.
-The analytic recovery argument upgrades it to a Borel inverse lift and proves
-`e(x) ≤ a ⊔ x`. At `x = a`, this gives `e(a) = a = e(0)`, so injectivity forces
-`a = 0`.
+`Solution.lean` exports the already proved declaration from
+`RequestProject/TuringConeMain.lean`. It does not import Challenge. Comparator
+checks the two environments, the stated theorem type, and permitted proof
+axioms. This arrangement makes the advertised statement readable without
+importing the many set-theoretic constructions used to prove it.
 
-The proof builds on the upstream OAI rigidity library and adapts the
-Slaman–Woodin methods cited in `formalization.yaml`. It is not an invocation of
-automorphism rigidity for a map of a different type. No claim of independent
-novelty assessment or expert peer review is made.
+## Proof architecture
 
-## Reproduce the checks
+Suppose `e` is an order isomorphism from all degrees onto the cone above `a`,
+and set `g(x) = e⁻¹(a ⊔ x)`. The decisive regularity theorem constructs a single
+parameterized oracle program representing `g` on sufficiently generic inputs.
+It is an existence-and-correctness result for a finite oracle-code type, not an
+algorithm taking an arbitrary uncountable isomorphism as executable input.
 
-The repository pins Lean and the full Mathlib dependency closure. With elan,
-Python 3.11 or newer, PyYAML 6.0.2, and bubblewrap available:
+The construction adapts coding and persistence methods to source and target
+structures with different bottom elements. Two-sided arithmetic bounds use
+the distinct parameters `e(0')` and `e⁻¹(a')`; equality of these parameters or
+preservation of the jump is not assumed. Countable restrictions receive
+arithmetic graph presentations, leading to persistent extensions, a coded
+absoluteness argument, and constructibility of the appropriate degree graphs.
+Cohen forcing and program selection provide one index rather than an unrelated
+index for each input. The inverse-join map is treated as a relation, not as an
+automorphism: in general it need not be injective.
 
-```sh
-python3 scripts/check-palomar.py
-lake exe cache get
-lake build Challenge Solution
-lake env lean scripts/CheckConeRigidity.lean
-lake env lean scripts/CheckConeOracleProgram.lean
-lake env lean scripts/CheckConeMain.lean
-bash scripts/verify-comparator.sh
-```
+The generic-to-global analytic step uses auxiliary minimal pairs over the join
+of the cone base with the input. It yields a Borel inverse lift. Four-value
+recovery and category avoidance give `e(x) ≤ a ⊔ x`. At `x = a`, this forces
+`e(a) = a = e(⊥)`; injectivity then yields `a = ⊥`, the contradiction.
 
-The Comparator script uses the tools bundled with the pinned Lean release,
-including the independent NanoDa and con-ron kernels. The submitted
-`comparator.json` contains no user-specified external-kernel command. The script
-creates a temporary verification configuration and deletes it on exit.
+The detailed development and axiom audits are retained in the repository.
+Intermediate lemmas can have explicit representation or model hypotheses;
+the final theorem discharges them rather than retaining them as assumptions.
 
-A successful old-toolchain build is not evidence that a new snapshot passes.
-Consult the **Palomar readiness** workflow for the exact commit being proposed.
-The local metadata/source checks are preflight checks, not a replacement for
-Palomar's own verification and editorial review.
+## Sources, authorship, and limits of the claim
 
-## Scope, foundations and review
+The mathematical background is Theodore A. Slaman and W. Hugh Woodin,
+*Definability in Degree Structures* (2005 manuscript), especially the
+persistence and generic-representation arguments in Chapters 4–5:
+<https://math.berkeley.edu/~slaman/talks/sw.pdf>.
 
-This submission selects only cone rigidity. The repository also retains its
-original truth-table-degree work, which is not selected by this configuration.
-The transitive dependencies of the selected proof must use only `propext`,
-`Classical.choice`, and `Quot.sound`; a `sorry` or `native_decide` dependency
-would fail the check. The Challenge's deliberate proof hole is not a Solution
-assumption.
+The inherited formal infrastructure is OpenAI's DegreeRigidity development at
+<https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/OAI/Computability/DegreeRigidity>.
+Its source tree matches the pre-Palomar inherited directory exactly, as
+recorded in `OAI/PORTING.md`. The cone-specific argument was developed with
+ChatGPT 6 Pro under Bjørn Kjos-Hanssen's mathematical direction. The initial
+question and a suggested route also arose in private discussion. The original
+Aristotle credit concerns earlier truth-table work and is retained separately.
 
-The theorem is established in Lean's foundations. An axiom-dependency report
-is not an extraction of a syntactic ZFC or ZF proof, and we make no separate
-claim that such an extraction has been completed. The human/AI workflow and
-absence of independent human review are disclosed in `formalization.yaml`.
+The metadata's `original-proof` origin identifies where this cone-specific
+argument is presented. It is not an independently reviewed assertion of
+historical priority, and does not suggest that the background coding and
+forcing methods are new. No source-author endorsement is claimed.
 
-All regular Lean files, including scripts and unrelated retained sources, were
-ported to Lean's module system to meet the repository-wide requirement. The
-port uses public imports and exposed public sections; compatibility options
-preserve legacy private references and proof elaboration. These are elaborator
-options, not added axioms. The migration script records the mechanical recipe.
-The root Apache-2.0 license matches the upstream OAI license; see `NOTICE` for
-attribution and the distinction between retained and added source.
-
-## Submit only a final, reviewed snapshot
-
-After reviewing and merging this preparation PR, use the full 40-character SHA
-of the exact public commit to be submitted:
-
-```sh
-git rev-parse HEAD
-```
-
-Use https://submit.palomar-registry.org/ and select `bjoernkjoshanssen/tt-auto`.
-The project is at the repository root, so the optional project/config/metadata
-paths can be left at their conventional defaults: `comparator.json` and
-`formalization.yaml`. The responsible maintainer can declare their relationship
-to the substantive formalization on that form.
-
-Creating or merging these files does not submit or register the result. The
-maintainer must authorize submission and, after seeing the review, registration.
-An automated agent should use Palomar's documented agent protocol rather than
-drive the human form. No registry submission, tag challenge, public gist, or
-registration is created by this PR.
-
-Requirements consulted: https://palomar-registry.org/how-to-submit and the
-linked PalomarPolicy submission standard. Policies may change; recheck the
-current minimum toolchain before a later submission.
+The theorem is formalized in classical Lean foundations with the standard
+`propext`, `Classical.choice`, and `Quot.sound` dependencies. This is not a
+separately formalized derivation in ZFC or ZF. Independent human review of the
+mathematical interpretation and inherited machinery remains distinct from
+successful kernel checking. Nor does preparing these files imply acceptance
+or registration by Palomar; the submitted immutable commit must pass the
+registry's own mechanical and editorial checks.
