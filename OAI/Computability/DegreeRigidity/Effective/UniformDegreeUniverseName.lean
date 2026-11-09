@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Constructibility.UniformOwnRealsName
-import OAI.Computability.DegreeRigidity.Constructibility.UniformSeparationName
-import OAI.Computability.DegreeRigidity.SetModels.ModelDegreeUniverse
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformOwnRealsName
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformSeparationName
+public import OAI.Computability.DegreeRigidity.SetModels.ModelDegreeUniverse
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

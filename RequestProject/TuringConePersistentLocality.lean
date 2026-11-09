@@ -1,5 +1,16 @@
-import RequestProject.TuringConeIdealLocality
-import RequestProject.TuringConePresentationCountability
+module
+
+public import RequestProject.TuringConeIdealLocality
+public import RequestProject.TuringConePresentationCountability
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Persistent cone maps: prescribed extensions and arithmetic presentations

@@ -1,5 +1,16 @@
-import RequestProject.TuringConeRigidity
-import OAI.Computability.DegreeRigidity.Representation.GenericRepresentation
+module
+
+public import RequestProject.TuringConeRigidity
+public import OAI.Computability.DegreeRigidity.Representation.GenericRepresentation
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # From a generic inverse representative to cone rigidity

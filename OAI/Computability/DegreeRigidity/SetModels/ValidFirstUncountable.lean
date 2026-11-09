@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalUncountableSentence
-import OAI.Computability.DegreeRigidity.SetModels.InternalGraphEquiv
-import OAI.Computability.DegreeRigidity.SetModels.ElementarySchemas
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalUncountableSentence
+public import OAI.Computability.DegreeRigidity.SetModels.InternalGraphEquiv
+public import OAI.Computability.DegreeRigidity.SetModels.ElementarySchemas
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

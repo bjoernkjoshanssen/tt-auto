@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleBase
-import Mathlib.SetTheory.ZFC.Ordinal
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleBase
+public import Mathlib.SetTheory.ZFC.Ordinal
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

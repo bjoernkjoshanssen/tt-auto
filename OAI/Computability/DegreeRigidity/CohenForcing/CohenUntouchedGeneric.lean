@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenFactorRequirement
-import OAI.Computability.DegreeRigidity.SetModels.InternalBooleanGeneric
-import OAI.Computability.DegreeRigidity.SetModels.InternalColumnExtension
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenFactorRequirement
+public import OAI.Computability.DegreeRigidity.SetModels.InternalBooleanGeneric
+public import OAI.Computability.DegreeRigidity.SetModels.InternalColumnExtension
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

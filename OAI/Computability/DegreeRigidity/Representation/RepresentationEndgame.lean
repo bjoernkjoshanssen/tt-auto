@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Representation.GenericAssembly
-import OAI.Computability.DegreeRigidity.Representation.GenericCodingBorel
-import OAI.Computability.DegreeRigidity.Representation.BorelGeneric
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.GenericAssembly
+public import OAI.Computability.DegreeRigidity.Representation.GenericCodingBorel
+public import OAI.Computability.DegreeRigidity.Representation.BorelGeneric
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,4 +1,15 @@
-import RequestProject.TT.Main
+module
+
+public import RequestProject.TT.Main
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Baire measurable functions and Baire category on Cantor space

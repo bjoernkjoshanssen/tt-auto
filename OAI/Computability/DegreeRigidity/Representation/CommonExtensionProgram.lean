@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Syntax.DefinedPrefixRemoval
-import OAI.Computability.DegreeRigidity.Representation.OwnSourceEquation
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.DefinedPrefixRemoval
+public import OAI.Computability.DegreeRigidity.Representation.OwnSourceEquation
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

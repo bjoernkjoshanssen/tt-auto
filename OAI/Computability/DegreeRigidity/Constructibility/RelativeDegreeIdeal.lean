@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.SetModels.DegreeUniverseWithoutChoice
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeModelComparison
-import OAI.Computability.DegreeRigidity.SetModels.ElementaryModelIdeal
-import OAI.Computability.DegreeRigidity.Representation.NativeModelCompatibility
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.DegreeUniverseWithoutChoice
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeModelComparison
+public import OAI.Computability.DegreeRigidity.SetModels.ElementaryModelIdeal
+public import OAI.Computability.DegreeRigidity.Representation.NativeModelCompatibility
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

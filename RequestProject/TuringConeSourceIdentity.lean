@@ -1,5 +1,16 @@
-import RequestProject.TuringConeProgramGlobalization
-import OAI.Computability.DegreeRigidity.Representation.SourceIdentity
+module
+
+public import RequestProject.TuringConeProgramGlobalization
+public import OAI.Computability.DegreeRigidity.Representation.SourceIdentity
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # The source equation for inverse cone maps

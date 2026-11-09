@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.ForcingSymmetry
-import Mathlib.Data.Set.Finite.Basic
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.ForcingSymmetry
+public import Mathlib.Data.Set.Finite.Basic
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

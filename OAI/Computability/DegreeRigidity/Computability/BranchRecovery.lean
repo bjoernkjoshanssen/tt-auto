@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Effective.UniformOracle
-import OAI.Computability.DegreeRigidity.Computability.RecoverySetup
-import OAI.Computability.DegreeRigidity.Representation.Assembly
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.UniformOracle
+public import OAI.Computability.DegreeRigidity.Computability.RecoverySetup
+public import OAI.Computability.DegreeRigidity.Representation.Assembly
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

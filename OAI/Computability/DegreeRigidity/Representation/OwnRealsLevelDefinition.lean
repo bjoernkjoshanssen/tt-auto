@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Representation.OwnRealsConstruction
-import OAI.Computability.DegreeRigidity.Constructibility.FiniteDefinitionTransfer
-import OAI.Computability.DegreeRigidity.OrdinalCodes.LevelSubsetDefinition
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.OwnRealsConstruction
+public import OAI.Computability.DegreeRigidity.Constructibility.FiniteDefinitionTransfer
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.LevelSubsetDefinition
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

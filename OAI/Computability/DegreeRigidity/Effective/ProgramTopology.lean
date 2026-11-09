@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Computability.OracleCode
-import Mathlib.MeasureTheory.Constructions.BorelSpace.Basic
-import Mathlib.Topology.Instances.Nat
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.OracleCode
+public import Mathlib.MeasureTheory.Constructions.BorelSpace.Basic
+public import Mathlib.Topology.Instances.Nat
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

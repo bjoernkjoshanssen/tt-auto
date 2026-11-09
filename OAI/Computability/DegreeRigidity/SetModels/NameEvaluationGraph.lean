@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.EvaluationNameCode
-import OAI.Computability.DegreeRigidity.SetModels.NameValueCover
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.EvaluationNameCode
+public import OAI.Computability.DegreeRigidity.SetModels.NameValueCover
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,9 +1,20 @@
-import OAI.Computability.DegreeRigidity.Effective.PrefixSingletonRealization
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenPartitionRealization
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenRemainderTransport
-import OAI.Computability.DegreeRigidity.Representation.OriginalRealCohenFactorization
-import OAI.Computability.DegreeRigidity.Representation.CommonExtensionProgram
-import OAI.Computability.DegreeRigidity.SetModels.InternalShuffleGeneric
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.PrefixSingletonRealization
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenPartitionRealization
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenRemainderTransport
+public import OAI.Computability.DegreeRigidity.Representation.OriginalRealCohenFactorization
+public import OAI.Computability.DegreeRigidity.Representation.CommonExtensionProgram
+public import OAI.Computability.DegreeRigidity.SetModels.InternalShuffleGeneric
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

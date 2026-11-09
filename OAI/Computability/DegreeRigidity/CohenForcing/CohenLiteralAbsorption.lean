@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenPrefixDensity
-import OAI.Computability.DegreeRigidity.SetModels.DenseInclusionExtension
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenIteratedAbsorption
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenPrefixDensity
+public import OAI.Computability.DegreeRigidity.SetModels.DenseInclusionExtension
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenIteratedAbsorption
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

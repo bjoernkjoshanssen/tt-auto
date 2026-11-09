@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticTestApproximation
-import Mathlib.SetTheory.Descriptive.Tree
-import Mathlib.Order.WellFounded
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticTestApproximation
+public import Mathlib.SetTheory.Descriptive.Tree
+public import Mathlib.Order.WellFounded
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

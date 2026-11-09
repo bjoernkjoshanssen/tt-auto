@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.Representation.GenericTopology
-import OAI.Computability.DegreeRigidity.Representation.GenericIdentity
-import OAI.Computability.DegreeRigidity.Representation.PairGenericSelection
-import Mathlib.Topology.Baire.BaireMeasurable
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.GenericTopology
+public import OAI.Computability.DegreeRigidity.Representation.GenericIdentity
+public import OAI.Computability.DegreeRigidity.Representation.PairGenericSelection
+public import Mathlib.Topology.Baire.BaireMeasurable
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

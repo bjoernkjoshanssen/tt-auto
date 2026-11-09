@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalNaturalRelationReal
-import OAI.Computability.DegreeRigidity.SetModels.ModelArithmeticComprehension
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalNaturalRelationReal
+public import OAI.Computability.DegreeRigidity.SetModels.ModelArithmeticComprehension
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

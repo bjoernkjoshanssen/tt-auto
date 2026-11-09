@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.LimitOmegaGraphSyntax
-import OAI.Computability.DegreeRigidity.SetModels.ExactOmegaGraph
-import OAI.Computability.DegreeRigidity.Constructibility.FiniteStageSetBounds
-import OAI.Computability.DegreeRigidity.OrdinalCodes.LevelOrdinalHeight
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.LimitOmegaGraphSyntax
+public import OAI.Computability.DegreeRigidity.SetModels.ExactOmegaGraph
+public import OAI.Computability.DegreeRigidity.Constructibility.FiniteStageSetBounds
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.LevelOrdinalHeight
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

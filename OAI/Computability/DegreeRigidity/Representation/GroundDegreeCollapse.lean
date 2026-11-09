@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Representation.GroundDegreePresentation
-import OAI.Computability.DegreeRigidity.Representation.GlobalJumpRestriction
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticPersistenceDegreeModel
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.GroundDegreePresentation
+public import OAI.Computability.DegreeRigidity.Representation.GlobalJumpRestriction
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticPersistenceDegreeModel
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

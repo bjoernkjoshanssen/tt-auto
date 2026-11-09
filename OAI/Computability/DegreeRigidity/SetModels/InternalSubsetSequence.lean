@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalSequenceRange
-import OAI.Computability.DegreeRigidity.Syntax.BoundedFormulaRename
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalSequenceRange
+public import OAI.Computability.DegreeRigidity.Syntax.BoundedFormulaRename
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenManyAbsorption
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenUnusedTransport
-import OAI.Computability.DegreeRigidity.Representation.OriginalRealFullIteration
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenManyAbsorption
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenUnusedTransport
+public import OAI.Computability.DegreeRigidity.Representation.OriginalRealFullIteration
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

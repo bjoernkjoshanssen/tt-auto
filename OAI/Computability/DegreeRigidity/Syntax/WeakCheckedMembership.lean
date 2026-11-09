@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Syntax.CheckedMembershipSeparation
-import OAI.Computability.DegreeRigidity.Syntax.WeakCheckedValue
-import OAI.Computability.DegreeRigidity.CohenForcing.WeakForcingCode
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.CheckedMembershipSeparation
+public import OAI.Computability.DegreeRigidity.Syntax.WeakCheckedValue
+public import OAI.Computability.DegreeRigidity.CohenForcing.WeakForcingCode
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Computability.JumpSetFormula
-import OAI.Computability.DegreeRigidity.SetModels.ModelIterationFormula
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.JumpSetFormula
+public import OAI.Computability.DegreeRigidity.SetModels.ModelIterationFormula
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.ModelOrderSatisfaction
-import OAI.Computability.DegreeRigidity.SetModels.ModelPersistentGraph
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ModelOrderSatisfaction
+public import OAI.Computability.DegreeRigidity.SetModels.ModelPersistentGraph
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

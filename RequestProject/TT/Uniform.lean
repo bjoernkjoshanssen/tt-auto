@@ -1,4 +1,15 @@
-import RequestProject.TT.Defs
+module
+
+public import RequestProject.TT.Defs
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Uniform oracle programs

@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticProgramGraph
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticShuffleGraph
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticPrincipalIntersection
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticProgramGraph
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticShuffleGraph
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticPrincipalIntersection
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

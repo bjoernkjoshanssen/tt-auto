@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.IndexPresentation
-import Mathlib.Data.Finset.Lattice.Fold
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.IndexPresentation
+public import Mathlib.Data.Finset.Lattice.Fold
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

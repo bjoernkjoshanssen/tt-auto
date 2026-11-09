@@ -1,5 +1,16 @@
-import RequestProject.TuringConePullbackProgram
-import OAI.Computability.DegreeRigidity.SetModels.ModelDegreeOrder
+module
+
+public import RequestProject.TuringConePullbackProgram
+public import OAI.Computability.DegreeRigidity.SetModels.ModelDegreeOrder
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Constructibility of the inverse-join graph

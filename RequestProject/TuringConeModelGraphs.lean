@@ -1,5 +1,16 @@
-import RequestProject.TuringConeSetGraphs
-import OAI.Computability.DegreeRigidity.SetModels.CountedRealsPresentation
+module
+
+public import RequestProject.TuringConeSetGraphs
+public import OAI.Computability.DegreeRigidity.SetModels.CountedRealsPresentation
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Persistent cone graphs inside models

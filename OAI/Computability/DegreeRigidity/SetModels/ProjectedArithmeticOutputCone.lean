@@ -1,8 +1,19 @@
-import OAI.Computability.DegreeRigidity.SetModels.ProjectedArithmeticOutputName
-import OAI.Computability.DegreeRigidity.SetModels.FixedArithmeticTailCone
-import OAI.Computability.DegreeRigidity.Representation.OwnDegreeExtensionMeaning
-import OAI.Computability.DegreeRigidity.SetModels.InternalColumnExtension
-import OAI.Computability.DegreeRigidity.Representation.CommonGenericModels
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ProjectedArithmeticOutputName
+public import OAI.Computability.DegreeRigidity.SetModels.FixedArithmeticTailCone
+public import OAI.Computability.DegreeRigidity.Representation.OwnDegreeExtensionMeaning
+public import OAI.Computability.DegreeRigidity.SetModels.InternalColumnExtension
+public import OAI.Computability.DegreeRigidity.Representation.CommonGenericModels
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

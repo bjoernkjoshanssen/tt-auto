@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Syntax.BooleanEvaluationWitness
-import OAI.Computability.DegreeRigidity.Representation.SameRealBooleanFilter
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.BooleanEvaluationWitness
+public import OAI.Computability.DegreeRigidity.Representation.SameRealBooleanFilter
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

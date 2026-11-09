@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Syntax.BoundedOmegaGraph
-import OAI.Computability.DegreeRigidity.Effective.FiniteBlockProducts
-import OAI.Computability.DegreeRigidity.Constructibility.UniformOmegaLevels
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.BoundedOmegaGraph
+public import OAI.Computability.DegreeRigidity.Effective.FiniteBlockProducts
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformOmegaLevels
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

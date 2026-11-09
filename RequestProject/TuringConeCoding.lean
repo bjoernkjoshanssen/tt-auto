@@ -1,6 +1,17 @@
-import RequestProject.TuringConeRigidity
-import OAI.Computability.DegreeRigidity.SetModels.IdealInterpretation
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticModelDecoding
+module
+
+public import RequestProject.TuringConeRigidity
+public import OAI.Computability.DegreeRigidity.SetModels.IdealInterpretation
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticModelDecoding
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Coding interpreted in a principal Turing cone

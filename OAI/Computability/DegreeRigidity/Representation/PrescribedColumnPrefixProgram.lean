@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.SelectedColumnPrefixProgram
-import OAI.Computability.DegreeRigidity.Representation.PrescribedRealHullExtension
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.SelectedColumnPrefixProgram
+public import OAI.Computability.DegreeRigidity.Representation.PrescribedRealHullExtension
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

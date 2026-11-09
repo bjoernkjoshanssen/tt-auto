@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalCountableProduct
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenGroundPoset
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalCountableProduct
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenGroundPoset
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

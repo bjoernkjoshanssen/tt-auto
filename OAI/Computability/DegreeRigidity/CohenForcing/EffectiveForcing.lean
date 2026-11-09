@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.EncodedForcing
-import OAI.Computability.DegreeRigidity.Effective.EffectiveWitness
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.EncodedForcing
+public import OAI.Computability.DegreeRigidity.Effective.EffectiveWitness
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

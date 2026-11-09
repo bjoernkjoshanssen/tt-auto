@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalSubsetSequence
-import OAI.Computability.DegreeRigidity.SetModels.InternalCountableClosure
-import Mathlib.Data.Set.Finite.Powerset
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalSubsetSequence
+public import OAI.Computability.DegreeRigidity.SetModels.InternalCountableClosure
+public import Mathlib.Data.Set.Finite.Powerset
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.Syntax.CheckedHierarchySyntax
-import OAI.Computability.DegreeRigidity.Constructibility.CollectionHierarchyInternal
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeDefCertificates
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeModelOrdinals
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.CheckedHierarchySyntax
+public import OAI.Computability.DegreeRigidity.Constructibility.CollectionHierarchyInternal
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeDefCertificates
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeModelOrdinals
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

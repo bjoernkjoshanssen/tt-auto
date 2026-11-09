@@ -1,4 +1,15 @@
-import RequestProject.TT.BaireTopology
+module
+
+public import RequestProject.TT.BaireTopology
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Lemmas 4.1 and 4.2: uniform relations on a comeager set, and a splitting bit

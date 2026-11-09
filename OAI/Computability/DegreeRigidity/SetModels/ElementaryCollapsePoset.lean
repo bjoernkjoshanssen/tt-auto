@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.SetModels.ElementaryDefinableSets
-import OAI.Computability.DegreeRigidity.Representation.AmbientDegreeSyntax
-import OAI.Computability.DegreeRigidity.SetModels.InternalCollapseConditions
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ElementaryDefinableSets
+public import OAI.Computability.DegreeRigidity.Representation.AmbientDegreeSyntax
+public import OAI.Computability.DegreeRigidity.SetModels.InternalCollapseConditions
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

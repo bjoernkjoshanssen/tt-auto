@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Representation.GlobalArithmeticGenericProgram
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenRequirements
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.GlobalArithmeticGenericProgram
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenRequirements
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

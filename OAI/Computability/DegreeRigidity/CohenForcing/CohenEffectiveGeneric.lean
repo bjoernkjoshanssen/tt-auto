@@ -1,8 +1,19 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenWordCodeGraph
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenFilters
-import OAI.Computability.DegreeRigidity.SetModels.ModelArithmeticComprehension
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticOracles
-import OAI.Computability.DegreeRigidity.Effective.EffectiveCohen
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenWordCodeGraph
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenFilters
+public import OAI.Computability.DegreeRigidity.SetModels.ModelArithmeticComprehension
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticOracles
+public import OAI.Computability.DegreeRigidity.Effective.EffectiveCohen
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,17 @@
-import RequestProject.TuringConeCoding
-import OAI.Computability.DegreeRigidity.Effective.LocalCoding
-import OAI.Computability.DegreeRigidity.Effective.EffectiveFamilies
+module
+
+public import RequestProject.TuringConeCoding
+public import OAI.Computability.DegreeRigidity.Effective.LocalCoding
+public import OAI.Computability.DegreeRigidity.Effective.EffectiveFamilies
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Effective antichain coding above a fixed base

@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.Recurrence
-import Mathlib.Topology.Baire.BaireMeasurable
-import Mathlib.Topology.Baire.Lemmas
-import Mathlib.Topology.Algebra.Group.Basic
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.Recurrence
+public import Mathlib.Topology.Baire.BaireMeasurable
+public import Mathlib.Topology.Baire.Lemmas
+public import Mathlib.Topology.Algebra.Group.Basic
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

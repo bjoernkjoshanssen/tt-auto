@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Effective.UniformSplit
-import OAI.Computability.DegreeRigidity.Effective.UniformAgreement
-import OAI.Computability.DegreeRigidity.Effective.EffectiveSplitConditions
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.UniformSplit
+public import OAI.Computability.DegreeRigidity.Effective.UniformAgreement
+public import OAI.Computability.DegreeRigidity.Effective.EffectiveSplitConditions
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

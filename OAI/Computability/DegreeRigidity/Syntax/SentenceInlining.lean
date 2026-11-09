@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Syntax.FiniteGraphSatisfaction
-import OAI.Computability.DegreeRigidity.SetModels.ElementarySatisfaction
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.FiniteGraphSatisfaction
+public import OAI.Computability.DegreeRigidity.SetModels.ElementarySatisfaction
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

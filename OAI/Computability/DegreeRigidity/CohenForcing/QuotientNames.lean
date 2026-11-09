@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.QuotientDense
-import OAI.Computability.DegreeRigidity.SetModels.RecursiveNames
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.QuotientDense
+public import OAI.Computability.DegreeRigidity.SetModels.RecursiveNames
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

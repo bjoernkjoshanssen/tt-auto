@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.Syntax.FiniteFragment
-import OAI.Computability.DegreeRigidity.SetModels.FiniteSkolem
-import OAI.Computability.DegreeRigidity.SetModels.SkolemHull
-import OAI.Computability.DegreeRigidity.SetModels.InternalStructureCollapse
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.FiniteFragment
+public import OAI.Computability.DegreeRigidity.SetModels.FiniteSkolem
+public import OAI.Computability.DegreeRigidity.SetModels.SkolemHull
+public import OAI.Computability.DegreeRigidity.SetModels.InternalStructureCollapse
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

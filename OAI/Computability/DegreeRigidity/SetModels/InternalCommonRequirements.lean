@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticCommonRequirement
-import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericalCohenProductSets
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenProductSplitting
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticCommonRequirement
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericalCohenProductSets
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenProductSplitting
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

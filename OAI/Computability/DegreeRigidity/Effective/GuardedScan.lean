@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Effective.StageRecords
-import OAI.Computability.DegreeRigidity.Effective.GuardedStage
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.StageRecords
+public import OAI.Computability.DegreeRigidity.Effective.GuardedStage
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

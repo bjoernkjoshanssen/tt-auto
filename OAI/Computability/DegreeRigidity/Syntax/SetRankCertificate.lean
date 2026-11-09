@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Syntax.BoundedRelations
-import Mathlib.SetTheory.ZFC.Rank
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.BoundedRelations
+public import Mathlib.SetTheory.ZFC.Rank
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

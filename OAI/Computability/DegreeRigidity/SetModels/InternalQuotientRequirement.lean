@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalQuotientLifting
-import OAI.Computability.DegreeRigidity.CohenForcing.CheckedForcingRelation
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalQuotientLifting
+public import OAI.Computability.DegreeRigidity.CohenForcing.CheckedForcingRelation
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

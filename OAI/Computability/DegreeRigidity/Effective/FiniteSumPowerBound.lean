@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.RecursiveSumBound
-import OAI.Computability.DegreeRigidity.OrdinalCodes.TrimmedPaddedSum
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.RecursiveSumBound
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.TrimmedPaddedSum
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenAntichainStages
-import OAI.Computability.DegreeRigidity.Representation.SourceTDependentChoice
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenAntichainStages
+public import OAI.Computability.DegreeRigidity.Representation.SourceTDependentChoice
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

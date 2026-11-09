@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaPowerDefinability
-import OAI.Computability.DegreeRigidity.Syntax.SigmaParameterizedClosure
-import OAI.Computability.DegreeRigidity.SetModels.SetModelIteration
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaPowerDefinability
+public import OAI.Computability.DegreeRigidity.Syntax.SigmaParameterizedClosure
+public import OAI.Computability.DegreeRigidity.SetModels.SetModelIteration
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

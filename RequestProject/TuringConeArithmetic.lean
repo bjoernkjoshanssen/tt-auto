@@ -1,4 +1,15 @@
-import RequestProject.TuringConeCoding
+module
+
+public import RequestProject.TuringConeCoding
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Arithmetic presentation of relation codes in a principal cone

@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Effective.ProgramTopology
-import OAI.Computability.DegreeRigidity.Computability.Joins
-import OAI.Computability.DegreeRigidity.Representation.Category
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.ProgramTopology
+public import OAI.Computability.DegreeRigidity.Computability.Joins
+public import OAI.Computability.DegreeRigidity.Representation.Category
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

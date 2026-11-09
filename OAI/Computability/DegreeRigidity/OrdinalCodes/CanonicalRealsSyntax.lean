@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.CanonicalOmegaSyntax
-import OAI.Computability.DegreeRigidity.Representation.AmbientDegreeSyntax
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleGroundReals
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.CanonicalOmegaSyntax
+public import OAI.Computability.DegreeRigidity.Representation.AmbientDegreeSyntax
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleGroundReals
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Representation.OwnStageSourceTheory
-import OAI.Computability.DegreeRigidity.Syntax.SetSatisfactionBounded
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.OwnStageSourceTheory
+public import OAI.Computability.DegreeRigidity.Syntax.SetSatisfactionBounded
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

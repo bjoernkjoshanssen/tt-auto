@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenSizeLevels
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenFiniteAntichains
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenGroundGeneric
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenSizeLevels
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenFiniteAntichains
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenGroundGeneric
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

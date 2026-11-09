@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericParameters
-import OAI.Computability.DegreeRigidity.Constructibility.UniformSentenceSupport
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericParameters
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformSentenceSupport
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

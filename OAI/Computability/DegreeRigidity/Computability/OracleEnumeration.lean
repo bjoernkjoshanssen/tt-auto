@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Effective.PrefixComputability
-import Mathlib.Data.Set.Finite.Range
-import Lean.Elab.Tactic.Omega
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.PrefixComputability
+public import Mathlib.Data.Set.Finite.Range
+public import Lean.Elab.Tactic.Omega
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

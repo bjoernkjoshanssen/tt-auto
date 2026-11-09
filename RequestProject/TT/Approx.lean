@@ -1,8 +1,19 @@
-import RequestProject.TT.Uniform
-import OAI.Computability.DegreeRigidity.Effective.FiniteApproximation
-import OAI.Computability.DegreeRigidity.Effective.UniformOracle
-import OAI.Computability.DegreeRigidity.SetModels.ParametricEval
-import OAI.Computability.DegreeRigidity.Effective.PartialComputability
+module
+
+public import RequestProject.TT.Uniform
+public import OAI.Computability.DegreeRigidity.Effective.FiniteApproximation
+public import OAI.Computability.DegreeRigidity.Effective.UniformOracle
+public import OAI.Computability.DegreeRigidity.SetModels.ParametricEval
+public import OAI.Computability.DegreeRigidity.Effective.PartialComputability
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # tt-functionals as functionals with primitive recursive finite approximations

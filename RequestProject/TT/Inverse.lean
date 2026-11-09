@@ -1,4 +1,15 @@
-import RequestProject.TT.Borel
+module
+
+public import RequestProject.TT.Borel
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # The inverse automorphism (Proposition 4.8) and Theorem 1.1 in full generality

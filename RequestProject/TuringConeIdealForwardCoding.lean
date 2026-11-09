@@ -1,4 +1,15 @@
-import RequestProject.TuringConeIdealBackCoding
+module
+
+public import RequestProject.TuringConeIdealBackCoding
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Forward transport of bounded unary copies on an ideal

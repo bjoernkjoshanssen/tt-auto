@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticTreeDefinability
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaModelArithmetic
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticTreeDefinability
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaModelArithmetic
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

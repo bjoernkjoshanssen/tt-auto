@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.SelectedColumnArithmeticCone
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnPrefixCone
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.SelectedColumnArithmeticCone
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnPrefixCone
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

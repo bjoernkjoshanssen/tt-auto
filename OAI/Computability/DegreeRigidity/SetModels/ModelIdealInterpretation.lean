@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.SetModels.ModelDegreeOrder
-import OAI.Computability.DegreeRigidity.SetModels.CountableSetReal
-import OAI.Computability.DegreeRigidity.SetModels.PresentedDegreeEmbedding
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ModelDegreeOrder
+public import OAI.Computability.DegreeRigidity.SetModels.CountableSetReal
+public import OAI.Computability.DegreeRigidity.SetModels.PresentedDegreeEmbedding
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

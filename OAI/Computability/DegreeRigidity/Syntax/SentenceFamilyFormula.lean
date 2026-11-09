@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Syntax.SentenceCodeFamily
-import OAI.Computability.DegreeRigidity.Syntax.SentenceCodeDefinability
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.SentenceCodeFamily
+public import OAI.Computability.DegreeRigidity.Syntax.SentenceCodeDefinability
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

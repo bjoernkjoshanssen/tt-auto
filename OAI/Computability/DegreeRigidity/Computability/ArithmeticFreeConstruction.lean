@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.BindCanonicalArithmetic
-import OAI.Computability.DegreeRigidity.Constructibility.SingleRealConstruction
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.BindCanonicalArithmetic
+public import OAI.Computability.DegreeRigidity.Constructibility.SingleRealConstruction
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

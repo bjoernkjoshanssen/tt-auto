@@ -1,4 +1,15 @@
-import OAI.Computability.DegreeRigidity.Main
+module
+
+public import OAI.Computability.DegreeRigidity.Main
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Any two automorphisms of the Turing degrees are equal

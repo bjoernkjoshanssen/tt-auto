@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenPrefixReconstruction
-import OAI.Computability.DegreeRigidity.Representation.RealGeneratedModel
-import OAI.Computability.DegreeRigidity.SetModels.RegularTreeExtension
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenPrefixReconstruction
+public import OAI.Computability.DegreeRigidity.Representation.RealGeneratedModel
+public import OAI.Computability.DegreeRigidity.SetModels.RegularTreeExtension
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

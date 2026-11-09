@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.SetModels.SetModelPrimrec
-import OAI.Computability.DegreeRigidity.Syntax.BoundedDefinability
-import OAI.Computability.DegreeRigidity.Computability.UniformArithmetic
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.SetModelPrimrec
+public import OAI.Computability.DegreeRigidity.Syntax.BoundedDefinability
+public import OAI.Computability.DegreeRigidity.Computability.UniformArithmetic
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

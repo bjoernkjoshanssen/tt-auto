@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Representation.GenericFactor
-import OAI.Computability.DegreeRigidity.Representation.CommonIdealSelection
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.GenericFactor
+public import OAI.Computability.DegreeRigidity.Representation.CommonIdealSelection
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

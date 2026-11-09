@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Computability.Cuts
-import Mathlib.Analysis.Real.OfDigits
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.Cuts
+public import Mathlib.Analysis.Real.OfDigits
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

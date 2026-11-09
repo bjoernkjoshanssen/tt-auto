@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructionInputData
-import OAI.Computability.DegreeRigidity.SetModels.SetModelJoin
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructionInputData
+public import OAI.Computability.DegreeRigidity.SetModels.SetModelJoin
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

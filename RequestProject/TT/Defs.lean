@@ -1,4 +1,15 @@
-import OAI.Computability.DegreeRigidity.Computability.OracleCode
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.OracleCode
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Truth-table reducibility and the truth-table degrees

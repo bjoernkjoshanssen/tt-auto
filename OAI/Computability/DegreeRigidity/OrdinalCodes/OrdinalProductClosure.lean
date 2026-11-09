@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalProductSyntax
-import Mathlib.SetTheory.Ordinal.Exponential
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OrdinalProductSyntax
+public import Mathlib.SetTheory.Ordinal.Exponential
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 
