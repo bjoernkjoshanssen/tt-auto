@@ -68,7 +68,7 @@ theorem action_eq_coneGraph (M : ZFSet.{u})
     obtain ⟨m, rfl⟩ := (hs y).mp hy
     rw [class_eq_degreeSet M hLower hd hE (hcols n),
       class_eq_degreeSet M hLower hd hE (hcols m)]
-    exact ⟨presentationEntry hA n, by rw [(hR n m).mp hxy]⟩
+    exact ⟨presentationEntry hA n, by rw [(hR n m).mp hxy]; rfl⟩
   · rintro ⟨b, rfl⟩
     obtain ⟨n, hn⟩ := (hA b.val).mp b.property
     obtain ⟨m, hm⟩ := (hA (ρ b).val).mp (ρ b).property.1

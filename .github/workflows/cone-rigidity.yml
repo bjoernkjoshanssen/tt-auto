@@ -30,7 +30,7 @@ jobs:
         with:
           auto-config: 'false'
           build: 'true'
-          build-args: 'RequestProject.TuringConeForcingExtension'
+          build-args: 'RequestProject.TuringConeForcingDefinition'
           test: 'false'
           lint: 'false'
           use-mathlib-cache: 'true'

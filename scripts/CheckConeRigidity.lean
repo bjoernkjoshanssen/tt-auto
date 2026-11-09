@@ -1,4 +1,4 @@
-import RequestProject.TuringConeForcingExtension
+import RequestProject.TuringConeForcingDefinition
 
 -- These commands report transitive axiom dependencies, including imported proofs.
 #print axioms OAI.TuringRigidity.ConeRigidity.image_le_join_of_inverse_borel_lift
@@ -106,3 +106,9 @@ import RequestProject.TuringConeForcingExtension
 #print axioms OAI.TuringRigidity.ConeForcingExtension.global_restriction_extension_name
 #print axioms OAI.TuringRigidity.ConeForcingExtension.model_cone_output_name
 #print axioms OAI.TuringRigidity.ConeForcingExtension.model_cone_inverse_output_name
+#print axioms OAI.TuringRigidity.ConeExtensionBounds.inverse_bound_of_extension
+#print axioms OAI.TuringRigidity.ConeExtensionBounds.representative_bound_of_extension
+#print axioms OAI.TuringRigidity.ConeForcingDefinition.persistent_graph_one_real_definition
+#print axioms OAI.TuringRigidity.ConeForcingDefinition.persistent_extension_one_real_definition
+#print axioms OAI.TuringRigidity.ConeForcingDefinition.forcing_extension_one_real_definition
+#print axioms OAI.TuringRigidity.ConeForcingDefinition.coded_forcing_extension_name
