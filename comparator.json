@@ -1,0 +1,8 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso"
+  ],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}
