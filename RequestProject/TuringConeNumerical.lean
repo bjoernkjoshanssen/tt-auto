@@ -52,7 +52,6 @@ theorem action_of_iso {I : CountableIdeal} {B H : Oracle}
     refine ⟨n, ?_⟩
     simp only [ConePresentation.Graph, Nat.unpair_pair]
     rw [he, ρ.apply_symm_apply]
-    rfl
   · intro n m n' m' hp hq
     simp only [ConePresentation.Graph, Nat.unpair_pair] at hp hq
     rw [← hp, ← hq]
