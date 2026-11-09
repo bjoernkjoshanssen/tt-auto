@@ -1,4 +1,15 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticPrefixForcing
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticPrefixForcing
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

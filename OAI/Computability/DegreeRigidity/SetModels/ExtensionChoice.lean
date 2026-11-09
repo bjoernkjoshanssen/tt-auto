@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.SetModels.ChoiceFromOrdinalCover
-import OAI.Computability.DegreeRigidity.SetModels.NameEvaluationGraph
-import OAI.Computability.DegreeRigidity.SetModels.ExtensionSigmaReplacement
-import OAI.Computability.DegreeRigidity.SetModels.ExtensionPowerSet
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ChoiceFromOrdinalCover
+public import OAI.Computability.DegreeRigidity.SetModels.NameEvaluationGraph
+public import OAI.Computability.DegreeRigidity.SetModels.ExtensionSigmaReplacement
+public import OAI.Computability.DegreeRigidity.SetModels.ExtensionPowerSet
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Representation.CommonIdealSearch
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticTables
-import OAI.Computability.DegreeRigidity.CohenForcing.EncodedForcing
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.CommonIdealSearch
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticTables
+public import OAI.Computability.DegreeRigidity.CohenForcing.EncodedForcing
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

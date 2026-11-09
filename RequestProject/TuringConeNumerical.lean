@@ -1,5 +1,16 @@
-import RequestProject.TuringConePersistentExtension
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticActions
+module
+
+public import RequestProject.TuringConePersistentExtension
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticActions
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Numerical graphs of partial cone isomorphisms

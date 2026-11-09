@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Effective.ProgramContinuity
-import OAI.Computability.DegreeRigidity.Representation.GenericTruth
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.ProgramContinuity
+public import OAI.Computability.DegreeRigidity.Representation.GenericTruth
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

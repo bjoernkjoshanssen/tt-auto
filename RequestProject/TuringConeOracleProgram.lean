@@ -1,7 +1,18 @@
-import RequestProject.TuringConeProjectedProgram
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenGroundProgram
-import OAI.Computability.DegreeRigidity.Syntax.DefinedPrefixRemoval
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenProgramTotality
+module
+
+public import RequestProject.TuringConeProjectedProgram
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenGroundProgram
+public import OAI.Computability.DegreeRigidity.Syntax.DefinedPrefixRemoval
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenProgramTotality
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # An actual oracle program from a uniform inverse-graph name

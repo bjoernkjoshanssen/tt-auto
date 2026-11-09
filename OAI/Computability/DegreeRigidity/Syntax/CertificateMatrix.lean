@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.IndexedOrder
-import OAI.Computability.DegreeRigidity.Syntax.BoundedRecursive
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.IndexedOrder
+public import OAI.Computability.DegreeRigidity.Syntax.BoundedRecursive
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

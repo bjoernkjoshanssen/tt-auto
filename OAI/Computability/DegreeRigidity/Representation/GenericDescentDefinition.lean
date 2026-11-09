@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Representation.GenericPersistenceDescent
-import OAI.Computability.DegreeRigidity.Constructibility.PersistentOneRealDefinition
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.GenericPersistenceDescent
+public import OAI.Computability.DegreeRigidity.Constructibility.PersistentOneRealDefinition
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

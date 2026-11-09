@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.IdealSelection
-import OAI.Computability.DegreeRigidity.Representation.GenericCodingBorel
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.IdealSelection
+public import OAI.Computability.DegreeRigidity.Representation.GenericCodingBorel
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Effective.UniformPair
-import OAI.Computability.DegreeRigidity.Effective.CodingRequirements
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.UniformPair
+public import OAI.Computability.DegreeRigidity.Effective.CodingRequirements
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

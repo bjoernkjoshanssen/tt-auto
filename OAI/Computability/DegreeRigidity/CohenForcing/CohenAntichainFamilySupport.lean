@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenAntichainSelector
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenInternalSupport
-import OAI.Computability.DegreeRigidity.SetModels.InternalCountableUnion
-import OAI.Computability.DegreeRigidity.SetModels.InternalSequenceRange
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenAntichainSelector
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenInternalSupport
+public import OAI.Computability.DegreeRigidity.SetModels.InternalCountableUnion
+public import OAI.Computability.DegreeRigidity.SetModels.InternalSequenceRange
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

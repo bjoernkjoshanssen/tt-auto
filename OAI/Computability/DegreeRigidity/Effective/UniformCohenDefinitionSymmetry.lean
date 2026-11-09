@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Constructibility.UniformDefinitionSymmetry
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenHomogeneity
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenNiceNameConstruction
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformDefinitionSymmetry
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenHomogeneity
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenNiceNameConstruction
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

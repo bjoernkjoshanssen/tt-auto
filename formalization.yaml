@@ -1,0 +1,166 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Cone rigidity of the Turing degrees"
+  description: >-
+    No principal upper cone above a noncomputable Turing degree is
+    order-isomorphic to the partially ordered set of all Turing degrees.
+    The formalization adapts degree-coding, persistence, forcing, and generic
+    representation arguments to a hypothetical cone isomorphism, and uses a
+    Baire-category argument to rule out a nonzero cone base. No regularity
+    assumption is imposed on the isomorphism.
+  authors: ["Bjørn Kjos-Hanssen"]
+  responsible_maintainers: ["Bjørn Kjos-Hanssen"]
+  license: "Apache-2.0"
+
+repository:
+  role: "substantive-development"
+
+classification:
+  arxiv: ["math.LO"]
+  msc2020: ["03D28", "03B35"]
+
+sources:
+  - title: "Cone rigidity of the Turing degrees: argument developed in this repository"
+    type: "original-proof"
+    relationship: "other"
+    id: "https://github.com/bjoernkjoshanssen/tt-auto/pull/1"
+    location: "RequestProject/TuringConeMain.lean and supporting cone modules"
+    note: >-
+      The cone-specific argument was developed in a human-directed ChatGPT
+      conversation and formalized here. It is not a verbatim theorem of the
+      background manuscript. This origin label records the presentation of
+      this argument, not an independently reviewed claim of historical
+      priority. The question and a proposed route also arose in private
+      discussion.
+  - title: "Definability in Degree Structures"
+    authors: ["Theodore A. Slaman", "W. Hugh Woodin"]
+    type: "unpublished manuscript"
+    relationship: "background"
+    id: "https://math.berkeley.edu/~slaman/talks/sw.pdf"
+    location: "2005 manuscript; persistence and generic representation in Chapters 4–5"
+    note: >-
+      Background mathematical method. The cone adaptation is proved in Lean,
+      not assumed as a literature axiom.
+    author_endorsement: "not-contacted"
+  - title: "OpenAI Turing-degree rigidity formalization"
+    authors: ["OpenAI"]
+    type: "formalization"
+    relationship: "background"
+    id: "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/OAI/Computability/DegreeRigidity"
+    location: "DegreeRigidity development, inherited under OAI/Computability/DegreeRigidity"
+    note: >-
+      The existing computability, model-theoretic, forcing, and analytic
+      machinery is extensively reused. Before this module-system port, the
+      local OAI directory had the same Git tree hash as this upstream snapshot:
+      d979299cdac872372c8c2893b287ebf89fbb9258. Port modifications are documented
+      in OAI/PORTING.md and the changed source files.
+    license: "Apache-2.0"
+    author_endorsement: "not-contacted"
+
+related_formalizations:
+  - id: "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/OAI/Computability/DegreeRigidity"
+    relationship: "builds-on"
+    note: >-
+      Immutable upstream development. The cone proof extends its methods;
+      this submission ports the inherited sources to module visibility and
+      the new dependency pin without replacing the degree definitions.
+  - id: "https://github.com/bjoernkjoshanssen/tt-auto/tree/b934186a456258a055de59689e75b1d503f3c71f"
+    relationship: "supersedes"
+    note: >-
+      The merged cone proof before Palomar packaging, checked with Lean 4.34.1.
+      This submission adds an independent statement and a supported toolchain.
+
+status:
+  scope: >-
+    The compared result is exactly
+    OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso, for ordinary Turing
+    degrees of Boolean characteristic functions under Mathlib Turing
+    reducibility. It excludes arbitrary order isomorphisms with a proper
+    principal upper cone, without Borel, continuity, determinacy, persistence,
+    or model-existence premises. The proof is in classical Lean foundations;
+    a separate formal ZFC or ZF derivation has not been extracted. Counts below
+    concern the cone proof and its dependencies, not unrelated historical
+    truth-table work; deliberate Challenge placeholders are excluded.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso"
+      file: "RequestProject/TuringConeMain.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["ChatGPT 6 Pro"]
+      framework: "ChatGPT with GitHub integration"
+      tool_setup: >-
+        Human-directed mathematical discussion and iterative Lean development.
+        ChatGPT inspected sources, drafted and edited proofs, and used GitHub
+        Actions build and axiom-audit feedback. ChatGPT 6 Pro is the credit
+        requested by the maintainer for the cone-proof work. Registry
+        packaging was prepared in the same conversation.
+      cost:
+        wall_time: "not systematically tracked"
+        spend_usd: "subscription-based; per-project cost not tracked"
+        hardware: "ChatGPT service and GitHub-hosted Linux runners"
+      prompting_notes: >-
+        The maintainer proposed the problem, supplied the manuscript and
+        repository, requested successive lemmas, corrected redundant
+        hypotheses, and requested a Palomar Challenge/Solution comparison.
+    - method: "manual"
+      tool_setup: >-
+        Human mathematical direction, source selection, discussion of
+        intermediate claims, and repository-maintainer decisions. This is
+        not a claim of an independent line-by-line proof audit.
+  spend_usd: "not tracked"
+  notes: >-
+    The cone-specific code was generated and revised with ChatGPT 6 Pro under
+    Bjørn Kjos-Hanssen's direction. OpenAI's inherited development and Mathlib
+    are credited separately. Earlier truth-table work carries an Aristotle
+    (Harmonic) credit, retained in the README; that is not an attribution of
+    the cone proof to Aristotle. Machine checking is not human peer review.
+
+fidelity:
+  divergences: >-
+    This cone theorem is not the same statement as rigidity of automorphisms
+    of the full degree structure. The proof accounts for the different least
+    elements using an inverse-join map and relative minimal pairs over the
+    join with the cone base. The independent Challenge gives the ordinary
+    quotient and empty-set degree using only Mathlib. Exact proof-theoretic
+    strength in ZFC or ZF is not claimed.
+
+review:
+  status: "agent-reviewed; independent human review pending"
+  reviewers: ["ChatGPT 6 Pro"]
+  notes: >-
+    The pre-packaging proof passed Lean and transitive axiom audits at
+    b934186a456258a055de59689e75b1d503f3c71f. Submission readiness additionally
+    requires source/metadata validation, the pinned-toolchain build, and
+    Comparator with its bundled independent kernels at the submitted commit.
+    No external expert review, source-author endorsement, or Palomar
+    acceptance is asserted here.
+
+alignment:
+  namespace: "OAI.TuringRigidity.ConeMain"
+  statements:
+    - source: "No proper principal upper cone is order-isomorphic to all Turing degrees"
+      lean: "OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso"
+      module: "RequestProject.TuringConeMain"
+      status: "proved"
+      note: >-
+        Challenge.lean repeats the ordinary definitions independently.
+        Solution.lean exports the existing proved declaration unchanged.
+        Comparator checks their types and permitted axiom dependencies.
+
+acknowledgements: >-
+  Theodore A. Slaman and W. Hugh Woodin for the underlying methods; OpenAI for
+  the inherited DegreeRigidity development; the Lean and Mathlib communities;
+  ChatGPT 6 Pro for the human-directed cone formalization; and Palomar's
+  submission documentation and template for packaging guidance. These credits
+  do not imply endorsement.

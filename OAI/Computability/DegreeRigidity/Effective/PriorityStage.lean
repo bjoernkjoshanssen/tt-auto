@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.Effective.UniformPair
-import OAI.Computability.DegreeRigidity.CohenForcing.EffectiveForcing
-import OAI.Computability.DegreeRigidity.Effective.FiniteInjuryLimits
-import OAI.Computability.DegreeRigidity.Effective.FiniteInjurySchedule
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.UniformPair
+public import OAI.Computability.DegreeRigidity.CohenForcing.EffectiveForcing
+public import OAI.Computability.DegreeRigidity.Effective.FiniteInjuryLimits
+public import OAI.Computability.DegreeRigidity.Effective.FiniteInjurySchedule
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,17 @@
-import RequestProject.TuringConeOracleProgram
-import OAI.Computability.DegreeRigidity.Representation.GroundArithmeticGeneric
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenRequirements
+module
+
+public import RequestProject.TuringConeOracleProgram
+public import OAI.Computability.DegreeRigidity.Representation.GroundArithmeticGeneric
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenRequirements
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # From countable tests to a global generic inverse program

@@ -1,4 +1,15 @@
-import RequestProject.TT.Decode
+module
+
+public import RequestProject.TT.Decode
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Baire measurable functions induce only the trivial automorphism

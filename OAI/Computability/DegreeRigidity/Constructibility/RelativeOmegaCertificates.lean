@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.SetModels.RestrictedOmegaRecursion
-import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaPowerCertificates
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeDefCertificates
-import OAI.Computability.DegreeRigidity.Constructibility.RelativeModelOrdinals
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.RestrictedOmegaRecursion
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.OmegaPowerCertificates
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeDefCertificates
+public import OAI.Computability.DegreeRigidity.Constructibility.RelativeModelOrdinals
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

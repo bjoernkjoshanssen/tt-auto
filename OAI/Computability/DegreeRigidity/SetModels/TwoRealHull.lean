@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Effective.FiniteOverwriteHull
-import OAI.Computability.DegreeRigidity.Representation.OriginalRealCohenFactorization
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.FiniteOverwriteHull
+public import OAI.Computability.DegreeRigidity.Representation.OriginalRealCohenFactorization
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

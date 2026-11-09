@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericDomain
-import OAI.Computability.DegreeRigidity.Constructibility.SeedBoundStageSyntax
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericDomain
+public import OAI.Computability.DegreeRigidity.Constructibility.SeedBoundStageSyntax
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

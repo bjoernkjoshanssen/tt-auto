@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenFiniteFlip
-import OAI.Computability.DegreeRigidity.Effective.FiniteOverwrite
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenFiniteFlip
+public import OAI.Computability.DegreeRigidity.Effective.FiniteOverwrite
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

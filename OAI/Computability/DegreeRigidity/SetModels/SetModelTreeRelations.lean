@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.SetModelArithmeticTree
-import OAI.Computability.DegreeRigidity.Syntax.SetRankCertificate
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.SetModelArithmeticTree
+public import OAI.Computability.DegreeRigidity.Syntax.SetRankCertificate
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

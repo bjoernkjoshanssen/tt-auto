@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.SetModels.IdealLocality
-import OAI.Computability.DegreeRigidity.Constructibility.PersistentRestrictions
-import OAI.Computability.DegreeRigidity.SetModels.CountableBound
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.IdealLocality
+public import OAI.Computability.DegreeRigidity.Constructibility.PersistentRestrictions
+public import OAI.Computability.DegreeRigidity.SetModels.CountableBound
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

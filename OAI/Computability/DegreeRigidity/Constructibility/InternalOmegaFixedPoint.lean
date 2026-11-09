@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalSigmaSequence
-import Mathlib.SetTheory.Ordinal.FixedPoint
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalSigmaSequence
+public import Mathlib.SetTheory.Ordinal.FixedPoint
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

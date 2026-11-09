@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Representation.RealGeneratedModel
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenBooleanReading
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.RealGeneratedModel
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenBooleanReading
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

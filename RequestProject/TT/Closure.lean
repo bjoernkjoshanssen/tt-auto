@@ -1,4 +1,15 @@
-import RequestProject.TT.Approx
+module
+
+public import RequestProject.TT.Approx
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Closure properties of tt-functionals

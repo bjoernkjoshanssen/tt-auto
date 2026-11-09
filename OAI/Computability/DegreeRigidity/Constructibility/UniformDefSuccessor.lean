@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Constructibility.DefSystemCertificate
-import OAI.Computability.DegreeRigidity.Syntax.SigmaParameterized
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.DefSystemCertificate
+public import OAI.Computability.DegreeRigidity.Syntax.SigmaParameterized
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

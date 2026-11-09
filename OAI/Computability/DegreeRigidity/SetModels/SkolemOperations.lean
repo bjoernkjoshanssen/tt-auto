@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalCoverInjection
-import OAI.Computability.DegreeRigidity.SetModels.FiniteSkolem
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalCoverInjection
+public import OAI.Computability.DegreeRigidity.SetModels.FiniteSkolem
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

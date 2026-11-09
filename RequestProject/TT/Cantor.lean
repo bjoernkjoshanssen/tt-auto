@@ -1,4 +1,15 @@
-import RequestProject.TT.TwoAdic
+module
+
+public import RequestProject.TT.TwoAdic
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Strings, basic open sets, and some concrete tt-functionals

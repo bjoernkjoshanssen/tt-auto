@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Constructibility.UniformNameValueCover
-import OAI.Computability.DegreeRigidity.SetModels.ExtensionWitnessCover
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformNameValueCover
+public import OAI.Computability.DegreeRigidity.SetModels.ExtensionWitnessCover
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

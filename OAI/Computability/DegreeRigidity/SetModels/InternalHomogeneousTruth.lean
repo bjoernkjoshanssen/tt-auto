@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenHomogeneity
-import OAI.Computability.DegreeRigidity.SetModels.InternalOrderIsoTransport
-import OAI.Computability.DegreeRigidity.SetModels.InternalBoundedTruth
-import OAI.Computability.DegreeRigidity.Representation.SourceTGenericExistence
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenHomogeneity
+public import OAI.Computability.DegreeRigidity.SetModels.InternalOrderIsoTransport
+public import OAI.Computability.DegreeRigidity.SetModels.InternalBoundedTruth
+public import OAI.Computability.DegreeRigidity.Representation.SourceTGenericExistence
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

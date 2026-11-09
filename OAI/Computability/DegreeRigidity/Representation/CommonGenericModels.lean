@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalDenseFamily
-import OAI.Computability.DegreeRigidity.SetModels.InternalCollapseExistence
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalDenseFamily
+public import OAI.Computability.DegreeRigidity.SetModels.InternalCollapseExistence
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,4 +1,15 @@
-import RequestProject.TT.BaireLemmas
+module
+
+public import RequestProject.TT.BaireLemmas
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Tools for the coding lemma (Proposition 4.3)

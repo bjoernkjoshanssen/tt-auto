@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Representation.SourceTPresentationComparison
-import OAI.Computability.DegreeRigidity.Representation.SourceTCountability
-import OAI.Computability.DegreeRigidity.SetModels.SetModelPersistenceDecoding
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.SourceTPresentationComparison
+public import OAI.Computability.DegreeRigidity.Representation.SourceTCountability
+public import OAI.Computability.DegreeRigidity.SetModels.SetModelPersistenceDecoding
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

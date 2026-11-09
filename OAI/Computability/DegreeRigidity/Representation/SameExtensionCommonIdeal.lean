@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenDisjointPrefixPair
-import OAI.Computability.DegreeRigidity.Representation.IteratedGenericCommonIdeal
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenOddHits
-import OAI.Computability.DegreeRigidity.Representation.OriginalRealCohenFactorization
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenDisjointPrefixPair
+public import OAI.Computability.DegreeRigidity.Representation.IteratedGenericCommonIdeal
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenOddHits
+public import OAI.Computability.DegreeRigidity.Representation.OriginalRealCohenFactorization
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

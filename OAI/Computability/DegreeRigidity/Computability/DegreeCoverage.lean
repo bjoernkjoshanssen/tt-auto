@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Computability.BinaryCut
-import OAI.Computability.DegreeRigidity.Computability.BinaryRecovery
-import OAI.Computability.DegreeRigidity.Representation.Assembly
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.BinaryCut
+public import OAI.Computability.DegreeRigidity.Computability.BinaryRecovery
+public import OAI.Computability.DegreeRigidity.Representation.Assembly
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.Constructibility.UniformSeparationName
-import OAI.Computability.DegreeRigidity.Syntax.SetSatisfactionBounded
-import OAI.Computability.DegreeRigidity.Representation.GroundInclusion
-import OAI.Computability.DegreeRigidity.Representation.SourceTheory
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformSeparationName
+public import OAI.Computability.DegreeRigidity.Syntax.SetSatisfactionBounded
+public import OAI.Computability.DegreeRigidity.Representation.GroundInclusion
+public import OAI.Computability.DegreeRigidity.Representation.SourceTheory
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

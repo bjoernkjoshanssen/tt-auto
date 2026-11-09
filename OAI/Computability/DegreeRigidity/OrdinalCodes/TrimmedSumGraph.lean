@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.TrimmedSumDomains
-import OAI.Computability.DegreeRigidity.OrdinalCodes.TrimmedPresentation
-import OAI.Computability.DegreeRigidity.OrdinalCodes.CodeOperationCertificates
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.TrimmedSumDomains
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.TrimmedPresentation
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.CodeOperationCertificates
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

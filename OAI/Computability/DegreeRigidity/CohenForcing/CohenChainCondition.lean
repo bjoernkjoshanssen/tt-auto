@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenCoordinates
-import Mathlib.Data.Set.Countable
-import Mathlib.Data.Set.Finite.Lattice
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenCoordinates
+public import Mathlib.Data.Set.Countable
+public import Mathlib.Data.Set.Finite.Lattice
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

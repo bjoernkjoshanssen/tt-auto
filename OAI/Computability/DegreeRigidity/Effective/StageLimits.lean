@@ -1,7 +1,18 @@
-import OAI.Computability.DegreeRigidity.Effective.StageComputability
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenCompleteness
-import OAI.Computability.DegreeRigidity.Effective.CodingDiagonal
-import OAI.Computability.DegreeRigidity.Effective.CodingExtraction
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.StageComputability
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenCompleteness
+public import OAI.Computability.DegreeRigidity.Effective.CodingDiagonal
+public import OAI.Computability.DegreeRigidity.Effective.CodingExtraction
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

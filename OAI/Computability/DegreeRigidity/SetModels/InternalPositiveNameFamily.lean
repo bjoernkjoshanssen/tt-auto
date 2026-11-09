@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalNaturalCheckSequence
-import OAI.Computability.DegreeRigidity.SetModels.InternalSubsetSequence
-import OAI.Computability.DegreeRigidity.Syntax.AtomicDefinability
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalNaturalCheckSequence
+public import OAI.Computability.DegreeRigidity.SetModels.InternalSubsetSequence
+public import OAI.Computability.DegreeRigidity.Syntax.AtomicDefinability
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

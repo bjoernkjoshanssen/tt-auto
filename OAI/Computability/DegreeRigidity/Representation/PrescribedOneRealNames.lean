@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Representation.PrescribedGenericRestriction
-import OAI.Computability.DegreeRigidity.Representation.GenericOneRealNames
-import OAI.Computability.DegreeRigidity.SetModels.NoNewOrdinals
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.PrescribedGenericRestriction
+public import OAI.Computability.DegreeRigidity.Representation.GenericOneRealNames
+public import OAI.Computability.DegreeRigidity.SetModels.NoNewOrdinals
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Syntax.AtomicDecisionFormula
-import OAI.Computability.DegreeRigidity.Syntax.AtomicTruth
-import OAI.Computability.DegreeRigidity.SetModels.InternalContainer
+module
+
+public import OAI.Computability.DegreeRigidity.Syntax.AtomicDecisionFormula
+public import OAI.Computability.DegreeRigidity.Syntax.AtomicTruth
+public import OAI.Computability.DegreeRigidity.SetModels.InternalContainer
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenPartitionJoint
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnRealValue
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenPartitionJoint
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnRealValue
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

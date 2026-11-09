@@ -1,6 +1,17 @@
-import RequestProject.TuringConePersistenceComplexity
-import RequestProject.TuringConeRealClosure
-import OAI.Computability.DegreeRigidity.Representation.SourceTPresentationComparison
+module
+
+public import RequestProject.TuringConePersistenceComplexity
+public import RequestProject.TuringConeRealClosure
+public import OAI.Computability.DegreeRigidity.Representation.SourceTPresentationComparison
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Absoluteness of coded cone persistence

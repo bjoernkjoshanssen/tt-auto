@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.ExtensionBasicAxioms
-import OAI.Computability.DegreeRigidity.Syntax.BoundedRelations
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.ExtensionBasicAxioms
+public import OAI.Computability.DegreeRigidity.Syntax.BoundedRelations
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

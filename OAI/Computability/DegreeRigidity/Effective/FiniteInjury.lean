@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Effective.CodingForcing
-import Mathlib.Data.Finset.Filter
+module
+
+public import OAI.Computability.DegreeRigidity.Effective.CodingForcing
+public import Mathlib.Data.Finset.Filter
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

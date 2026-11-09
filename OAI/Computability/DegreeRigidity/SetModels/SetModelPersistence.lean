@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.SetModels.SetModelGraphImage
-import OAI.Computability.DegreeRigidity.SetModels.SetDegreeDecoding
-import OAI.Computability.DegreeRigidity.SetModels.SetModelOmegaJump
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.SetModelGraphImage
+public import OAI.Computability.DegreeRigidity.SetModels.SetDegreeDecoding
+public import OAI.Computability.DegreeRigidity.SetModels.SetModelOmegaJump
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

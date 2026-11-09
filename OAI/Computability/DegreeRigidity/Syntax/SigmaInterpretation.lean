@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Representation.GenericFilterName
-import OAI.Computability.DegreeRigidity.Syntax.MembershipInterpretation
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.GenericFilterName
+public import OAI.Computability.DegreeRigidity.Syntax.MembershipInterpretation
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

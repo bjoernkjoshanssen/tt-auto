@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Representation.SourceTPersistentDecoding
-import OAI.Computability.DegreeRigidity.Representation.SetAutomorphismReconstruction
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.SourceTPersistentDecoding
+public import OAI.Computability.DegreeRigidity.Representation.SetAutomorphismReconstruction
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

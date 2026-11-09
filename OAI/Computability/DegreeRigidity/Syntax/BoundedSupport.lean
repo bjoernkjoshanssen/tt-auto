@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.BoundedForcingCode
-import OAI.Computability.DegreeRigidity.SetModels.InternalContainer
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.BoundedForcingCode
+public import OAI.Computability.DegreeRigidity.SetModels.InternalContainer
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Representation.CommonIdealSearch
-import OAI.Computability.DegreeRigidity.Representation.CommonIdealBorel
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.CommonIdealSearch
+public import OAI.Computability.DegreeRigidity.Representation.CommonIdealBorel
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

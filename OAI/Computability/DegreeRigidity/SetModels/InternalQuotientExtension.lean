@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalQuotientGeneric
-import OAI.Computability.DegreeRigidity.SetModels.InternalBooleanExtension
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalQuotientGeneric
+public import OAI.Computability.DegreeRigidity.SetModels.InternalBooleanExtension
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

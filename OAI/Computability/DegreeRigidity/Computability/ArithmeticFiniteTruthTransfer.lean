@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticTruthRequirements
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticSourceTruth
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticTruthRequirements
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticSourceTruth
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

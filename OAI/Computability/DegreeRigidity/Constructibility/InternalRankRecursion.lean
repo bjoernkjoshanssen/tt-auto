@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.SetModels.InternalHull
-import OAI.Computability.DegreeRigidity.OrdinalCodes.RankGraphConstruction
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.InternalHull
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.RankGraphConstruction
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

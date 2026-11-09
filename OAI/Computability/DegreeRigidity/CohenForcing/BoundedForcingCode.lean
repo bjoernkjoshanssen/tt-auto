@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.BoundedForcing
-import OAI.Computability.DegreeRigidity.Syntax.AtomicCertificate
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.BoundedForcing
+public import OAI.Computability.DegreeRigidity.Syntax.AtomicCertificate
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

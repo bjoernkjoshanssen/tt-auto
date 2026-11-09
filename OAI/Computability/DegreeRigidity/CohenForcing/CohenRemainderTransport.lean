@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenUnusedTransport
-import OAI.Computability.DegreeRigidity.SetModels.InternalInverseIso
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenUnusedTransport
+public import OAI.Computability.DegreeRigidity.SetModels.InternalInverseIso
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

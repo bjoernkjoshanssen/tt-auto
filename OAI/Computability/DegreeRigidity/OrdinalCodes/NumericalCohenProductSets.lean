@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericalCohenSets
-import OAI.Computability.DegreeRigidity.CohenForcing.TaggedProductConditions
+module
+
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.NumericalCohenSets
+public import OAI.Computability.DegreeRigidity.CohenForcing.TaggedProductConditions
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

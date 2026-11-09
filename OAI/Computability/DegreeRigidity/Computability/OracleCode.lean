@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.SetModels.Degrees
-import Mathlib.Tactic.DeriveEncodable
-import Mathlib.Data.Set.Countable
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.Degrees
+public import OAI.Computability.DegreeRigidity.Effective.EncodableTree
+public import Mathlib.Data.Set.Countable
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 
@@ -12,7 +23,46 @@ inductive OracleCode where
   | comp : OracleCode → OracleCode → OracleCode
   | prec : OracleCode → OracleCode → OracleCode
   | find : OracleCode → OracleCode
-  deriving Encodable
+
+namespace OracleCode
+
+/-- The constructor-tag encoding used by the former Encodable derivation. -/
+def toTree : OracleCode → EncodableTree
+  | .zero => .cons (.nat 0) (.nat 0)
+  | .succ => .cons (.nat 1) (.nat 0)
+  | .left => .cons (.nat 2) (.nat 0)
+  | .right => .cons (.nat 3) (.nat 0)
+  | .query => .cons (.nat 4) (.nat 0)
+  | .pair a b => .cons (.nat 5) (.cons (toTree a) (.cons (toTree b) (.nat 0)))
+  | .comp a b => .cons (.nat 6) (.cons (toTree a) (.cons (toTree b) (.nat 0)))
+  | .prec a b => .cons (.nat 7) (.cons (toTree a) (.cons (toTree b) (.nat 0)))
+  | .find a => .cons (.nat 8) (.cons (toTree a) (.nat 0))
+
+/-- Decode the constructor-tag encoding, rejecting malformed trees. -/
+def fromTree : EncodableTree → Option OracleCode
+  | .cons (.nat 0) (.nat 0) => some .zero
+  | .cons (.nat 1) (.nat 0) => some .succ
+  | .cons (.nat 2) (.nat 0) => some .left
+  | .cons (.nat 3) (.nat 0) => some .right
+  | .cons (.nat 4) (.nat 0) => some .query
+  | .cons (.nat 5) (.cons a (.cons b (.nat 0))) => do
+    return .pair (← fromTree a) (← fromTree b)
+  | .cons (.nat 6) (.cons a (.cons b (.nat 0))) => do
+    return .comp (← fromTree a) (← fromTree b)
+  | .cons (.nat 7) (.cons a (.cons b (.nat 0))) => do
+    return .prec (← fromTree a) (← fromTree b)
+  | .cons (.nat 8) (.cons a (.nat 0)) => do
+    return .find (← fromTree a)
+  | _ => none
+
+theorem fromTree_toTree (p : OracleCode) : fromTree (toTree p) = some p := by
+  induction p <;> simp_all [toTree, fromTree]
+
+end OracleCode
+
+-- Module-port repair: explicit instance, with the same tree tags as deriving.
+instance : Encodable OracleCode :=
+  Encodable.ofLeftInjection OracleCode.toTree OracleCode.fromTree OracleCode.fromTree_toTree
 
 namespace OracleCode
 

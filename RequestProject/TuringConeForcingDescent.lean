@@ -1,6 +1,17 @@
-import RequestProject.TuringConeModelGraphs
-import OAI.Computability.DegreeRigidity.Representation.RealCollapseReconstruction
-import OAI.Computability.DegreeRigidity.SetModels.WeakNameAvoidance
+module
+
+public import RequestProject.TuringConeModelGraphs
+public import OAI.Computability.DegreeRigidity.Representation.RealCollapseReconstruction
+public import OAI.Computability.DegreeRigidity.SetModels.WeakNameAvoidance
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Collapse and descent of persistent cone graphs

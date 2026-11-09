@@ -1,7 +1,18 @@
-import RequestProject.TuringConePullbackProgram
-import OAI.Computability.DegreeRigidity.SetModels.ProjectedArithmeticOutputCone
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnRealValue
-import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnPrefixCone
+module
+
+public import RequestProject.TuringConePullbackProgram
+public import OAI.Computability.DegreeRigidity.SetModels.ProjectedArithmeticOutputCone
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnRealValue
+public import OAI.Computability.DegreeRigidity.CohenForcing.CohenColumnPrefixCone
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Selecting a single program for a uniformly defined degree relation

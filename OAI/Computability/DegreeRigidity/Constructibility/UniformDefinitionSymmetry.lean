@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Constructibility.UniformOrdinalDefinitionName
-import OAI.Computability.DegreeRigidity.SetModels.InternalOrderIsoTransport
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.UniformOrdinalDefinitionName
+public import OAI.Computability.DegreeRigidity.SetModels.InternalOrderIsoTransport
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

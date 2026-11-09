@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticBounded
-import OAI.Computability.DegreeRigidity.Effective.CodingForcing
+module
+
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticBounded
+public import OAI.Computability.DegreeRigidity.Effective.CodingForcing
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

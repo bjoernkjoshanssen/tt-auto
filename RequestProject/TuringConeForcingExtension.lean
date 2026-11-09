@@ -1,5 +1,16 @@
-import RequestProject.TuringConeConstructibleExtension
-import OAI.Computability.DegreeRigidity.Representation.CommonGenericModels
+module
+
+public import RequestProject.TuringConeConstructibleExtension
+public import OAI.Computability.DegreeRigidity.Representation.CommonGenericModels
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 /-!
 # Cone maps in forcing extensions

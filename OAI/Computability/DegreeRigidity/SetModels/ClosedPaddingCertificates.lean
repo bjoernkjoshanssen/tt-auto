@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.SetModels.RecursiveOmegaBound
-import OAI.Computability.DegreeRigidity.Constructibility.InternalOmegaFixedPoint
-import OAI.Computability.DegreeRigidity.OrdinalCodes.VectorCodeLevels
+module
+
+public import OAI.Computability.DegreeRigidity.SetModels.RecursiveOmegaBound
+public import OAI.Computability.DegreeRigidity.Constructibility.InternalOmegaFixedPoint
+public import OAI.Computability.DegreeRigidity.OrdinalCodes.VectorCodeLevels
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

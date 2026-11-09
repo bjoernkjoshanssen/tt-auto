@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Constructibility.PersistentLocality
-import OAI.Computability.DegreeRigidity.Representation.GlobalLocality
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.PersistentLocality
+public import OAI.Computability.DegreeRigidity.Representation.GlobalLocality
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

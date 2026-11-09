@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Representation.OwnProgramValue
-import OAI.Computability.DegreeRigidity.Representation.OwnDegreeExtensionMeaning
-import OAI.Computability.DegreeRigidity.Effective.LocalSourceEquation
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.OwnProgramValue
+public import OAI.Computability.DegreeRigidity.Representation.OwnDegreeExtensionMeaning
+public import OAI.Computability.DegreeRigidity.Effective.LocalSourceEquation
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

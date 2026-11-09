@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenSupportedValue
-import OAI.Computability.DegreeRigidity.SetModels.InternalColumnProjection
+module
+
+public import OAI.Computability.DegreeRigidity.CohenForcing.InternalCohenSupportedValue
+public import OAI.Computability.DegreeRigidity.SetModels.InternalColumnProjection
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

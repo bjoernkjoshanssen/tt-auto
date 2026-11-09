@@ -1,6 +1,17 @@
-import OAI.Computability.DegreeRigidity.Representation.RealHullGenericTriple
-import OAI.Computability.DegreeRigidity.Representation.RealHullColumnRealization
-import OAI.Computability.DegreeRigidity.Computability.ArithmeticFiniteTruthTransfer
+module
+
+public import OAI.Computability.DegreeRigidity.Representation.RealHullGenericTriple
+public import OAI.Computability.DegreeRigidity.Representation.RealHullColumnRealization
+public import OAI.Computability.DegreeRigidity.Computability.ArithmeticFiniteTruthTransfer
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 

@@ -1,5 +1,16 @@
-import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleTupleSpace
-import OAI.Computability.DegreeRigidity.SetModels.CollapsePrefixAbsolute
+module
+
+public import OAI.Computability.DegreeRigidity.Constructibility.ConstructibleTupleSpace
+public import OAI.Computability.DegreeRigidity.SetModels.CollapsePrefixAbsolute
+
+
+
+-- Module-system port for Palomar; mathematical bodies retained.
+set_option backward.privateInPublic true
+set_option backward.privateInPublic.warn false
+set_option backward.proofsInPublic true
+
+@[expose] public section
 
 namespace OAI
 
