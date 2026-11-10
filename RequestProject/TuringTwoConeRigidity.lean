@@ -63,17 +63,19 @@ theorem base_le_pullback {a b : Degree} (e : Set.Ici a ≃o Set.Ici b) (x : Degr
     Subtype.ext (sup_eq_right.mpr (base_le_pullback e x))
   change (e (coneJoin a (pullback e x))).val = b ⊔ x
   rw [h, e.apply_symm_apply]
+  rfl
 
 theorem map_base_val {a b : Degree} (e : Set.Ici a ≃o Set.Ici b) :
-    (e ⟨a, le_rfl⟩).val = b := by
-  have h : e ⟨a, le_rfl⟩ ≤ e (e.symm ⟨b, le_rfl⟩) :=
-    e.monotone (e.symm ⟨b, le_rfl⟩).property
+    (e ⟨a, Set.mem_Ici.mpr le_rfl⟩).val = b := by
+  let a₀ : Set.Ici a := ⟨a, Set.mem_Ici.mpr le_rfl⟩
+  let b₀ : Set.Ici b := ⟨b, Set.mem_Ici.mpr le_rfl⟩
+  have h : e a₀ ≤ e (e.symm b₀) := e.monotone (e.symm b₀).property
   rw [e.apply_symm_apply] at h
-  exact le_antisymm h (e ⟨a, le_rfl⟩).property
+  exact le_antisymm h (e a₀).property
 
 @[simp] theorem imageJoin_bot {a b : Degree} (e : Set.Ici a ≃o Set.Ici b) :
     imageJoin e ⊥ = b := by
-  have h : coneJoin a ⊥ = (⟨a, le_rfl⟩ : Set.Ici a) :=
+  have h : coneJoin a ⊥ = (⟨a, Set.mem_Ici.mpr le_rfl⟩ : Set.Ici a) :=
     Subtype.ext (sup_bot_eq a)
   unfold imageJoin
   rw [h]
@@ -88,7 +90,7 @@ theorem le_pullback_iff {a b : Degree} (e : Set.Ici a ≃o Set.Ici b) (z x : Deg
       sup_le (base_le_pullback e x) h
     have hmap : (e (coneJoin a z)).val ≤ (e (e.symm (coneJoin b x))).val :=
       e.monotone hsrc
-    simpa only [e.apply_symm_apply] using hmap
+    simpa only [e.apply_symm_apply, imageJoin, coneJoin] using hmap
   · intro h
     have hmap : e (coneJoin a z) ≤ e (e.symm (coneJoin b x)) := by
       rw [e.apply_symm_apply]
@@ -157,8 +159,9 @@ theorem imageJoin_le_of_inverse_borel_lift {a b : Degree}
 theorem target_le_source_of_bounds {a b : Degree} (e : Set.Ici a ≃o Set.Ici b)
     (h : ∀ x, imageJoin e x ≤ b ⊔ x) : b ≤ a := by
   have hv : (e (coneJoin a b)).val = b :=
-    le_antisymm (by simpa only [sup_idem] using h b) (e (coneJoin a b)).property
-  have he : e (coneJoin a b) = e ⟨a, le_rfl⟩ :=
+    le_antisymm (by simpa only [sup_idem, imageJoin] using h b)
+      (e (coneJoin a b)).property
+  have he : e (coneJoin a b) = e ⟨a, Set.mem_Ici.mpr le_rfl⟩ :=
     Subtype.ext (hv.trans (map_base_val e).symm)
   have hj : a ⊔ b = a := congrArg Subtype.val (e.injective he)
   exact hj ▸ (show b ≤ a ⊔ b from le_sup_right)
@@ -180,7 +183,7 @@ theorem imageJoin_eq_of_inverse_borel_lifts {a b : Degree}
     imageJoin_le_of_inverse_borel_lift e.symm hfwd x
   have hmap : (e (e.symm (coneJoin b x))).val ≤ (e (coneJoin a x)).val :=
     e.monotone hsrc
-  simpa only [e.apply_symm_apply] using hmap
+  simpa only [e.apply_symm_apply, imageJoin, coneJoin] using hmap
 
 theorem apply_val_eq_of_inverse_borel_lifts {a b : Degree}
     (e : Set.Ici a ≃o Set.Ici b) (hinv : InverseBorelLift e)
@@ -189,7 +192,8 @@ theorem apply_val_eq_of_inverse_borel_lifts {a b : Degree}
   have hx : coneJoin a x.val = x := Subtype.ext (sup_eq_right.mpr x.property)
   have h := imageJoin_eq_of_inverse_borel_lifts e hinv hfwd x.val
   change (e (coneJoin a x.val)).val = b ⊔ x.val at h
-  rw [hx, ← hab, sup_eq_right.mpr x.property] at h
-  exact h
+  rw [hx] at h
+  have hbx : b ≤ x.val := (le_of_eq hab.symm).trans x.property
+  exact h.trans (sup_eq_right.mpr hbx)
 
 end OAI.TuringRigidity.TwoConeRigidity
