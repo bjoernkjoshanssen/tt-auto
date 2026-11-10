@@ -32,7 +32,7 @@ def idealEntry {J : DegreeIdeal} (a : J) (H : Oracle)
     (hH : degree H ∈ J.carrier) (n : ℕ) : Set.Ici a :=
   ⟨⟨a.val ⊔ degree (columns H n), J.join_mem a.property
     (J.lower (CodingExtraction.column_projection_reduces H n) hH)⟩,
-    Set.mem_Ici.mpr le_sup_left⟩
+    Set.mem_Ici.mpr (show a.val ≤ a.val ⊔ degree (columns H n) from le_sup_left)⟩
 
 def IdealGraph {I J : DegreeIdeal} {a : I} {b : J}
     (ρ : Set.Ici a ≃o Set.Ici b) (H : Oracle) (hH : degree H ∈ I.carrier)
@@ -57,7 +57,7 @@ theorem graph_sigma_of_bound {I J : DegreeIdeal} {a : I} {b : J}
       ConeRelativeCoding.RelationAbove c.payload a.val ∧
       RelationBelow c.successor (degree (jump H)) ∧
       RelationBelow c.payload (degree (jump H)) := by
-    simpa only [hA] using TwoConeEnumeration.enumeration_exists A H hAH
+    exact hA ▸ TwoConeEnumeration.enumeration_exists A H hAH
   obtain ⟨c, hout, haS, haP, hS, hP⟩ := hc
   obtain ⟨d, hdout, _, _, hdS, hdP⟩ := TwoConeEnumeration.transport_enumeration ρ c z
     haS haP (hz.symm ▸ hS) (hz.symm ▸ hP) (idealEntry a H hH)
