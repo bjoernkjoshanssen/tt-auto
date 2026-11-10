@@ -47,7 +47,7 @@ example {I : CountableIdeal} {a b : Degree} (rho : Cone I a ≃o Cone I b)
   TwoConeSetGraphs.mem_coneGraph rho z
 
 example {M : ZFSet.{u}} (C : SetModelFunctions.Context M) {I : CountableIdeal} {a b : Degree}
-    {A : Oracle} (hA : ConePresentation.Presented I A) (hAM : A ∈ reals M)
+    {A : Oracle} (hA : ConePresentation.Presented I A) (hAM : A ∈ SetModelReals.reals M)
     (rho : Cone I a ≃o Cone I b) (hp : TwoConePersistence.Persistent I rho)
     (hza : degreeJump a ∈ I.carrier) (hzb : degreeJump b ∈ I.carrier) :
     idealSet I ∈ M ∧ TwoConeSetGraphs.coneGraph rho ∈ M :=
