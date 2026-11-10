@@ -37,14 +37,15 @@ jobs:
         run: |
           set -euo pipefail
           lake exe cache get
-          lake build RequestProject.TuringTwoConeRepresentation RequestProject.TuringTwoConePersistence RequestProject.TuringConeMain 2>&1 | tee two-cone-build.log
+          lake build RequestProject.TuringTwoConeRepresentation RequestProject.TuringTwoConePersistentLocality RequestProject.TuringConeMain 2>&1 | tee two-cone-build.log
           git diff --exit-code -- lean-toolchain lakefile.toml lake-manifest.json
       - name: Audit exact theorem types and all axiom dependencies
         shell: bash
         run: |
           set -euo pipefail
           lake env lean scripts/CheckTwoConeRigidity.lean | tee two-cone-axioms.txt
-          python3 scripts/check-axioms.py two-cone-axioms.txt
+          lake env lean scripts/CheckTwoConeLocality.lean | tee two-cone-locality-axioms.txt
+          python3 scripts/check-axioms.py two-cone-axioms.txt two-cone-locality-axioms.txt
       - name: Preserve build cache
         if: always() && hashFiles('.lake/packages/mathlib/lean-toolchain') != ''
         uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
@@ -58,5 +59,6 @@ jobs:
           name: two-cone-verification-${{ github.sha }}-${{ github.run_attempt }}
           path: |
             two-cone-build.log
+            two-cone-*-axioms.txt
             two-cone-axioms.txt
           if-no-files-found: ignore
