@@ -21,6 +21,7 @@ set_option backward.proofsInPublic true
 namespace OAI.TuringRigidity.TwoConeIdealCodes
 
 open IdealInterpretation SetCoding RelationCoding BoundedDecoding ConeRelativeCoding
+open ArithmeticModelDecoding
 
 abbrev val {I : DegreeIdeal} {a : I} (x : Set.Ici a) : Degree := x.val.val
 

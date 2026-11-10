@@ -1,6 +1,6 @@
 module
 
-public import RequestProject.TuringTwoConePersistentLocality
+public import RequestProject.TuringTwoConeLocality
 
 open OAI.TuringRigidity
 open IdealInterpretation OracleJump TwoConeIdealCodes
@@ -20,6 +20,16 @@ example {a b : Degree} (I J : CountableIdeal)
     (hJ : IdealLocality.JumpClosed (PersistentLocality.ideal J)) :
     ∃ f : Cone J a ≃o Cone J b, TwoConePersistence.Extends hIJ e f :=
   TwoConePersistentLocality.persistent_jump_extension I J e hp ha hb hIJ hJ
+
+example {a b : Degree} (e : Set.Ici a ≃o Set.Ici b) (x : Set.Ici a) :
+    (e x).val ≤ GlobalLocality.degreeIterate (x.val ⊔ TwoConeLocality.inverseAnchor e) 5 :=
+  TwoConeLocality.image_le_fifth_jump e x
+
+example {a b : Degree} (e : Set.Ici a ≃o Set.Ici b)
+    (P : Oracle) (hP : degree P = TwoConeLocality.forwardAnchor e)
+    (X Y : Oracle) (hX : degree X = TwoConeRigidity.pullback e (degree Y)) :
+    Reduces X (OracleJump.iterate (join Y P) 5) :=
+  TwoConeLocality.pullback_reduces_fifth_jump e P hP X Y hX
 
 #print axioms TwoConeIdealCodes.ambient_injective
 #print axioms TwoConeIdealCodes.val_finset_sup
@@ -48,3 +58,11 @@ example {a b : Degree} (I J : CountableIdeal)
 #print axioms TwoConePersistentLocality.persistent_jump_extension
 #print axioms TwoConePersistentLocality.persistent_jump_extension_of_jump_closed
 #print axioms TwoConePersistentLocality.arithmetic_ideal_extension
+#print axioms TwoConeLocality.image_le_fifth_jump
+#print axioms TwoConeLocality.inverse_le_fifth_jump
+#print axioms TwoConeLocality.pullback_reduces_fifth_jump
+#print axioms TwoConeLocality.image_mem
+#print axioms TwoConeLocality.inverse_mem
+#print axioms TwoConeLocality.imageJoin_mem
+#print axioms TwoConeLocality.pullback_mem
+#print axioms TwoConeLocality.global_jump_restriction

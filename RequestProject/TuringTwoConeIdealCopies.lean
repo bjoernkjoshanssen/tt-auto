@@ -20,6 +20,7 @@ set_option backward.proofsInPublic true
 namespace OAI.TuringRigidity.TwoConeIdealCodes
 
 open IdealInterpretation SetCoding RelationCoding BoundedDecoding ConeRelativeCoding
+open ArithmeticModelDecoding
 
 noncomputable section
 
@@ -45,8 +46,7 @@ def liftSet (z : Set.Ici a) (p : SetCode)
 
 @[simp] theorem liftSet_external (z : Set.Ici a) (p : SetCode)
     (ha : SetAbove p a.val) (hz : SetBelow p (val z)) :
-    (liftSet z p ha hz).external = p := by
-  simp only [liftSet, SCode.external, liftAntichain_external, boundedElement]
+    (liftSet z p ha hz).external = p := by cases p; rfl
 
 def liftRelation (z : Set.Ici a) {n : ℕ} (p : RelationCode n)
     (ha : RelationAbove p a.val) (hz : RelationBelow p (val z)) : RCode a n :=
@@ -55,8 +55,7 @@ def liftRelation (z : Set.Ici a) {n : ℕ} (p : RelationCode n)
 
 @[simp] theorem liftRelation_external (z : Set.Ici a) {n : ℕ} (p : RelationCode n)
     (ha : RelationAbove p a.val) (hz : RelationBelow p (val z)) :
-    (liftRelation z p ha hz).external = p := by
-  simp only [liftRelation, RCode.external, liftSet_external, liftAntichain_external]
+    (liftRelation z p ha hz).external = p := by cases p; rfl
 
 /-- Transport a bounded copy without changing the represented predicate. -/
 theorem transport_copy {J : DegreeIdeal} {b : J} {U : ℕ → Prop}
