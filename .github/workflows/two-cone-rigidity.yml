@@ -1,0 +1,62 @@
+name: Two-cone rigidity development
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: two-cone-rigidity-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  two-cones:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install pinned Lean release
+        run: bash scripts/install-ci-lean.sh
+      - name: Restore dependencies
+        uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: ./.lake
+          key: two-cone-lake-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-${{ github.sha }}-${{ github.run_attempt }}
+          restore-keys: |
+            two-cone-lake-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-
+            palomar-verified-lake-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-
+            lake-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-
+      - name: Build two-cone modules and registered endpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake exe cache get
+          lake build RequestProject.TuringTwoConeRepresentation RequestProject.TuringConeMain 2>&1 | tee two-cone-build.log
+          git diff --exit-code -- lean-toolchain lakefile.toml lake-manifest.json
+      - name: Audit exact theorem types and all axiom dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake env lean scripts/CheckTwoConeRigidity.lean | tee two-cone-axioms.txt
+          python3 scripts/check-axioms.py two-cone-axioms.txt
+      - name: Preserve build cache
+        if: always() && hashFiles('.lake/packages/mathlib/lean-toolchain') != ''
+        uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25
+        with:
+          path: ./.lake
+          key: two-cone-lake-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-${{ github.sha }}-${{ github.run_attempt }}
+      - name: Preserve check reports
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: two-cone-verification-${{ github.sha }}-${{ github.run_attempt }}
+          path: |
+            two-cone-build.log
+            two-cone-axioms.txt
+          if-no-files-found: ignore
