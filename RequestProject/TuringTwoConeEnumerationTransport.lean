@@ -49,7 +49,6 @@ theorem transport_enumeration {I J : DegreeIdeal} {a : I} {b : J}
       exact (ρ.apply_symm_apply x).symm.trans (congrArg ρ h')
     · intro h
       rw [h, ρ.symm_apply_apply]
-      rfl
   have hveq (x : Set.Ici b) (k : ℕ) :
       val (ρ.symm x) = c.output k ↔ x = ρ (v k) := by
     rw [← hv k]

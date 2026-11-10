@@ -1,6 +1,6 @@
 module
 
-public import RequestProject.TuringTwoConePresentationCountability
+public import RequestProject.TuringTwoConeGraphPresentation
 
 @[expose] public section
 
@@ -21,6 +21,11 @@ open ConePersistence (Cone)
 #print axioms TwoConePresentation.arithmetic_maps_countable
 #print axioms TwoConePresentation.persistent_maps_countable
 #print axioms TwoConePresentation.arithmetic_restriction
+#print axioms TwoConePresentation.raw_graph_iff
+#print axioms TwoConePresentation.source_test_sigma
+#print axioms TwoConePresentation.raw_graph_sigma_of_graph
+#print axioms TwoConePresentation.raw_graph_arithmetic_of_persistent
+#print axioms TwoConePresentation.raw_graph_arithmetic_of_extension
 
 example {I : CountableIdeal} {a b : Degree}
     (rho : Cone I a ≃o Cone I b) (hp : TwoConePersistence.Persistent I rho)
@@ -45,3 +50,11 @@ example (I : CountableIdeal) (a b : Degree)
     (hza : degreeJump a ∈ I.carrier) (hzb : degreeJump b ∈ I.carrier) :
     {rho : Cone I a ≃o Cone I b | TwoConePersistence.Persistent I rho}.Countable :=
   TwoConePresentation.persistent_maps_countable I a b hza hzb
+
+example {I : CountableIdeal} {a b : Degree}
+    (rho : Cone I a ≃o Cone I b) (hp : TwoConePersistence.Persistent I rho)
+    {H : Oracle} (hpres : ConePresentation.Presented I H)
+    (hza : degreeJump a ∈ I.carrier) (hzb : degreeJump b ∈ I.carrier) :
+    Sigma (iterate H 6) 5 (TwoConePresentation.RawGraph rho H) ∧
+      RecursivePred (iterate H 11) (TwoConePresentation.RawGraph rho H) :=
+  TwoConePresentation.raw_graph_arithmetic_of_persistent rho hp hpres hza hzb

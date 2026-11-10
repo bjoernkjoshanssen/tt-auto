@@ -90,8 +90,7 @@ theorem enumeration_exists (A H : Oracle) (hAH : Reduces (jump A) H) :
     constructor
     · rintro ⟨k, hk⟩
       exact ⟨k, by simpa [two] using (hk 0).symm,
-        by simpa only [two, Matrix.cons_val_one, Matrix.cons_val_zero,
-          EnumerationConstruction.row_one, V, pad_column, join_degree] using (hk 1).symm⟩
+        by simpa [two, V, pad_column, join_degree] using (hk 1).symm⟩
     · rintro ⟨k, rfl, rfl⟩
       refine ⟨k, fun i => ?_⟩
       fin_cases i <;> simp [two, V, pad_column, join_degree]
