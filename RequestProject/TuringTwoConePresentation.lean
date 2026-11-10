@@ -86,10 +86,12 @@ theorem graph_agreement {I K : CountableIdeal} {a b : Degree} {H : Oracle}
     (hH : degree H ∈ K.carrier) (v : ℕ) :
     IdealGraph (TwoConePersistentLocality.lift σ (hIK ha) (hIK hb)) H hH v ↔
       Graph ρ hpres ha v := by
-  change (σ ⟨a ⊔ degree (columns H (Nat.unpair v).1), _, _⟩).val =
-    degree (columns H (Nat.unpair v).2) ↔ _
-  exact Iff.of_eq (congrArg (fun x : Degree => x = degree (columns H (Nat.unpair v).2))
-    (he (presentationEntry hpres ha (Nat.unpair v).1)))
+  let x := presentationEntry hpres ha (Nat.unpair v).1
+  change (σ ⟨x.val, hIK x.property.1, x.property.2⟩).val =
+    degree (columns H (Nat.unpair v).2) ↔
+      (ρ x).val = degree (columns H (Nat.unpair v).2)
+  exact Iff.of_eq (congrArg (fun d : Degree => d = degree (columns H (Nat.unpair v).2))
+    (he x))
 
 end
 end OAI.TuringRigidity.TwoConePresentation
