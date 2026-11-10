@@ -30,7 +30,12 @@ theorem coneJoin_sup (a x y : Degree) :
     coneJoin a (x ⊔ y) = coneJoin a x ⊔ coneJoin a y := by
   apply Subtype.ext
   change a ⊔ (x ⊔ y) = (a ⊔ x) ⊔ (a ⊔ y)
-  exact (sup_sup_sup_comm a x a y).symm.trans (by rw [sup_idem]) |>.symm
+  apply le_antisymm
+  · exact sup_le (le_trans le_sup_left le_sup_left)
+      (sup_le (le_trans le_sup_right le_sup_left)
+        (le_trans le_sup_right le_sup_right))
+  · exact sup_le (sup_le le_sup_left (le_trans le_sup_left le_sup_right))
+      (sup_le le_sup_left (le_trans le_sup_right le_sup_right))
 
 theorem imageJoin_mono {a b : Degree} (e : Set.Ici a ≃o Set.Ici b) :
     Monotone (imageJoin e) := by
@@ -40,8 +45,8 @@ theorem imageJoin_mono {a b : Degree} (e : Set.Ici a ≃o Set.Ici b) :
 theorem imageJoin_sup {a b : Degree} (e : Set.Ici a ≃o Set.Ici b) (x y : Degree) :
     imageJoin e (x ⊔ y) = imageJoin e x ⊔ imageJoin e y := by
   unfold imageJoin
-  rw [coneJoin_sup, e.map_sup]
-  rfl
+  rw [coneJoin_sup]
+  exact congrArg Subtype.val (e.map_sup (coneJoin a x) (coneJoin a y))
 
 theorem pullback_mono {a b : Degree} (e : Set.Ici a ≃o Set.Ici b) :
     Monotone (pullback e) := imageJoin_mono e.symm
@@ -56,9 +61,8 @@ theorem base_le_pullback {a b : Degree} (e : Set.Ici a ≃o Set.Ici b) (x : Degr
     (x : Degree) : imageJoin e (pullback e x) = b ⊔ x := by
   have h : coneJoin a (pullback e x) = e.symm (coneJoin b x) :=
     Subtype.ext (sup_eq_right.mpr (base_le_pullback e x))
-  unfold imageJoin
+  change (e (coneJoin a (pullback e x))).val = b ⊔ x
   rw [h, e.apply_symm_apply]
-  rfl
 
 theorem map_base_val {a b : Degree} (e : Set.Ici a ≃o Set.Ici b) :
     (e ⟨a, le_rfl⟩).val = b := by
