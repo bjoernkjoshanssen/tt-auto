@@ -119,6 +119,7 @@ theorem reconstruct {I : CountableIdeal} {B C H : Oracle} (hpres : Presented I H
       map_rel_iff' := by intro x y; exact hle x y }
   refine ⟨ρ, fun v => ?_⟩
   obtain ⟨⟨n, m⟩, rfl⟩ := Nat.pairEquiv.surjective v
+  change P (Nat.pair n m) ↔ RawGraph ρ H (Nat.pair n m)
   simp only [RawGraph, Nat.unpair_pair]
   constructor
   · intro hp
