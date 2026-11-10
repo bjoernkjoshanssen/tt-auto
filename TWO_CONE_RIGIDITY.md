@@ -6,143 +6,127 @@ The ultimate target is
 Nonempty (Set.Ici a ≃o Set.Ici b) ↔ a = b
 ```
 
-with the eventual declaration name `cones_orderIso_iff`. This unconditional
-statement is still a goal, not a theorem asserted by this branch. No placeholder
-proof or new axiom is used to assert it. Consult PR #4 and exact-head CI for
-verification status. The registered cone-vs-whole result is unchanged.
+with eventual declaration name `cones_orderIso_iff`. This remains a goal, not
+an unconditional theorem asserted by this branch. No placeholder or new axiom
+asserts it. PR #4 and its exact-head CI record which stages have been verified.
+The registered cone-versus-whole result is unchanged.
 
-## Analytic reduction and five-jump locality
+## Analytic reduction and locality
 
-The analytic modules prove equal bases and pointwise identity from explicit
-Borel or generic inverse representatives in both directions. A single inverse
-lift gives the sharp estimate `e(a join x) <= b join x` and therefore `b <= a`.
-The generic-to-Borel step uses minimal pairs over the target base plus the input.
-The representation assumption in `cones_orderIso_iff_of_generic_representation`
-is still outstanding.
+Borel or generic inverse lifts in both directions imply equal bases and
+pointwise identity. A single inverse lift gives `e(a join x) <= b join x`, hence
+`b <= a`. The generic-to-Borel upgrade uses minimal pairs over the target base
+joined with the input. Existence of the generic lift remains outstanding.
 
-The bounded-code modules transport antichain, set, relation, and unary-predicate
-codes between cones of ordinary degree ideals. Empty joins use the cone base;
-all code parameters have explicit lower and upper bounds. The two ordinary
-ambient ideals may differ. The proved pointwise estimates are
+Bounded-code transport between cones in ordinary ideals gives
 
 ```
-rho(x)     <= (x join rho^{-1}(b'))^(5)
+rho(x)      <= (x join rho^{-1}(b'))^(5)
 rho^{-1}(y) <= (y join rho(a'))^(5).
 ```
 
-Neither regularity nor preservation of jump is assumed. For a global map,
-one fixed oracle P representing e(a') bounds every inverse output by
-`(Y join P)^(5)`, but this does not yet select one program uniformly in Y.
+The ambient ideals may differ. No jump preservation or regularity is assumed.
+A common jump ideal containing both distinguished values is invariant in the
+two-cone sense. For a global map, every countable such ideal supports a persistent
+restriction of that same global map.
 
-## Partial maps and locality
+## Arithmetic presentations and persistent extensions
 
-Partial maps have type `Cone I a ≃o Cone I b`, where I is an ordinary countable
-degree ideal. Closing any countable seed under the two joined maps, joins,
-jumps, and downward reducibility gives a persistent restriction of a global
-map. Any countable jump ideal containing e(a') and e^{-1}(b') already supports
-such a restriction of that very global map.
+For a presentation H of I containing a' and b', a persistent map
+`rho : Cone I a ≃o Cone I b` has its entire conventional indexed graph recursive
+in H^(11), and Sigma-5 in H^(6). Repeated columns are allowed. First code the
+joined input sequence `a join deg(H_i)` using one successor/payload enumeration
+bounded by H'. Transport bounds its parameters by the image of H', which
+five-jump locality bounds by H^(6). A five-jump decoder gives the whole graph.
+The source-cone membership test adds no jump.
 
-If a persistent partial map starts on an ideal containing a' and b', locality
-restricts a larger extension to any prescribed larger countable jump ideal.
-Both extension agreements are retained, without assuming the larger map
-persistent. The persistent-extension argument below strengthens this to an
-extension that is itself persistent.
+The extension-only version needs merely an extension on an ideal containing
+H'; neither map needs to be persistent. This provides the noncircular restriction
+lemma used in the obstruction proof of persistent extensions.
 
-Base membership cannot be inferred merely from an isomorphism of two cone
-intersections: both could be empty. Membership of both base jumps supplies
-both bases. No separate 0' assumption is needed.
+A persistent partial map extends persistently to every prescribed larger
+countable jump ideal. If the starting ideal is jump-closed, explicit membership
+of both bases suffices. Two empty cone intersections can be isomorphic, so base
+membership is not inferred from an isomorphism alone. No separate 0' assumption
+is used. The same extension and its inverse both have eleven-jump graphs.
 
-## Uniform arithmetic presentations
+## Numerical codes: what is and is not a natural number
 
-For a column presentation H of I, first use the joined graph
+The presentation H and graph R are reals. Their individual column and pair
+indices are natural numbers. Once a graph is recursive in H^(11), one ordinary
+finite machine code e in Nat specifies it RELATIVE to H^(11). This is not an
+absolute natural-number code for an arbitrary real, nor an effective procedure
+for recovering e from a completely abstract isomorphism.
 
-```
-Graph rho H (i,j) <-> rho(a join deg(H_i)) = deg(H_j).
-```
+`TuringTwoConeNumerical` uses conventional partial graphs. Its `Action B C H P`
+requires totality only on columns above deg(B), all graph pairs to lie in the
+source and target cones, surjectivity onto columns above deg(C), order reflection,
+and saturation under repeated output degrees. These are numerical conditions,
+not an assumption that a map exists. `reconstruct` produces the actual order
+isomorphism and proves exact graph agreement. Numerical compatibility is proved
+equivalent to extension of actual maps.
 
-A relative successor/payload code records all joined inputs with parameters
-between a and deg(H'). Transport through a larger extension sigma bounds them
-by sigma(deg(H')). Agreement with rho fixes sigma^{-1}(b'), already bounded by
-H. Five-jump locality gives `sigma(deg(H')) <= deg(H^(6))`; decoding yields a
-single Sigma-5-in-H^(6) graph, recursive in H^(11).
+`TuringTwoConeArithmeticCriterion` proves all these conditions uniformly
+arithmetic. A natural k pairs the two base-column indices in the original
+presentation A. For every larger jump-ideal presentation H the criterion asks
+for a natural machine index e, whose H^(11)-table graph is an action compatible
+with the original graph R. The criterion is proved equivalent to persistence.
 
-`arithmetic_presentation_of_extension` only requires an extension whose
-ambient ideal contains deg(H'). Neither that extension nor rho is assumed
-persistent in this theorem. Persistence directly supplies such an extension.
-
-The conventional partial graph is
-
-```
-RawGraph rho H (i,j) <-> exists x in I above a,
-  x = deg(H_i) and rho(x) = deg(H_j).
-```
-
-It is the joined graph conjoined with `a <= deg(H_i)`. That source test is
-Sigma-3 in the decoding oracle, so the same eleven-jump bound holds.
-
-The joined graph determines rho even with repeated columns. Arithmetic graphs
-form a countable collection; hence so do persistent partial maps when the two
-base jumps lie in I. `arithmetic_restriction` gives a prescribed restriction,
-both extension agreements, and its eleven-jump graph without assuming either
-the larger map or its restriction persistent.
-
-## Persistent extensions
-
-`TuringTwoConePersistentExtension` uses the noncircular arithmetic restriction
-lemma to prove:
-
-If rho is persistent, I contains a' and b', and J is any prescribed countable
-jump ideal containing I, then rho extends to a PERSISTENT map
+`TuringTwoConePersistenceComplexity` includes validity of the original ideal,
+both base jumps, and graph. Its semantic `Property A R k` is identified with
 
 ```
-sigma : Cone J a ≃o Cone J b.
+forall H : Oracle, PresentationMatrix (parameters A R H) k,
 ```
 
-The initial ideal need not be jump-closed. If it is, membership of a and b
-suffices. No global map, Borel lift, or regularity hypothesis is used.
+where the matrix is proved `Arith`. Thus this is a uniform Pi-1-1 normal form in
+the original development's complexity convention, not a new complexity axiom.
 
-For the proof, fix a column presentation H of J and count ALL candidates with
-graphs recursive in H^(11), not just the persistent ones. If no extension is
-persistent, choose an obstructing degree for each candidate extending rho.
-A single degree bounds these witnesses and deg(H'). Persistence of rho gives
-a larger extension containing that bound. Its restriction to J has an
-H^(11)-recursive graph without any persistence assumption, hence is one of
-the candidates. The larger extension contains that candidate's own obstruction,
-a contradiction.
+## Model comparison and internal witnesses
 
-Persistence is symmetric under inversion. The same persistent extension has
-both conventional graph directions recursive in H^(11). Arbitrary persistent
-partial maps also have persistent jump-closed extensions containing any
-prescribed countable seed, not only restrictions of global maps.
+`TuringTwoConeRealClosure` uses the eleven-jump bound to put persistent graph
+codes into any appropriately closed real collection containing the presentation.
+It also produces extension witnesses with BOTH presentation and graph internal.
 
-`persistent_iff_arithmetic_extensions` characterizes persistence by existence
-of H^(11)-recursive conventional graph extensions on every presented larger
-countable jump ideal. This is a SEMANTIC equivalence. Turning it into a coded
-Pi-1-1 formula requires reconstruction of actual maps from numerical graph
-codes and remains a separate obligation.
+`TuringTwoConePersistenceAbsoluteness` applies the existing general theorem
+`ArithmeticTree.sourceT_piOneOne_matrix` unchanged. For transitive SourceT models
+containing A and R, internal interpretation of the matrix agrees with ambient
+persistence. All persistent graph codes already belong to such a model if A
+does, so existence of a persistent graph is absolute as well.
+
+`TuringTwoConeInternalPersistence` connects the matrix to the direct statement:
+every real in the model has an extension with presentation and graph codes in
+the model. Those extension ideals need not be jump-closed, and those extension
+maps are NOT assumed persistent. The forward implication uses arithmetic
+restriction without circularity; the reverse uses persistent extensions and
+closure. Two suitable transitive models agree on this real-coded property even
+when their real collections differ and neither model contains the other.
+
+These are results about real-coded countable maps. They do not yet construct
+native ZFSet graphs, extend global maps through forcing, or produce the generic
+program needed for unconditional pairwise cone rigidity.
 
 ## Remaining work
 
-Code persistence and prove its absoluteness, adapt the forcing and
-program-uniformity arguments, and discharge the generic-representation
-assumption. Arithmetic presentations of countable partial maps do not
-themselves give a global Borel representative. No unconditional pairwise-cone
-rigidity theorem is asserted yet.
+Native set-graph reconstruction, model/forcing descent, and the generic-program
+uniformity argument; then discharge the representation hypothesis and assemble
+unconditional `cones_orderIso_iff` and pointwise identity. Arithmetic graphs on
+countable ideals alone do not give a global Borel representative.
 
 ## Reproduction
 
 ```sh
-lake build RequestProject.TuringTwoConeRepresentation RequestProject.TuringTwoConeLocality RequestProject.TuringTwoConePersistentExtension RequestProject.TuringConeMain
+lake build RequestProject.TuringTwoConeRepresentation RequestProject.TuringTwoConeLocality RequestProject.TuringTwoConeInternalPersistence RequestProject.TuringConeMain
 lake env lean scripts/CheckTwoConeRigidity.lean | tee two-cone-axioms.txt
 lake env lean scripts/CheckTwoConeLocality.lean | tee two-cone-locality-axioms.txt
 lake env lean scripts/CheckTwoConePresentation.lean | tee two-cone-presentation-axioms.txt
 lake env lean scripts/CheckTwoConePersistence.lean | tee two-cone-persistence-axioms.txt
-python3 scripts/check-axioms.py two-cone-axioms.txt two-cone-locality-axioms.txt two-cone-presentation-axioms.txt two-cone-persistence-axioms.txt
+lake env lean scripts/CheckTwoConeNumerical.lean | tee two-cone-numerical-axioms.txt
+python3 scripts/check-axioms.py two-cone-axioms.txt two-cone-locality-axioms.txt two-cone-presentation-axioms.txt two-cone-persistence-axioms.txt two-cone-numerical-axioms.txt
 ```
 
-The dedicated audit includes exact-type examples and rejects axioms other than
-`propext`, `Classical.choice`, and `Quot.sound`. It is a targeted dependency
-build, not a rebuild of every historical target. The existing Palomar check
-still compares the registered cone-vs-whole theorem, not the new unproved goal.
-The registered Challenge, Solution, Comparator target, metadata, and original
-source files remain unchanged. This branch is not a new Palomar submission.
+Audits include exact-type examples and reject axioms other than propext,
+Classical.choice and Quot.sound. These are targeted dependency builds, not
+rebuilds of every historical target. Palomar regression still checks the
+registered theorem, not the unfinished pairwise-cone goal. Original mathematical
+sources, Challenge, Solution, Comparator target and metadata remain unchanged.

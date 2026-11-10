@@ -56,21 +56,27 @@ theorem action_of_iso {I : CountableIdeal} {B C H : Oracle}
   · intro n hn
     let x := entry hpres n hn
     obtain ⟨m, hm⟩ := (hpres (ρ x).val).mp (ρ x).property.1
-    exact ⟨m, x, rfl, hm.symm⟩
+    refine ⟨m, ?_⟩
+    simp only [RawGraph, Nat.unpair_pair]
+    exact ⟨x, rfl, hm.symm⟩
   · intro n m hp
+    simp only [RawGraph, Nat.unpair_pair] at hp
     obtain ⟨x, hx, hy⟩ := hp
     exact ⟨hx ▸ x.property.2, hy ▸ (ρ x).property.2⟩
   · intro m hm
     let y := entry hpres m hm
     obtain ⟨n, hn⟩ := (hpres (ρ.symm y).val).mp (ρ.symm y).property.1
-    exact ⟨n, ρ.symm y, hn.symm, congrArg Subtype.val (ρ.apply_symm_apply y)⟩
+    refine ⟨n, ?_⟩
+    simp only [RawGraph, Nat.unpair_pair]
+    exact ⟨ρ.symm y, hn.symm, congrArg Subtype.val (ρ.apply_symm_apply y)⟩
   · intro n m n' m' hp hq
+    simp only [RawGraph, Nat.unpair_pair] at hp hq
     obtain ⟨x, hx, hy⟩ := hp
     obtain ⟨x', hx', hy'⟩ := hq
-    simp only [Nat.unpair_pair] at hx hy hx' hy'
     rw [← hx, ← hx', ← hy, ← hy']
     exact ρ.le_iff_le.symm
   · intro n m m' hp he
+    simp only [RawGraph, Nat.unpair_pair] at hp ⊢
     obtain ⟨x, hx, hy⟩ := hp
     exact ⟨x, hx, hy.trans he⟩
 
@@ -113,12 +119,12 @@ theorem reconstruct {I : CountableIdeal} {B C H : Oracle} (hpres : Presented I H
       map_rel_iff' := by intro x y; exact hle x y }
   refine ⟨ρ, fun v => ?_⟩
   obtain ⟨⟨n, m⟩, rfl⟩ := Nat.pairEquiv.surjective v
+  simp only [RawGraph, Nat.unpair_pair]
   constructor
   · intro hp
     let x := entry hpres n (ha.above n m hp).1
     exact ⟨x, rfl, hf x n m rfl hp⟩
   · rintro ⟨x, hx, hy⟩
-    simp only [Nat.unpair_pair] at hx hy
     obtain ⟨t, ht⟩ := ha.total n (hx ▸ x.property.2)
     have hxt := hf x n t hx.symm ht
     exact ha.saturated n t m ht (hxt.symm.trans hy)
@@ -136,13 +142,17 @@ theorem compatible_iff {I J : CountableIdeal} {a b : Degree} {A H : Oracle}
     obtain ⟨j, hj⟩ := (hA (ρ x).val).mp (ρ x).property.1
     obtain ⟨n, hn⟩ := (hH x.val).mp (hIJ x.property.1)
     obtain ⟨m, hm⟩ := (hH (σ xJ).val).mp (σ xJ).property.1
-    have hR : RawGraph ρ A (Nat.pair i j) := ⟨x, hi.symm, hj.symm⟩
-    have hP : RawGraph σ H (Nat.pair n m) := ⟨xJ, hn.symm, hm.symm⟩
+    have hR : RawGraph ρ A (Nat.pair i j) := by
+      simp only [RawGraph, Nat.unpair_pair]
+      exact ⟨x, hi.symm, hj.symm⟩
+    have hP : RawGraph σ H (Nat.pair n m) := by
+      simp only [RawGraph, Nat.unpair_pair]
+      exact ⟨xJ, hn.symm, hm.symm⟩
     exact hm.symm.trans ((hc i j n m hR hP (hi.trans hn.symm)).symm.trans hj)
   · intro he i j n m hR hP hin
+    simp only [RawGraph, Nat.unpair_pair] at hR hP
     obtain ⟨x, hx, hy⟩ := hR
     obtain ⟨y, hx', hy'⟩ := hP
-    simp only [Nat.unpair_pair] at hx hy hx' hy'
     have hi : (⟨x.val, hIJ x.property.1, x.property.2⟩ : Cone J a) = y :=
       Subtype.ext (hx.trans (hin.trans hx'.symm))
     have hh := he x
