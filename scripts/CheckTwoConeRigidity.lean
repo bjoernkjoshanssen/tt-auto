@@ -1,6 +1,7 @@
 module
 
 public import RequestProject.TuringTwoConeRepresentation
+public import RequestProject.TuringTwoConePersistence
 public import RequestProject.TuringConeMain
 
 open OAI.TuringRigidity
@@ -46,3 +47,11 @@ example
 #print axioms OAI.TuringRigidity.TwoConeRigidity.bases_eq_of_inverse_generic_continuous_lifts
 #print axioms OAI.TuringRigidity.TwoConeRigidity.cones_orderIso_iff_of_generic_representation
 #print axioms OAI.TuringRigidity.TwoConeRigidity.apply_val_eq_of_generic_representation
+#print axioms OAI.TuringRigidity.TwoConePersistence.pullback_imageJoin
+#print axioms OAI.TuringRigidity.TwoConePersistence.countable_invariant_jump_hull
+#print axioms OAI.TuringRigidity.TwoConePersistence.restrict
+#print axioms OAI.TuringRigidity.TwoConePersistence.extends_inverse
+#print axioms OAI.TuringRigidity.TwoConePersistence.extends_trans
+#print axioms OAI.TuringRigidity.TwoConePersistence.persistent_of_global_restriction
+#print axioms OAI.TuringRigidity.TwoConePersistence.persistent_countable_extension
+#print axioms OAI.TuringRigidity.TwoConePersistence.countable_persistent_restriction
