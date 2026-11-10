@@ -137,13 +137,11 @@ theorem restrict_jump_ideal {I J K : DegreeIdeal} {a : I} {b : J}
     apply Element.ext
     change val (ρ.symm (ρ (incl x))) = val x
     rw [ρ.symm_apply_apply]
-    rfl
   have hfg (y : Set.Ici bK) : f (g y) = y := by
     apply Subtype.ext
     apply Element.ext
     change val (ρ (ρ.symm (cincl y))) = val y
     rw [ρ.apply_symm_apply]
-    rfl
   let σ : Set.Ici aK ≃o Set.Ici bK :=
     { toEquiv := ⟨f, g, hgf, hfg⟩
       map_rel_iff' := by
