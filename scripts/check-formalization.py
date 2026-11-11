@@ -18,8 +18,12 @@ from jsonschema import Draft7Validator
 ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_BLOB = '19f4a46a1bc0e4798dca7bcb7ed57281b1c8c996'
 LICENSE_BLOB = '261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64'
-THEOREM = 'OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso'
+THEOREMS = [
+    'OAI.TuringRigidity.TwoConeMain.cones_orderIso_iff',
+    'OAI.TuringRigidity.TwoConeMain.cone_iso_apply_val',
+]
 AXIOMS = {'propext', 'Classical.choice', 'Quot.sound'}
+SOURCE_TYPES = {'paper', 'book', 'web discussion', 'folklore', 'original-proof', 'other'}
 
 
 def git_hash(data: bytes) -> str:
@@ -66,6 +70,9 @@ def main() -> None:
     rels = {'formalizes', 'adapts', 'independently-proves', 'background', 'other'}
     if not sources or any(not s.get('title') or s.get('relationship') not in rels for s in sources):
         errors.append('Each source needs a title and canonical relationship')
+    for source in sources:
+        if 'type' in source and source['type'] not in SOURCE_TYPES:
+            errors.append(f"Noncanonical Palomar source type: {source['type']}")
     originals = [s for s in sources if s.get('type') == 'original-proof']
     if originals:
         if any(s.get('relationship') not in {'background', 'other'} for s in sources):
@@ -75,10 +82,18 @@ def main() -> None:
     status = meta.get('status', {})
     if set(status.get('axioms', [])) != AXIOMS: errors.append('Unexpected axiom declaration')
     for key in ('sorry_count', 'sorry_in_definitions'):
-        if status.get(key) != 0: errors.append(f'status.{key} is not zero for this completed proof')
+        if status.get(key) != 0: errors.append(f'status.{key} is not zero for these completed proofs')
     results = status.get('main_results', [])
-    if [r.get('declaration') for r in results] != [THEOREM]:
-        errors.append('Metadata main result differs from Comparator target')
+    if [r.get('declaration') for r in results] != THEOREMS:
+        errors.append('Metadata main results differ from the selected pairwise-rigidity targets')
+    comparator = json.loads((ROOT / 'comparator.json').read_text())
+    if comparator.get('theorem_names') != THEOREMS:
+        errors.append('Comparator targets differ from metadata main results')
+    for result in results:
+        if result.get('sorry_count') != 0 or set(result.get('axioms', [])) != AXIOMS:
+            errors.append(f"Unexpected proof status for {result.get('declaration')}")
+        if result.get('comparator_config') != 'comparator.json':
+            errors.append('Unexpected per-result Comparator configuration')
     methods = meta.get('automation', {}).get('methods', [])
     if not any('ChatGPT 6 Pro' in method.get('models', []) for method in methods):
         errors.append('Missing requested ChatGPT 6 Pro attribution')
@@ -87,6 +102,6 @@ def main() -> None:
         print('\n'.join('ERROR: ' + x for x in errors), file=sys.stderr)
         raise SystemExit(1)
     print('formalization.yaml passes the pinned upstream v0.4 schema and submission preflight.')
-    print('License: exact upstream Apache-2.0 text. Compared theorem: ' + THEOREM)
+    print('License: exact upstream Apache-2.0 text. Compared theorems: ' + ', '.join(THEOREMS))
 
 if __name__ == '__main__': main()

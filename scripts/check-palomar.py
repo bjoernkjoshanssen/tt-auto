@@ -12,7 +12,10 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
-THEOREM = 'OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso'
+THEOREMS = [
+    'OAI.TuringRigidity.TwoConeMain.cones_orderIso_iff',
+    'OAI.TuringRigidity.TwoConeMain.cone_iso_apply_val',
+]
 ALLOWED = {'propext', 'Classical.choice', 'Quot.sound'}
 COMPILED = {'.olean', '.ilean', '.a', '.bc', '.dll', '.dylib', '.o', '.obj', '.so', '.trace'}
 
@@ -90,7 +93,7 @@ def main() -> None:
         errors.append('Unsupported Comparator fields')
     if config.get('challenge_module') != 'Challenge' or config.get('solution_module') != 'Solution':
         errors.append('Unexpected Challenge/Solution modules')
-    if config.get('theorem_names') != [THEOREM]: errors.append('Unexpected advertised theorem')
+    if config.get('theorem_names') != THEOREMS: errors.append('Unexpected advertised theorems')
     if set(config.get('permitted_axioms', [])) != ALLOWED: errors.append('Unexpected permitted axioms')
     manifest = json.loads((ROOT / 'lake-manifest.json').read_text())
     for package in manifest['packages']:

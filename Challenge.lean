@@ -3,24 +3,27 @@ module
 public import Mathlib
 
 /-!
-# No proper principal upper cone is isomorphic to all Turing degrees
+# Pairwise rigidity of principal upper cones of Turing degrees
 
 This independent statement imports only Mathlib, never the proof development.
 An oracle is a subset of the natural numbers, represented by a Boolean
 characteristic function. Reducibility is ordinary Turing reducibility; degrees
-are the quotient by mutual reducibility. Bottom is the computable degree.
+are the quotient by mutual reducibility, with their usual order.
 
 The elementary join construction is included because the solution obtains its
 order instance through `SemilatticeSup Degree`. Reproducing that concrete
 instance keeps Comparator's statement comparison exact. It is the usual
-interleaving of two sets; it is not an additional mathematical assumption.
-All supporting claims below are proved. Only the final Challenge proof is
-omitted; it is not imported by Solution.
+interleaving of two sets, not an additional mathematical assumption.
+All supporting claims below are proved. Only the two final Challenge proofs
+are omitted; this module is not imported by Solution.
 
-For a nonzero degree a, Set.Ici a is the upper cone with its inherited order.
-The theorem excludes an arbitrary order isomorphism onto that cone, with no
-regularity, determinacy, persistence, or model-existence hypothesis. See
-formalization.yaml and PALOMAR.md for sources, AI use, and review limitations.
+For a degree a, Set.Ici a is the principal upper cone with its inherited order.
+The first theorem says that two such cones are order-isomorphic exactly when
+their bases agree. The second says that every such isomorphism fixes each
+underlying degree; in particular every individual cone has only the identity
+automorphism. Both apply to arbitrary order isomorphisms, with no regularity,
+determinacy, persistence, or model-existence premise.
+See formalization.yaml and PALOMAR.md for provenance, AI use, and limitations.
 -/
 
 set_option backward.privateInPublic true
@@ -167,9 +170,15 @@ instance : OrderBot Degree where
     change Nat.RecursiveIn {oracleFunction A} (fun _ => Part.some 0)
     exact .zero
 
-/-- No nonzero principal upper cone is order-isomorphic to all Turing degrees. -/
-theorem ConeMain.no_nontrivial_cone_iso (a : Degree) (ha : a ≠ ⊥) :
-    ¬ Nonempty (Degree ≃o Set.Ici a) := by
+/-- Two principal upper cones are order-isomorphic exactly when their bases agree. -/
+theorem TwoConeMain.cones_orderIso_iff (a b : Degree) :
+    Nonempty (Set.Ici a ≃o Set.Ici b) ↔ a = b := by
+  sorry
+
+/-- Every isomorphism between principal upper cones fixes each underlying degree. -/
+theorem TwoConeMain.cone_iso_apply_val {a b : Degree}
+    (e : Set.Ici a ≃o Set.Ici b) (x : Set.Ici a) :
+    (e x).val = x.val := by
   sorry
 
 end OAI.TuringRigidity
