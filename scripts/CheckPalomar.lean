@@ -1,16 +1,25 @@
 module
 
-import Solution
+public import Solution
 
-/-! Audit the actual Solution environment, never the Challenge environment. -/
+@[expose] public section
+set_option autoImplicit false
 
 open OAI.TuringRigidity
 
-example (a : Degree) (ha : a ≠ ⊥) :
-    ¬ Nonempty (Degree ≃o Set.Ici a) :=
-  ConeMain.no_nontrivial_cone_iso a ha
+#print axioms TwoConeMain.cones_orderIso_iff
+#print axioms TwoConeMain.cone_iso_apply_val
 
-#check @ConeMain.no_nontrivial_cone_iso
-#print axioms ConeMain.generic_inverse_program
-#print axioms ConeMain.cone_base_eq_bot
-#print axioms ConeMain.no_nontrivial_cone_iso
+/-- Exact unconditional types for both independently compared statements. -/
+example (a b : Degree) : Nonempty (Set.Ici a ≃o Set.Ici b) ↔ a = b :=
+  TwoConeMain.cones_orderIso_iff a b
+
+example {a b : Degree} (e : Set.Ici a ≃o Set.Ici b) (x : Set.Ici a) :
+    (e x).val = x.val := TwoConeMain.cone_iso_apply_val e x
+
+/-- The second compared result implies rigidity of every individual cone. -/
+example (a : Degree) (e : Set.Ici a ≃o Set.Ici a) :
+    e = OrderIso.refl (Set.Ici a) := by
+  apply DFunLike.ext
+  intro x
+  exact Subtype.ext (TwoConeMain.cone_iso_apply_val e x)

@@ -2,14 +2,15 @@
 version: "v0.4"
 
 project:
-  name: "Cone rigidity of the Turing degrees"
+  name: "Pairwise rigidity of principal upper cones of Turing degrees"
   description: >-
-    No principal upper cone above a noncomputable Turing degree is
-    order-isomorphic to the partially ordered set of all Turing degrees.
-    The formalization adapts degree-coding, persistence, forcing, and generic
-    representation arguments to a hypothetical cone isomorphism, and uses a
-    Baire-category argument to rule out a nonzero cone base. No regularity
-    assumption is imposed on the isomorphism.
+    Two principal upper cones in the ordinary Turing degrees are
+    order-isomorphic if and only if their base degrees are equal. Moreover,
+    every isomorphism between such cones fixes every underlying degree, so
+    every individual cone has only the identity automorphism. Both compared
+    statements concern arbitrary order isomorphisms, without regularity,
+    determinacy, persistence, or model-existence hypotheses. The proof extends
+    the earlier whole-structure-versus-cone argument to two independent bases.
   authors: ["Bjørn Kjos-Hanssen"]
   responsible_maintainers: ["Bjørn Kjos-Hanssen"]
   license: "Apache-2.0"
@@ -22,18 +23,17 @@ classification:
   msc2020: ["03D28", "03B35"]
 
 sources:
-  - title: "Cone rigidity of the Turing degrees: argument developed in this repository"
+  - title: "Pairwise rigidity of principal Turing cones: argument developed in this repository"
     type: "original-proof"
     relationship: "other"
-    id: "https://github.com/bjoernkjoshanssen/tt-auto/pull/1"
-    location: "RequestProject/TuringConeMain.lean and supporting cone modules"
+    id: "https://github.com/bjoernkjoshanssen/tt-auto/pull/4"
+    location: "RequestProject/TuringTwoConeMain.lean and supporting two-cone modules"
     note: >-
-      The cone-specific argument was developed in a human-directed ChatGPT
-      conversation and formalized here. It is not a verbatim theorem of the
-      background manuscript. This origin label records the presentation of
-      this argument, not an independently reviewed claim of historical
-      priority. The question and a proposed route also arose in private
-      discussion.
+      The two-base argument was developed in a human-directed ChatGPT
+      conversation and formalized here, extending the preceding cone proof.
+      This origin label identifies where the argument is presented, not an
+      independently reviewed claim of historical priority. The background
+      coding, persistence, forcing, and analytic methods are not claimed new.
   - title: "Definability in Degree Structures"
     authors: ["Theodore A. Slaman", "W. Hugh Woodin"]
     type: "unpublished manuscript"
@@ -41,54 +41,73 @@ sources:
     id: "https://math.berkeley.edu/~slaman/talks/sw.pdf"
     location: "2005 manuscript; persistence and generic representation in Chapters 4–5"
     note: >-
-      Background mathematical method. The cone adaptation is proved in Lean,
-      not assumed as a literature axiom.
+      Background mathematical method. The two-cone adaptations are proved in
+      Lean, not assumed as literature axioms or asserted to occur verbatim in
+      this manuscript.
     author_endorsement: "not-contacted"
   - title: "OpenAI Turing-degree rigidity formalization"
     authors: ["OpenAI"]
     type: "formalization"
     relationship: "background"
     id: "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/OAI/Computability/DegreeRigidity"
-    location: "DegreeRigidity development, inherited under OAI/Computability/DegreeRigidity"
+    location: "Inherited OAI/Computability/DegreeRigidity development"
     note: >-
       The existing computability, model-theoretic, forcing, and analytic
-      machinery is extensively reused. Before this module-system port, the
-      local OAI directory had the same Git tree hash as this upstream snapshot:
-      d979299cdac872372c8c2893b287ebf89fbb9258. Port modifications are documented
-      in OAI/PORTING.md and the changed source files.
+      machinery is extensively reused. Before the earlier module-system
+      port, the local OAI directory had the same Git tree hash as this
+      upstream snapshot: d979299cdac872372c8c2893b287ebf89fbb9258.
+      Port modifications are documented in OAI/PORTING.md. This packaging
+      does not modify the inherited sources or the completed proofs.
     license: "Apache-2.0"
     author_endorsement: "not-contacted"
 
 related_formalizations:
   - id: "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/OAI/Computability/DegreeRigidity"
     relationship: "builds-on"
+    note: "Immutable upstream development, credited separately from the new two-cone proof."
+  - id: "https://github.com/bjoernkjoshanssen/tt-auto/tree/0d8119a280fa466a6b4ed35f0940a8a526c751d9"
+    relationship: "builds-on"
     note: >-
-      Immutable upstream development. The cone proof extends its methods;
-      this submission ports the inherited sources to module visibility and
-      the new dependency pin without replacing the degree definitions.
-  - id: "https://github.com/bjoernkjoshanssen/tt-auto/tree/b934186a456258a055de59689e75b1d503f3c71f"
-    relationship: "supersedes"
+      The earlier whole-structure-versus-proper-cone proof and independent
+      Palomar package. This stronger result is prepared as a new entry, not
+      as a metadata correction or replacement of that immutable snapshot.
+      Its mathematical sources remain in the current repository; the old
+      Challenge and metadata remain accessible at this exact revision.
+  - id: "https://github.com/bjoernkjoshanssen/tt-auto/tree/3190d8d1a78e709297423d1343f68395127be5de"
+    relationship: "builds-on"
     note: >-
-      The merged cone proof before Palomar packaging, checked with Lean 4.34.1.
-      This submission adds an independent statement and a supported toolchain.
+      Merged PR 4 containing the completed two-cone proof before this
+      independent Challenge/Solution packaging. No mathematical proof is
+      changed by this submission preparation.
 
 status:
   scope: >-
-    The compared result is exactly
-    OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso, for ordinary Turing
-    degrees of Boolean characteristic functions under Mathlib Turing
-    reducibility. It excludes arbitrary order isomorphisms with a proper
-    principal upper cone, without Borel, continuity, determinacy, persistence,
-    or model-existence premises. The proof is in classical Lean foundations;
-    a separate formal ZFC or ZF derivation has not been extracted. Counts below
-    concern the cone proof and its dependencies, not unrelated historical
-    truth-table work; deliberate Challenge placeholders are excluded.
+    The compared declarations are exactly
+    OAI.TuringRigidity.TwoConeMain.cones_orderIso_iff and
+    OAI.TuringRigidity.TwoConeMain.cone_iso_apply_val, for ordinary Turing
+    degrees of Boolean characteristic functions using Mathlib Turing
+    reducibility. The first states pairwise non-isomorphism for unequal
+    bases; the second states pointwise identity of every cone isomorphism,
+    including rigidity when the bases coincide. These are principal UPPER
+    cones, with unrestricted set degrees, not lower cones, arbitrary filters,
+    or only computably enumerable degrees. No Borel, continuity, determinacy,
+    persistence, or model-existence premise remains. The proof is in classical
+    Lean foundations; a separate ZFC or ZF derivation has not been extracted.
+    The placeholder counts below concern the selected proved results and
+    their dependencies, excluding the two deliberate Challenge proof holes
+    and unrelated historical work in this repository.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: ["propext", "Classical.choice", "Quot.sound"]
   main_results:
-    - declaration: "OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso"
-      file: "RequestProject/TuringConeMain.lean"
+    - declaration: "OAI.TuringRigidity.TwoConeMain.cones_orderIso_iff"
+      file: "RequestProject/TuringTwoConeMain.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+    - declaration: "OAI.TuringRigidity.TwoConeMain.cone_iso_apply_val"
+      file: "RequestProject/TuringTwoConeMain.lean"
       sorry_count: 0
       axioms: ["propext", "Classical.choice", "Quot.sound"]
       comparator_config: "comparator.json"
@@ -102,65 +121,78 @@ automation:
       tool_setup: >-
         Human-directed mathematical discussion and iterative Lean development.
         ChatGPT inspected sources, drafted and edited proofs, and used GitHub
-        Actions build and axiom-audit feedback. ChatGPT 6 Pro is the credit
-        requested by the maintainer for the cone-proof work. Registry
-        packaging was prepared in the same conversation.
+        Actions build and axiom-audit feedback. ChatGPT 6 Pro is the
+        maintainer-requested credit for the cone and two-cone proof work.
+        Registry packaging was prepared in the same conversation.
       cost:
         wall_time: "not systematically tracked"
         spend_usd: "subscription-based; per-project cost not tracked"
         hardware: "ChatGPT service and GitHub-hosted Linux runners"
       prompting_notes: >-
-        The maintainer proposed the problem, supplied the manuscript and
-        repository, requested successive lemmas, corrected redundant
-        hypotheses, and requested a Palomar Challenge/Solution comparison.
+        The maintainer proposed the generalization to two cones, directed
+        successive proof milestones, discussed intermediate claims and
+        hypotheses, and requested a new Palomar entry after merging PR 4.
     - method: "manual"
       tool_setup: >-
-        Human mathematical direction, source selection, discussion of
-        intermediate claims, and repository-maintainer decisions. This is
-        not a claim of an independent line-by-line proof audit.
+        Human mathematical direction, source selection, discussion, and
+        repository-maintainer decisions. This is not a claim of independent
+        line-by-line human verification.
   spend_usd: "not tracked"
   notes: >-
-    The cone-specific code was generated and revised with ChatGPT 6 Pro under
-    Bjørn Kjos-Hanssen's direction. OpenAI's inherited development and Mathlib
-    are credited separately. Earlier truth-table work carries an Aristotle
-    (Harmonic) credit, retained in the README; that is not an attribution of
-    the cone proof to Aristotle. Machine checking is not human peer review.
+    The cone-specific and two-cone code was generated and revised with
+    ChatGPT 6 Pro under Bjørn Kjos-Hanssen's direction. OpenAI's inherited
+    formalization and Mathlib are credited separately. Earlier truth-table
+    work retains an Aristotle (Harmonic) credit; this is not an attribution
+    of the cone proofs to Aristotle. Machine checking is not human peer review.
 
 fidelity:
   divergences: >-
-    This cone theorem is not the same statement as rigidity of automorphisms
-    of the full degree structure. The proof accounts for the different least
-    elements using an inverse-join map and relative minimal pairs over the
-    join with the cone base. The independent Challenge gives the ordinary
-    quotient and empty-set degree using only Mathlib. Exact proof-theoretic
-    strength in ZFC or ZF is not claimed.
+    This result generalizes the earlier whole-structure-versus-cone theorem
+    to two arbitrary principal upper cones and additionally proves pointwise
+    identity of every such isomorphism. The proof keeps the two bases distinct,
+    using e(a') and e-inverse(b') as separate locality parameters and relative
+    minimal pairs over the target base joined with the input. The Challenge
+    independently defines the ordinary quotient and order using only Mathlib;
+    concrete join and bottom instances match the Solution definitions. Exact
+    proof-theoretic strength in ZFC or ZF is not claimed.
 
 review:
   status: "agent-reviewed; independent human review pending"
   reviewers: ["ChatGPT 6 Pro"]
   notes: >-
-    The pre-packaging proof passed Lean and transitive axiom audits at
-    b934186a456258a055de59689e75b1d503f3c71f. Submission readiness additionally
-    requires source/metadata validation, the pinned-toolchain build, and
-    Comparator with its bundled independent kernels at the submitted commit.
-    No external expert review, source-author endorsement, or Palomar
-    acceptance is asserted here.
+    The completed two-cone proof passed its Lean build, seven audit scripts,
+    exact unconditional type checks, and a 172-declaration axiom audit at
+    38a3424923d2a35a15abbdf742ac78e2d04084fd before merge. That run's separate
+    Comparator concerned only the earlier registered theorem. This new
+    package requires fresh Comparator verification of BOTH newly selected
+    declarations at the submitted immutable commit. No source-author
+    endorsement, independent expert review, or Palomar registration of this
+    new result is asserted by preparing these files.
 
 alignment:
-  namespace: "OAI.TuringRigidity.ConeMain"
+  namespace: "OAI.TuringRigidity.TwoConeMain"
   statements:
-    - source: "No proper principal upper cone is order-isomorphic to all Turing degrees"
-      lean: "OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso"
-      module: "RequestProject.TuringConeMain"
+    - source: "Two principal upper cones of the Turing degrees are order-isomorphic exactly when their bases agree"
+      lean: "OAI.TuringRigidity.TwoConeMain.cones_orderIso_iff"
+      module: "RequestProject.TuringTwoConeMain"
       status: "proved"
       note: >-
-        Challenge.lean repeats the ordinary definitions independently.
-        Solution.lean exports the existing proved declaration unchanged.
-        Comparator checks their types and permitted axiom dependencies.
+        Challenge.lean states this independently over ordinary Turing degrees;
+        Solution.lean exports the unchanged proof. The isomorphism has no
+        additional definability or regularity requirement.
+    - source: "Every order isomorphism between principal upper cones fixes every underlying degree"
+      lean: "OAI.TuringRigidity.TwoConeMain.cone_iso_apply_val"
+      module: "RequestProject.TuringTwoConeMain"
+      status: "proved"
+      note: >-
+        This pointwise statement implies that every individual cone has only
+        the identity automorphism. It is independently stated in Challenge
+        and separately selected for Comparator, not just mentioned as an
+        unchecked consequence of equality of the bases.
 
 acknowledgements: >-
   Theodore A. Slaman and W. Hugh Woodin for the underlying methods; OpenAI for
   the inherited DegreeRigidity development; the Lean and Mathlib communities;
-  ChatGPT 6 Pro for the human-directed cone formalization; and Palomar's
-  submission documentation and template for packaging guidance. These credits
-  do not imply endorsement.
+  ChatGPT 6 Pro for the human-directed cone formalizations; and Palomar's
+  submission documentation for packaging guidance. These credits do not
+  imply endorsement.

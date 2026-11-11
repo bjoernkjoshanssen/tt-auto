@@ -2,7 +2,8 @@
   "challenge_module": "Challenge",
   "solution_module": "Solution",
   "theorem_names": [
-    "OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso"
+    "OAI.TuringRigidity.TwoConeMain.cones_orderIso_iff",
+    "OAI.TuringRigidity.TwoConeMain.cone_iso_apply_val"
   ],
   "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
 }
