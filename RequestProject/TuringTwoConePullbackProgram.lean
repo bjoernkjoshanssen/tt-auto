@@ -51,7 +51,7 @@ theorem inverseAt_prescribed {I : CountableIdeal} {a b : Degree}
     rw [hinput] at hh
     exact hh
   have hh := congrArg (fun z => (e.symm z).val) hm
-  simpa only [e.symm_apply_apply] using hh
+  simpa only [TwoConeRigidity.pullback, TwoConeRigidity.imageJoin, e.symm_apply_apply] using hh
 
 def pullbackGraph {I : CountableIdeal} {a b : Degree}
     (ρ : Cone I a ≃o Cone I b) (hb : b ∈ I.carrier) : ZFSet.{u} :=
