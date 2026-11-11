@@ -1,154 +1,143 @@
-# Toward pairwise non-isomorphism of Turing cones
+# Pairwise rigidity of principal Turing cones
 
-The ultimate target is
+## Endpoint and verification scope
+
+The endpoint in `RequestProject/TuringTwoConeMain.lean`, in namespace
+`OAI.TuringRigidity.TwoConeMain`, is:
 
 ```lean
-Nonempty (Set.Ici a ≃o Set.Ici b) ↔ a = b
+theorem cones_orderIso_iff (a b : Degree) :
+    Nonempty (Set.Ici a ≃o Set.Ici b) ↔ a = b
 ```
 
-with eventual declaration name `cones_orderIso_iff`. This remains a goal, not
-an unconditional theorem asserted by this branch. No placeholder or new axiom
-asserts it. PR #4 and exact-head CI record verification status. The registered
-cone-versus-whole theorem and its Challenge/Solution are unchanged.
+The same module supplies `cone_iso_apply_val`, `cone_automorphism_eq_refl`,
+and `cone_iso_unique`. No regularity, persistence, determinacy, or model-existence
+hypothesis occurs in their signatures. Verification status is recorded at the
+exact head in PR #4 and CI; a proof file alone is not a verification claim.
+
+The registered cone-versus-whole theorem, Challenge, Solution, Comparator target,
+toolchain, metadata, and all pre-existing mathematical sources are unchanged.
+The independent Comparator regression checks ONLY that registered theorem,
+not this new pairwise-cone endpoint. No new registry submission or merge is
+performed by these files.
 
 ## Analytic reduction and locality
 
-Borel or generic inverse lifts in both directions imply equal bases and pointwise
-identity. A single inverse lift gives `e(a join x) <= b join x`, hence `b <= a`.
-The generic-to-Borel upgrade uses minimal pairs over the target base joined with
-the input. Existence of the generic lift is still outstanding.
+For e from the cone above a to the cone above b, set g(x)=e^{-1}(b join x).
+A Borel lift of g gives e(a join x) <= b join x, hence b <= a. Generic lifts
+upgrade to Borel lifts. Applying this in both directions gives a=b and pointwise
+identity. The conditional analytic modules retain their useful hypotheses;
+`TwoConeMain` supplies the generic representation.
 
-Bounded-code transport gives
-
-```
-rho(x)      <= (x join rho^{-1}(b'))^(5)
-rho^{-1}(y) <= (y join rho(a'))^(5).
-```
-
-The two ordinary ambient ideals may differ. No jump preservation or regularity
-is assumed. A common jump ideal containing both distinguished values is invariant.
-For a global map, every countable such ideal supports a persistent restriction
-of that SAME global map.
-
-## Arithmetic graphs and persistent extensions
-
-For a column presentation H of I containing a' and b', a persistent
-`rho : Cone I a ≃o Cone I b` has its whole conventional graph recursive in
-H^(11), and Sigma-5 in H^(6). Repeated columns are allowed. One relative
-successor/payload code enumerates the joined inputs `a join deg(H_i)`, with
-parameters below H'. Transport, five-jump locality, and five-jump decoding give
-the graph bound. Adding the source-cone test does not increase the jump count.
-
-The extension-only version needs just an extension on an ideal containing H'.
-Neither map needs to be persistent there. This noncircular restriction lemma
-and countability of arithmetic candidates yield persistent extensions on every
-prescribed larger countable jump ideal. The same extension and its inverse have
-eleven-jump graphs. If I is jump-closed, membership of a and b suffices. Base
-membership is explicit: an isomorphism of two empty intersections supplies none.
-
-## Numerical coding and absoluteness
-
-Presentations and graphs are REALS. A finite machine index in Nat describes an
-arithmetic graph RELATIVE to H^(11); it is not an absolute code for any real.
-`TwoConeNumerical.Action` states numerical totality on the source cone, both cone
-membership tests, surjectivity onto the target, order reflection, and saturation.
-`reconstruct` produces the actual map and proves exact conventional graph
-agreement. Numerical compatibility is equivalent to extension.
-
-`TwoConeArithmeticCriterion` replaces existential graph reals by natural machine
-indices. One natural k pairs the two base-column indices in a presentation A.
-The semantic presentation property is equivalent to
+Relative bounded-code transport gives fifth-jump locality:
 
 ```
-forall H : Oracle, PresentationMatrix (parameters A R H) k,
+e(x)      <= (x join e^{-1}(b'))^(5),
+e^{-1}(y) <= (y join e(a'))^(5).
 ```
 
-with an arithmetic matrix. This is a proved uniform Pi-1-1 definition, using the
-original development's complexity convention, not an additional axiom.
+The partial versions work in potentially different ordinary ideals. Every
+countable jump ideal containing e(a') and e^{-1}(b') admits a persistent
+restriction of the original global map.
 
-`TwoConeRealClosure` puts every persistent graph code into an appropriately closed
-real collection containing its presentation. Extension witnesses have BOTH their
-presentation and graph internal. `TwoConePersistenceAbsoluteness` reuses
-`ArithmeticTree.sourceT_piOneOne_matrix` unchanged. `TwoConeInternalPersistence`
-identifies the matrix with direct internal extension witnesses, whose domains
-need not be jump-closed and whose maps are not assumed persistent. Suitable
-transitive SourceT models agree on persistence and existence for fixed data.
+## Arithmetic graphs, persistence, and absoluteness
 
-## Native ZFSet reconstruction
+For a presentation H of I containing a',b', the entire conventional graph of a
+persistent partial two-cone map is recursive in H^(11). Code the joined-input
+sequence with parameters below H'; transport bounds them by H^(6), and the
+five-jump decoder gives the whole graph. The source-cone test adds no jump.
+Repeated columns are allowed.
 
-`TuringTwoConeSetGraphs` defines the graph as the set of precisely the pairs
-`(degreeSet x, degreeSet (rho x))` for x in the SOURCE cone. It is bounded by the
-square of the ordinary ambient ideal; its domain is not replaced by that ideal.
-Extensions give graph inclusion.
+The extension-only theorem needs merely a larger map whose ordinary ideal
+contains H', not persistence of that map. This avoids circularity in the
+obstruction argument: count all H^(11)-recursive candidates, choose obstructions
+for nonpersistent candidates, and restrict a persistent extension containing
+their common bound. The resulting arithmetic candidate contradicts its own
+obstruction. Persistent maps thus extend persistently on prescribed jump ideals.
 
-`action_eq_coneGraph` and `graphImage_action` quotient the internal real-valued
-relation to exactly this native set graph. `coded_sets` proves that internal
-presentation and graph codes give the entire internal graph, not merely
-membership of each pair. It does not assume persistence or internal Choice.
+Numerical action clauses reconstruct actual maps and exact conventional graphs.
+Finite machine indices relative to H^(11) replace existential graph reals,
+giving a uniform Pi-1-1 definition of persistence. The general arithmetic-tree
+theorem gives internal/ambient agreement in suitable transitive SourceT models.
+Extension witnesses have both their presentation and graph reals internal.
 
-`TuringTwoConeModelGraphs` discharges graph-code internality via the eleven-jump
-bound for persistent maps. An internal enumeration of an old real family gives
-the necessary presentation. Persistent extensions with internal ideal and full
-graph can be chosen to contain any prescribed internal real.
+## Native graphs and descent
 
-## Collapse, descent, and relative L(R)
+Internal real codes reconstruct the WHOLE ZFSet graph, with exactly the source
+cone as domain. Collapse the OLD real family to obtain an internal presentation;
+the arithmetic graph theorem reconstructs the same graph in every relevant
+counting extension. The general bounded-subset intersection theorem descends it
+into relative L(R), without assuming internal Choice there.
 
-`TuringTwoConeForcingDescent` collapses the OLD real family, reconstructs the same
-fixed graph in each relevant generic extension, and applies the existing general
-bounded-subset intersection theorem. The result is membership of the entire graph
-in the ground model. This stage does not assume Choice inside that model.
+Persistent maps extend over arbitrary coded set forcing, with full graphs in
+relative L(R), ground-model names, and one-real definitions at ordinal levels.
+The names may depend on the generic filter and the definition real may be new.
+None of these statements alone gives a global Borel representative.
 
-`TuringTwoConeConstructibleExtension` applies descent inside relative L(R).
-For a countable transitive SourceT model M, a persistent map between the two cones
-of its model ideal has its full graph in `relativeModel M (groundReals M)`.
-Both bases must belong to the ideal; jump closure then supplies their jumps.
-A persistent partial map with a',b' in its domain ideal extends to the full model
-ideal with a graph in relative L(R), without prior internality of the initial map.
-The existing finite-construction coding is applied to the same graph.
+## The joined-inverse graph and uniform program
 
-## Forcing names, definitions, and prescribed models
+`TuringTwoConePullbackProgram` defines the total joined inverse on the ordinary
+ideal, with explicit target-base membership. Its values lie in the source cone;
+no injectivity is assumed. Its semantics use the existing RELATION-ONLY compiler.
+When the partial map restricts the original e, graph outputs and program outputs
+are proved to agree with that same e.
 
-`TuringTwoConeForcingExtension` handles arbitrary coded set forcing over an
-externally countable transitive SourceT model M. A persistent partial map on old
-degrees extends to both cones of all degrees of E=M[G]. The extended graph lies
-in relative L(R^E), hence in E, and has a forcing name encoded in M. The name may
-depend on G; this is NOT yet a uniform name or generic oracle program.
+`TuringTwoConePullbackDefinition` constructs this exact graph by bounded
+separation from the forward graph, degree order, and target base b. Both bases
+remain distinct. The existing weak-model join/order formulas are reused.
 
-`TuringTwoConeForcingDefinition` gives a definition of that same graph over an
-ordinal level using one real parameter. The real may be in E, not M. Its coded
-entry point starts with the model's direct real-coded persistence and derives
-ambient persistence using the checked absoluteness theorem.
+In a Cohen extension E, restrict the ORIGINAL e to its degree ideal, rather than
+choose an unrelated extension of an old partial map. Fix an old real R of degree
+e(a'). Every output on X reduces to (X join R)^(5). The existing real-parameter
+transport and relation-only compiler absorb the new definition real into a
+larger model and select one finite program with computational parameter R^(5).
+No new compiler or implementation axiom is used.
 
-`TuringTwoConePrescribedModels` starts with any global isomorphism e and any
-countable sequence of real inputs. A covering model need only contain real
-representatives of e(a') and e^{-1}(b'), not the whole map as an internal parameter.
-Locality supplies a persistent restriction of the ORIGINAL e, whose whole graph
-is in the model's relative L(R). Model existence is a conclusion here.
+The arithmetic SourceEquation is unchanged. Its degree-theoretic justification
+uses a relative minimal pair over B join Y, where degree(B)=b. Ordinary lower
+bounds need not be above a: `le_pullback_iff` joins them with a before applying e.
+The existing generic triple construction and arithmetic truth-transfer theorem
+then extend correctness from columns to sufficiently arithmetic-generic inputs
+of the SAME extension.
 
-## Remaining work
+## Globalization and conclusion
 
-The uniform generic-program argument remains: define and represent the joined
-inverse, control extension-real definition parameters, and prove agreement with
-the original map on sufficiently generic inputs. Then discharge the analytic
-representation hypothesis and assemble unconditional `cones_orderIso_iff` and
-pointwise identity. Arithmetic graphs on countable ideals and model-level
-one-real definitions alone do not give a global Borel representative.
+`TwoConeMain.covering_model_with_omega_one` constructs a countable transitive
+model with an internal first uncountable ordinal, containing any prescribed
+countable sequence of reals and both distinguished degrees. The prescribed
+program handles all generic members of that sequence.
+
+There are only countably many candidates (R,p), since R represents one fixed
+degree and p is a finite program. Were every candidate to fail globally, choose
+one bad generic input for each. A candidate handling that countable sequence
+contradicts its own selected failure. This proves existence of fixed R,p with
+
+```
+degree(R)=e(a'), and for every X arithmetic-generic relative to R^(5),
+p with oracle X join R^(5) is total and represents e^{-1}(b join degree(X)).
+```
+
+Selection is nonconstructive; this is not an effective algorithm that accepts
+an arbitrary abstract isomorphism and prints a numerical program index.
+`generic_inverse_program` gives the required dense-open lift. The analytic
+argument in both directions yields the unconditional final endpoints.
 
 ## Reproduction
 
 ```sh
-lake build RequestProject.TuringTwoConeRepresentation RequestProject.TuringTwoConePrescribedModels RequestProject.TuringConeMain
+lake build RequestProject.TuringTwoConeMain RequestProject.TuringConeMain
 lake env lean scripts/CheckTwoConeRigidity.lean | tee two-cone-axioms.txt
 lake env lean scripts/CheckTwoConeLocality.lean | tee two-cone-locality-axioms.txt
 lake env lean scripts/CheckTwoConePresentation.lean | tee two-cone-presentation-axioms.txt
 lake env lean scripts/CheckTwoConePersistence.lean | tee two-cone-persistence-axioms.txt
 lake env lean scripts/CheckTwoConeNumerical.lean | tee two-cone-numerical-axioms.txt
 lake env lean scripts/CheckTwoConeSetGraphs.lean | tee two-cone-setgraphs-axioms.txt
-python3 scripts/check-axioms.py two-cone-axioms.txt two-cone-locality-axioms.txt two-cone-presentation-axioms.txt two-cone-persistence-axioms.txt two-cone-numerical-axioms.txt two-cone-setgraphs-axioms.txt
+lake env lean scripts/CheckTwoConeProgram.lean | tee two-cone-program-axioms.txt
+python3 scripts/check-axioms.py two-cone-axioms.txt two-cone-locality-axioms.txt two-cone-presentation-axioms.txt two-cone-persistence-axioms.txt two-cone-numerical-axioms.txt two-cone-setgraphs-axioms.txt two-cone-program-axioms.txt
 ```
 
-Audits include exact-type examples and reject axioms other than propext,
-Classical.choice and Quot.sound. These are targeted dependency builds, not
-rebuilds of every historical target. Palomar regression still checks the
-registered theorem, not the unfinished pairwise-cone goal. Original mathematical
-sources, Challenge, Solution, Comparator target and metadata remain unchanged.
+The final audit disables autoImplicit, checks exact unconditional theorem types,
+and audits transitive axiom dependencies. Only propext, Classical.choice, and
+Quot.sound are permitted. These are targeted dependency builds, not rebuilds
+of every historical target. A Lean axiom report alone is not a separately
+formalized derivation in ZFC.

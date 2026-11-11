@@ -37,7 +37,7 @@ jobs:
         run: |
           set -euo pipefail
           lake exe cache get
-          lake build RequestProject.TuringTwoConePullbackDefinition RequestProject.TuringTwoConeSourceIdentity RequestProject.TuringConeMain 2>&1 | tee two-cone-build.log
+          lake build RequestProject.TuringTwoConeMain RequestProject.TuringConeMain 2>&1 | tee two-cone-build.log
           git diff --exit-code -- lean-toolchain lakefile.toml lake-manifest.json
       - name: Audit exact theorem types and all axiom dependencies
         shell: bash
