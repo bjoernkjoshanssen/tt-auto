@@ -1,5 +1,17 @@
 # Mathematical account: pairwise rigidity of principal Turing cones
 
+## Versioned strengthening of PALOMAR-2026-11-09-000019
+
+This submission is proposed as the next version of the existing registration
+**PALOMAR-2026-11-09-000019**, using the same repository and root
+`comparator.json` path. Version 1 rules out an isomorphism from the whole
+Turing-degree structure to a proper principal upper cone. The present revision
+strengthens the result to pairwise non-isomorphism of distinct principal upper
+cones and pointwise identity of every isomorphism between such cones.
+It is not a separate Palomar registration and is not a correction or
+retraction of version 1. The earlier record and archived source remain
+unchanged; the precise expansion of the compared scope is explained below.
+
 ## Two precisely compared statements
 
 A real here is a subset of the natural numbers represented by a Boolean
@@ -111,23 +123,34 @@ Substituting the bases gives a=b, and substituting a degree already above the
 base gives pointwise identity. The representation hypotheses of intermediate
 lemmas are thus discharged in the final compared declarations.
 
-## Relationship to the first Palomar result
+## What changes from version 1, and what is retained
 
-The previous result ruled out an isomorphism from the entire degree structure
-to a proper principal upper cone. It follows from the new pairwise theorem by
-identifying the whole structure with the cone above the computable degree.
-The new pairwise statement additionally compares arbitrary nonzero bases,
-and the pointwise statement proves rigidity of every cone.
+Version 1 selected `OAI.TuringRigidity.ConeMain.no_nontrivial_cone_iso`: no
+proper principal upper cone is order-isomorphic to the whole degree structure.
+The present revision replaces that root Comparator selection with
+`TwoConeMain.cones_orderIso_iff` and `TwoConeMain.cone_iso_apply_val`, both in
+the namespace `OAI.TuringRigidity`. The independent Challenge and metadata
+now describe those two stronger statements explicitly.
 
-This preparation is for a NEW mathematical entry, not a revision or correction
-of the first entry. The earlier root Challenge, metadata, and proof are still
-accessible at the immutable snapshot
+The earlier theorem follows from the pairwise theorem by identifying the
+whole structure with the cone above the computable degree. The strengthening
+also compares arbitrary nonzero and incomparable bases; the pointwise theorem
+additionally proves rigidity of every cone. These are stronger conclusions,
+not a change in the definition of Turing degree or a correction of the old
+proof. The previous proved declaration remains in the current source tree.
+
+**PALOMAR-2026-11-09-000019 v1** retains its earlier Challenge, metadata, and
+proof at the immutable snapshot
 
 <https://github.com/bjoernkjoshanssen/tt-auto/tree/0d8119a280fa466a6b4ed35f0940a8a526c751d9>.
 
-Changing the current root Challenge cannot alter the old recorded commit.
-The old proved theorem also remains in the current repository. No new
-registration is performed by changing these packaging files.
+Registering a subsequent version under the same identifier does not rewrite
+that historical version or its archived sources. Cite the version number when
+referring to the earlier statement. This is an ordinary source-version update,
+not the registry's special administrative metadata-correction procedure.
+The new source commit must receive its own verification and review. Editing
+these packaging files neither alters an existing submission's pinned commit
+nor registers the proposed next version automatically.
 
 ## Provenance, AI usage, and review limits
 
@@ -157,7 +180,7 @@ a separate formal ZFC or ZF derivation has not been extracted. Successful
 kernel verification is distinct from independent human review of the
 mathematical interpretation, inherited development, and historical claims.
 
-Fresh Comparator verification must cover BOTH new statements at the exact
+Fresh Comparator verification must cover BOTH selected statements at the exact
 submitted commit. Prior Comparator checks of the weaker theorem are not a
 substitute. Palomar's own mechanical and editorial review and the maintainer's
 explicit registration decision remain separate from this preparation.

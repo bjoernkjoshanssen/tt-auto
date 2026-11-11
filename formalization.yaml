@@ -4,13 +4,19 @@ version: "v0.4"
 project:
   name: "Pairwise rigidity of principal upper cones of Turing degrees"
   description: >-
-    Two principal upper cones in the ordinary Turing degrees are
-    order-isomorphic if and only if their base degrees are equal. Moreover,
-    every isomorphism between such cones fixes every underlying degree, so
-    every individual cone has only the identity automorphism. Both compared
-    statements concern arbitrary order isomorphisms, without regularity,
-    determinacy, persistence, or model-existence hypotheses. The proof extends
-    the earlier whole-structure-versus-cone argument to two independent bases.
+    This submission strengthens PALOMAR-2026-11-09-000019 and is proposed as
+    the next version of that existing registration, using the same repository
+    and Comparator configuration path. Version 1 states that no proper
+    principal upper cone of the ordinary Turing degrees is order-isomorphic
+    to the whole degree structure. This revision proves that two principal
+    upper cones are order-isomorphic if and only if their base degrees are
+    equal, and that every such isomorphism fixes every underlying degree.
+    Consequently, every individual cone has only the identity automorphism.
+    Both compared statements concern arbitrary order isomorphisms, without
+    regularity, determinacy, persistence, or model-existence hypotheses.
+    The earlier theorem remains valid as a special case; this is a substantive
+    strengthening, not a correction or retraction of version 1, whose record
+    and archived source remain unchanged.
   authors: ["Bjørn Kjos-Hanssen"]
   responsible_maintainers: ["Bjørn Kjos-Hanssen"]
   license: "Apache-2.0"
@@ -70,11 +76,12 @@ related_formalizations:
     relationship: "builds-on"
     note: >-
       The earlier whole-structure-versus-proper-cone proof and independent
-      Palomar package, recorded as PALOMAR-2026-11-09-000019 v1. This stronger
-      result is prepared as a new entry, not as a metadata correction or
-      replacement of that immutable snapshot. Its mathematical sources remain
-      in the current repository; the old Challenge and metadata remain
-      accessible at this exact revision and in the registry archive.
+      Palomar package, recorded as PALOMAR-2026-11-09-000019 v1. The present
+      submission is a substantive strengthening proposed as the next version
+      of the same registration, not a separate Palomar identifier and not an
+      administrative metadata correction. Version 1 is retained with its
+      unchanged statement and immutable source snapshot. Its proved theorem
+      also remains in the current repository.
   - id: "https://github.com/bjoernkjoshanssen/tt-auto/tree/3190d8d1a78e709297423d1343f68395127be5de"
     relationship: "builds-on"
     note: >-
@@ -84,7 +91,9 @@ related_formalizations:
 
 status:
   scope: >-
-    The compared declarations are exactly
+    This proposed next version of PALOMAR-2026-11-09-000019 changes the
+    compared scope from version 1's whole-structure-versus-proper-cone
+    statement to the two stronger declarations
     OAI.TuringRigidity.TwoConeMain.cones_orderIso_iff and
     OAI.TuringRigidity.TwoConeMain.cone_iso_apply_val, for ordinary Turing
     degrees of Boolean characteristic functions using Mathlib Turing
@@ -133,7 +142,9 @@ automation:
       prompting_notes: >-
         The maintainer proposed the generalization to two cones, directed
         successive proof milestones, discussed intermediate claims and
-        hypotheses, and requested a new Palomar entry after merging PR 4.
+        hypotheses, and requested Palomar packaging after merging PR 4.
+        The submission description was subsequently clarified to identify
+        the strengthening as a new version of the existing registration.
     - method: "manual"
       tool_setup: >-
         Human mathematical direction, source selection, discussion, and
@@ -149,13 +160,17 @@ automation:
 
 fidelity:
   divergences: >-
-    This result generalizes the earlier whole-structure-versus-cone theorem
-    to two arbitrary principal upper cones and additionally proves pointwise
-    identity of every such isomorphism. The proof keeps the two bases distinct,
-    using e(a') and e-inverse(b') as separate locality parameters and relative
-    minimal pairs over the target base joined with the input. The Challenge
-    independently defines the ordinary quotient and order using only Mathlib;
-    concrete join and bottom instances match the Solution definitions. Exact
+    Relative to PALOMAR-2026-11-09-000019 v1, this revision generalizes the
+    whole-structure-versus-cone theorem to two arbitrary principal upper cones
+    and additionally proves pointwise identity of every such isomorphism.
+    The earlier assertion follows by identifying the whole degree structure
+    with the cone above the computable degree. The revision replaces the
+    root Challenge's selected statements, not the content of the archived
+    version 1. The proof keeps the two bases distinct, using e(a') and
+    e-inverse(b') as separate locality parameters and relative minimal pairs
+    over the target base joined with the input. The Challenge independently
+    defines the ordinary quotient and order using only Mathlib; concrete
+    join and bottom instances match the Solution definitions. Exact
     proof-theoretic strength in ZFC or ZF is not claimed.
 
 review:
@@ -165,12 +180,14 @@ review:
     machine verification; no distinct independent agent or human review is
     claimed. The completed two-cone proof passed its Lean build, seven audit
     scripts, exact unconditional type checks, and a 172-declaration axiom
-    audit at 38a3424923d2a35a15abbdf742ac78e2d04084fd before merge. That run's
-    separate Comparator concerned only the earlier registered theorem. This
-    new package requires fresh Comparator verification of BOTH newly selected
-    declarations at the submitted immutable commit. No source-author
-    endorsement or Palomar registration of the new result is asserted by
-    preparing these files.
+    audit at 38a3424923d2a35a15abbdf742ac78e2d04084fd before merge. Comparator
+    subsequently checked BOTH selected two-cone statements for packaging
+    head 7ed49907373649a8ae07b913da72736f9774f61d in repository workflow
+    42940970855, with acceptance by con-ron, NanoDa, and Lean's default kernel.
+    The present description-only revision still requires verification at
+    its submitted immutable commit. Repository-side checks are distinct from
+    Palomar's review and registration decision. No source-author endorsement
+    or registration of the proposed next version is asserted here.
 
 alignment:
   namespace: "OAI.TuringRigidity.TwoConeMain"
