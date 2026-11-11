@@ -39,13 +39,15 @@ jobs:
           key: palomar-verified-lake-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-${{ github.sha }}-${{ github.run_attempt }}
           restore-keys: |
             palomar-verified-lake-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-
+            two-cone-lake-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-
             lake-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('lean-toolchain') }}-${{ hashFiles('lake-manifest.json') }}-
       - name: Build independent Challenge and Solution
         shell: bash
         run: |
           set -euo pipefail
           lake exe cache get
-          lake build Challenge Solution 2>&1 | tee palomar-build.log
+          # Build the former endpoint explicitly for its retained regression audits.
+          lake build Challenge Solution RequestProject.TuringConeMain 2>&1 | tee palomar-build.log
           git diff --exit-code -- lean-toolchain lakefile.toml lake-manifest.json
       - name: Verify toolchain agreement and transitive axiom dependencies
         shell: bash
