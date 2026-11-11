@@ -23,6 +23,7 @@ THEOREMS = [
     'OAI.TuringRigidity.TwoConeMain.cone_iso_apply_val',
 ]
 AXIOMS = {'propext', 'Classical.choice', 'Quot.sound'}
+SOURCE_TYPES = {'paper', 'book', 'web discussion', 'folklore', 'original-proof', 'other'}
 
 
 def git_hash(data: bytes) -> str:
@@ -69,6 +70,9 @@ def main() -> None:
     rels = {'formalizes', 'adapts', 'independently-proves', 'background', 'other'}
     if not sources or any(not s.get('title') or s.get('relationship') not in rels for s in sources):
         errors.append('Each source needs a title and canonical relationship')
+    for source in sources:
+        if 'type' in source and source['type'] not in SOURCE_TYPES:
+            errors.append(f"Noncanonical Palomar source type: {source['type']}")
     originals = [s for s in sources if s.get('type') == 'original-proof']
     if originals:
         if any(s.get('relationship') not in {'background', 'other'} for s in sources):

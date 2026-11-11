@@ -36,26 +36,27 @@ sources:
       coding, persistence, forcing, and analytic methods are not claimed new.
   - title: "Definability in Degree Structures"
     authors: ["Theodore A. Slaman", "W. Hugh Woodin"]
-    type: "unpublished manuscript"
+    type: "other"
     relationship: "background"
     id: "https://math.berkeley.edu/~slaman/talks/sw.pdf"
-    location: "2005 manuscript; persistence and generic representation in Chapters 4–5"
+    location: "2005 unpublished manuscript; persistence and generic representation in Chapters 4–5"
     note: >-
-      Background mathematical method. The two-cone adaptations are proved in
-      Lean, not assumed as literature axioms or asserted to occur verbatim in
-      this manuscript.
+      Background mathematical method from an unpublished manuscript. The
+      two-cone adaptations are proved in Lean, not assumed as literature
+      axioms or asserted to occur verbatim in this manuscript.
     author_endorsement: "not-contacted"
   - title: "OpenAI Turing-degree rigidity formalization"
     authors: ["OpenAI"]
-    type: "formalization"
+    type: "other"
     relationship: "background"
     id: "https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/lean/OAI/Computability/DegreeRigidity"
     location: "Inherited OAI/Computability/DegreeRigidity development"
     note: >-
-      The existing computability, model-theoretic, forcing, and analytic
-      machinery is extensively reused. Before the earlier module-system
-      port, the local OAI directory had the same Git tree hash as this
-      upstream snapshot: d979299cdac872372c8c2893b287ebf89fbb9258.
+      Background formalization supplying existing computability,
+      model-theoretic, forcing, and analytic machinery, extensively reused
+      here and also recorded under related_formalizations. Before the earlier
+      module-system port, the local OAI directory had the same Git tree hash
+      as this upstream snapshot: d979299cdac872372c8c2893b287ebf89fbb9258.
       Port modifications are documented in OAI/PORTING.md. This packaging
       does not modify the inherited sources or the completed proofs.
     license: "Apache-2.0"
@@ -69,10 +70,11 @@ related_formalizations:
     relationship: "builds-on"
     note: >-
       The earlier whole-structure-versus-proper-cone proof and independent
-      Palomar package. This stronger result is prepared as a new entry, not
-      as a metadata correction or replacement of that immutable snapshot.
-      Its mathematical sources remain in the current repository; the old
-      Challenge and metadata remain accessible at this exact revision.
+      Palomar package, recorded as PALOMAR-2026-11-09-000019 v1. This stronger
+      result is prepared as a new entry, not as a metadata correction or
+      replacement of that immutable snapshot. Its mathematical sources remain
+      in the current repository; the old Challenge and metadata remain
+      accessible at this exact revision and in the registry archive.
   - id: "https://github.com/bjoernkjoshanssen/tt-auto/tree/3190d8d1a78e709297423d1343f68395127be5de"
     relationship: "builds-on"
     note: >-
@@ -157,17 +159,18 @@ fidelity:
     proof-theoretic strength in ZFC or ZF is not claimed.
 
 review:
-  status: "agent-reviewed; independent human review pending"
-  reviewers: ["ChatGPT 6 Pro"]
+  status: "self-assessed; independent review pending"
   notes: >-
-    The completed two-cone proof passed its Lean build, seven audit scripts,
-    exact unconditional type checks, and a 172-declaration axiom audit at
-    38a3424923d2a35a15abbdf742ac78e2d04084fd before merge. That run's separate
-    Comparator concerned only the earlier registered theorem. This new
-    package requires fresh Comparator verification of BOTH newly selected
+    The human-directed development used ChatGPT-assisted self-checks and
+    machine verification; no distinct independent agent or human review is
+    claimed. The completed two-cone proof passed its Lean build, seven audit
+    scripts, exact unconditional type checks, and a 172-declaration axiom
+    audit at 38a3424923d2a35a15abbdf742ac78e2d04084fd before merge. That run's
+    separate Comparator concerned only the earlier registered theorem. This
+    new package requires fresh Comparator verification of BOTH newly selected
     declarations at the submitted immutable commit. No source-author
-    endorsement, independent expert review, or Palomar registration of this
-    new result is asserted by preparing these files.
+    endorsement or Palomar registration of the new result is asserted by
+    preparing these files.
 
 alignment:
   namespace: "OAI.TuringRigidity.TwoConeMain"
